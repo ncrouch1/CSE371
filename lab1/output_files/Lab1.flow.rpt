@@ -1,5 +1,5 @@
 Flow report for Lab1
-Mon Oct 02 17:05:36 2023
+Wed Oct 04 11:45:10 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Oct 02 17:05:36 2023       ;
+; Flow Status                     ; Successful - Wed Oct 04 11:45:10 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1                                        ;
-; Top-level Entity Name           ; DE1_SoC                                     ;
+; Top-level Entity Name           ; DE1_SOC_golden_top                          ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 5 / 32,070 ( < 1 % )                        ;
-; Total registers                 ; 2                                           ;
-; Total pins                      ; 5 / 457 ( 1 % )                             ;
+; Logic utilization (in ALMs)     ; 1 / 32,070 ( < 1 % )                        ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 241 / 457 ( 53 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                       ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
@@ -68,31 +68,31 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/02/2023 17:04:00 ;
+; Start date & time ; 10/04/2023 11:43:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Lab1                ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                            ;
-+-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 44440924455996.169629143940448         ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE1_SoC     ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DE1_SoC     ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DE1_SoC     ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; DE1_SoC                                ; Lab1          ; --          ; --             ;
-+-------------------------------------+----------------------------------------+---------------+-------------+----------------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                   ;
++-------------------------------------+----------------------------------------+---------------+--------------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name        ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+--------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 44440924455996.169644499913664         ; --            ; --                 ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --                 ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --                 ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --                 ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --                 ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --                 ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE1_SOC_golden_top ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DE1_SOC_golden_top ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DE1_SOC_golden_top ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --                 ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --                 ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --                 ; --             ;
+; TOP_LEVEL_ENTITY                    ; DE1_SOC_golden_top                     ; Lab1          ; --                 ; --             ;
++-------------------------------------+----------------------------------------+---------------+--------------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -100,12 +100,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 4902 MB             ; 00:00:12                           ;
-; Fitter                    ; 00:00:55     ; 1.0                     ; 7361 MB             ; 00:00:49                           ;
-; Assembler                 ; 00:00:10     ; 1.0                     ; 4828 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.1                     ; 5224 MB             ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4730 MB             ; 00:00:01                           ;
-; Total                     ; 00:01:32     ; --                      ; --                  ; 00:01:06                           ;
+; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 4783 MB             ; 00:00:14                           ;
+; Fitter                    ; 00:00:59     ; 1.0                     ; 7306 MB             ; 00:01:13                           ;
+; Assembler                 ; 00:00:14     ; 1.0                     ; 4835 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:15     ; 1.0                     ; 5203 MB             ; 00:00:06                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4741 MB             ; 00:00:01                           ;
+; Total                     ; 00:01:45     ; --                      ; --                  ; 00:01:40                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

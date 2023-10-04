@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at photoSensor.sv(42): always construct contains both blocking and non-blocking assignments File: C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv Line: 42
