@@ -1,0 +1,36 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/noah-/Documents/CSE371/lab1/simulation/modelsim
+vDE1_SoC
+DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1696291555
+!i10b 1
+!s100 d?]]L^?jk`21T;f8e6I@e0
+IKU7@CQR<kQ7L`iWVMR[Q^2
+VDg1SIo80bB@j0V0VzS_@n1
+!s105 DE1_SoC_sv_unit
+S1
+R0
+w1696291437
+8C:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv
+FC:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv
+L0 3
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1696291555.000000
+!s107 C:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab1|C:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv|
+!i113 1
+o-sv -work work
+!s92 -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab1
+tCvgOpt 0
+n@d@e1_@so@c
