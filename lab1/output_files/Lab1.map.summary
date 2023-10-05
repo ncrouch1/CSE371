@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Wed Oct 04 17:13:27 2023
+Analysis & Synthesis Status : Successful - Wed Oct 04 18:13:24 2023
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : Lab1
-Top-level Entity Name : photoSensor
+Top-level Entity Name : enter_exit_handler
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 4
-Total pins : 6
+Total registers : 8
+Total pins : 23
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

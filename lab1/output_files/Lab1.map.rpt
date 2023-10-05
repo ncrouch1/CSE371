@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1
-Wed Oct 04 17:13:27 2023
+Wed Oct 04 18:13:24 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -15,10 +15,12 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
- 13. Analysis & Synthesis Suppressed Messages
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |enter_exit_handler
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,14 +47,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Oct 04 17:13:27 2023       ;
+; Analysis & Synthesis Status     ; Successful - Wed Oct 04 18:13:24 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1                                        ;
-; Top-level Entity Name           ; photoSensor                                 ;
+; Top-level Entity Name           ; enter_exit_handler                          ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 4                                           ;
-; Total pins                      ; 6                                           ;
+; Total registers                 ; 8                                           ;
+; Total pins                      ; 23                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -71,7 +73,7 @@ agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; photoSensor        ; Lab1               ;
+; Top-level entity name                                                           ; enter_exit_handler ; Lab1               ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -157,72 +159,77 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                        ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------+---------+
-; photoSensor.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                               ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
+; enter_exit_handler.sv            ; yes             ; User SystemVerilog HDL File  ; C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 2         ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 4         ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 0         ;
-;     -- 5 input functions                    ; 0         ;
-;     -- 4 input functions                    ; 2         ;
-;     -- <=3 input functions                  ; 2         ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 4         ;
-;                                             ;           ;
-; I/O pins                                    ; 6         ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; Clk~input ;
-; Maximum fan-out                             ; 4         ;
-; Total fan-out                               ; 30        ;
-; Average fan-out                             ; 1.50      ;
-+---------------------------------------------+-----------+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Estimate of Logic utilization (ALMs needed) ; 7                     ;
+;                                             ;                       ;
+; Combinational ALUT usage for logic          ; 11                    ;
+;     -- 7 input functions                    ; 0                     ;
+;     -- 6 input functions                    ; 2                     ;
+;     -- 5 input functions                    ; 8                     ;
+;     -- 4 input functions                    ; 1                     ;
+;     -- <=3 input functions                  ; 0                     ;
+;                                             ;                       ;
+; Dedicated logic registers                   ; 8                     ;
+;                                             ;                       ;
+; I/O pins                                    ; 23                    ;
+;                                             ;                       ;
+; Total DSP Blocks                            ; 0                     ;
+;                                             ;                       ;
+; Maximum fan-out node                        ; counterstate[4]~input ;
+; Maximum fan-out                             ; 10                    ;
+; Total fan-out                               ; 120                   ;
+; Average fan-out                             ; 1.85                  ;
++---------------------------------------------+-----------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |photoSensor               ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 6    ; 0            ; |photoSensor        ; photoSensor ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                           ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name        ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
+; |enter_exit_handler        ; 11 (11)             ; 8 (8)                     ; 0                 ; 0          ; 23   ; 0            ; |enter_exit_handler ; enter_exit_handler ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; ps[2..31]                              ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 30 ;                                        ;
-+----------------------------------------+----------------------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; HEX[1][2]~reg0                        ; Merged with HEX[1][1]~reg0             ;
+; HEX[1][3]~reg0                        ; Merged with HEX[1][1]~reg0             ;
+; HEX[1][6]~reg0                        ; Merged with HEX[1][1]~reg0             ;
+; HEX[1][5]~reg0                        ; Merged with HEX[1][4]~reg0             ;
+; HEX[1][4]~reg0                        ; Stuck at GND due to stuck port data_in ;
+; HEX[1][0]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 6 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -230,14 +237,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 8     ;
+; Number of registers using Synchronous Clear  ; 7     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 7     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 19:1               ; 2 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |enter_exit_handler|HEX[0][0]~reg0 ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 80 LEs               ; 16 LEs                 ; Yes        ; |enter_exit_handler|HEX[0][1]~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |enter_exit_handler ;
++----------------+---------+---------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                    ;
++----------------+---------+---------------------------------------------------------+
+; HEXD0          ; 0000001 ; Unsigned Binary                                         ;
+; HEXD1          ; 1001111 ; Unsigned Binary                                         ;
+; HEXD2          ; 0010010 ; Unsigned Binary                                         ;
+; HEXD3          ; 0000110 ; Unsigned Binary                                         ;
+; HEXD4          ; 1001100 ; Unsigned Binary                                         ;
+; HEXD5          ; 0100100 ; Unsigned Binary                                         ;
+; HEXD6          ; 0100000 ; Unsigned Binary                                         ;
+; HEXD7          ; 0001111 ; Unsigned Binary                                         ;
+; HEXD8          ; 0000000 ; Unsigned Binary                                         ;
+; HEXD9          ; 0000100 ; Unsigned Binary                                         ;
++----------------+---------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -245,17 +281,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 4                           ;
-;     ENA               ; 2                           ;
-;     plain             ; 2                           ;
-; arriav_lcell_comb     ; 4                           ;
-;     normal            ; 4                           ;
-;         2 data inputs ; 2                           ;
-;         4 data inputs ; 2                           ;
-; boundary_port         ; 6                           ;
+; arriav_ff             ; 8                           ;
+;     ENA SCLR          ; 7                           ;
+;     plain             ; 1                           ;
+; arriav_lcell_comb     ; 13                          ;
+;     normal            ; 13                          ;
+;         0 data inputs ; 2                           ;
+;         4 data inputs ; 1                           ;
+;         5 data inputs ; 8                           ;
+;         6 data inputs ; 2                           ;
+; boundary_port         ; 23                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.75                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 0.96                        ;
 +-----------------------+-----------------------------+
 
 
@@ -274,34 +312,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Oct 04 17:13:12 2023
+    Info: Processing started: Wed Oct 04 18:13:09 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1 -c Lab1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file photosensor.sv
-    Info (12023): Found entity 1: photoSensor File: C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv Line: 1
-    Info (12023): Found entity 2: PhotoSensor_tb File: C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv Line: 75
-Info (12021): Found 1 design units, including 1 entities, in source file enter_exit_handler.sv
-    Info (12023): Found entity 1: enter_exit_handler File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 1
-Info (12127): Elaborating entity "photoSensor" for the top level hierarchy
+    Info (12023): Found entity 1: photoSensor File: C:/Users/AHIMt/Documents/CSE371/lab1/photoSensor.sv Line: 1
+    Info (12023): Found entity 2: PhotoSensor_tb File: C:/Users/AHIMt/Documents/CSE371/lab1/photoSensor.sv Line: 78
+Info (12021): Found 2 design units, including 2 entities, in source file enter_exit_handler.sv
+    Info (12023): Found entity 1: enter_exit_handler File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 1
+    Info (12023): Found entity 2: enter_exit_handler_tb File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 93
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Clk" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Rst" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Enter" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Exit" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Info (12127): Elaborating entity "enter_exit_handler" for the top level hierarchy
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX[1][0]" is stuck at VCC File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
+    Warning (13410): Pin "HEX[1][4]" is stuck at GND File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
+    Warning (13410): Pin "HEX[1][5]" is stuck at GND File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file C:/Users/noah-/Documents/CSE371/lab1/output_files/Lab1.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/AHIMt/Documents/CSE371/lab1/output_files/Lab1.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 10 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 4 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4883 megabytes
-    Info: Processing ended: Wed Oct 04 17:13:27 2023
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "enter" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 2
+    Warning (15610): No output dependent on input pin "exit" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 2
+Info (21057): Implemented 34 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 11 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4862 megabytes
+    Info: Processing ended: Wed Oct 04 18:13:24 2023
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Total CPU time (on all processors): 00:00:34
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/noah-/Documents/CSE371/lab1/output_files/Lab1.map.smsg.
+The suppressed messages can be found in C:/Users/AHIMt/Documents/CSE371/lab1/output_files/Lab1.map.smsg.
 
 

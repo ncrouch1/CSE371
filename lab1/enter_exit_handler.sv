@@ -15,7 +15,11 @@ module enter_exit_handler(clk, reset, enter, exit, counterstate, HEX);
 	parameter HEXD9 = 7'b0000100;
 	
 	always_ff @(posedge clk) begin
-		if (counterstate == 0) begin
+		if (reset) begin
+			HEX[1] <= HEXD0;
+			HEX[0] <= HEXD0;
+		end
+		else if (counterstate == 0) begin
 			HEX[1] <= HEXD0;
 			HEX[0] <= HEXD0;
 		end
@@ -85,4 +89,41 @@ module enter_exit_handler(clk, reset, enter, exit, counterstate, HEX);
 		end
 	end
 endmodule
+
+module enter_exit_handler_tb();
+
+	// define signals
+	logic clk, reset, enter, exit;
+	logic [4:0] counterstate;
+	logic [6:0] HEX [1:0];
+	
+	// define parameters
+	parameter T = 20;
+	
+	// instantiate module
+	enter_exit_handler dut (.clk(Clk), .reset(Rst), .enter(Enter), .exit(Exit), .counterstate(counterstate), .HEX(HEX));
+	
+	// define simulated clock
+	initial begin
+		clk <= 0;
+		forever	#(T/2)	clk <= ~clk;
+	end  // initial clock
+	
+	initial begin
+		reset <= 1;  						@(posedge clk);
+		counterstate <= 0; 	
+		reset <= 0;  						@(posedge clk);
+		for (int i = 0; i < 15; i++) begin
+			counterstate++;				@(posedge clk);
+		end
+		$stop;
+	end
+	
+endmodule  // enter_exit_handler_tb
+	
+		
+		
+		
+	
+	
 	

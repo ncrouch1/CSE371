@@ -1,8 +1,11 @@
-module photoSensor (Clk, Rst, Sensor, Enter, Exit);
+module photoSensor (Clk, Rst, Sensor, Enter, Exit, HEX);
 	input logic  Clk, Rst;
 	input logic  [1:0] Sensor;
+	output logic [6:0] HEX [1:0];
 	output logic Enter, Exit;
 	logic [4:0] counter;
+	
+	enter_exit_handler mod (.clk(Clk), .reset(Rst), .enter(Enter), .exit(Exit), .counterstate(counter), .HEX(HEX));
 	
 	enum { empty, oBlocked, iBlocked, both} ps, ns;
 	
