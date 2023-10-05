@@ -5,8 +5,6 @@ module PhotoSensor_tb();
 	logic	clk, reset;
 	logic [9:0] SW;
 	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-	logic [9:0] LEDR;
-	//logic [35:0] V_GPIO;
 	logic 		Enter, Exit;
 
 	
@@ -23,15 +21,15 @@ module PhotoSensor_tb();
 	end  // initial clock
 	
 	initial begin
-		SW[9] 	<= 1; 		repeat(10)	@(posedge clk);
-		SW[9] 	<=0;
-		SW[1:0] 	<=  2'b01; 	repeat(10)	@(posedge clk);
-		SW[1:0] 	<=  2'b11; 	repeat(10)	@(posedge clk);
-		SW[1:0] 	<=  2'b10; 	repeat(10)	@(posedge clk);
-		SW[1:0] 	<=  2'b00; 	repeat(10)	@(posedge clk);
-		SW[1:0] 	<=  2'b10;	repeat(10)	@(posedge clk);
-		SW[1:0] 	<=  2'b11; 	repeat(10)	@(posedge clk);
-		SW[1:0] 	<=  2'b01; 	repeat(10)	@(posedge clk);
+		SW[9] 	<= 1; 	@(posedge clk);
+		SW[9] 	<= 0; 	@(posedge clk);
+		SW[1:0] 	<=  2'b01; @(posedge clk);
+		SW[1:0] 	<=  2'b11; @(posedge clk);
+		SW[1:0] 	<=  2'b10; @(posedge clk);
+		SW[1:0] 	<=  2'b00; @(posedge clk);
+		SW[1:0] 	<=  2'b10; @(posedge clk);
+		SW[1:0] 	<=  2'b11; @(posedge clk);
+		SW[1:0] 	<=  2'b01; @(posedge clk);
 		$stop;
 	end
 	

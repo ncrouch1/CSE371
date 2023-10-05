@@ -8,29 +8,55 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/noah-/Documents/CSE371/lab1/simulation/modelsim
-vDE1_SoC
-DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-!s110 1696291555
+vphotoSensor
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1696465055
 !i10b 1
-!s100 d?]]L^?jk`21T;f8e6I@e0
-IKU7@CQR<kQ7L`iWVMR[Q^2
-VDg1SIo80bB@j0V0VzS_@n1
-!s105 DE1_SoC_sv_unit
+!s100 J9`0hKRZDjAMz[j`ZdlB72
+IUkfHz7F2EAK8]YePN78aZ1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 photoSensor_sv_unit
 S1
 R0
-w1696291437
-8C:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv
-FC:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv
-L0 3
-OV;L;10.5b;63
+Z5 w1696464790
+Z6 8C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv
+Z7 FC:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv
+L0 1
+Z8 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1696291555.000000
-!s107 C:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab1|C:/Users/noah-/Documents/CSE371/lab1/DE1_SoC.sv|
+Z9 !s108 1696465055.000000
+Z10 !s107 C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab1|C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv|
 !i113 1
-o-sv -work work
-!s92 -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab1
-tCvgOpt 0
-n@d@e1_@so@c
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab1
+Z14 tCvgOpt 0
+nphoto@sensor
+vPhotoSensor_tb
+R1
+R2
+!i10b 1
+!s100 aTS^NJU3=8UzM`1SH5]:O2
+I74KGfL4ekDijG=T3mbciQ0
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 75
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+n@photo@sensor_tb

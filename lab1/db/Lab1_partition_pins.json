@@ -2,7 +2,32 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "Enter",
+					"strict" : false
+				},
+				{
+					"name" : "Exit",
+					"strict" : false
+				},
+				{
+					"name" : "Sensor[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Sensor[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "Rst",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

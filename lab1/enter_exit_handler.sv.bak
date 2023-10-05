@@ -1,0 +1,24 @@
+module enter_exit_handler(clk, reset, enter, exit, counterstate, nextstate, HEX);
+	input logic clk, reset, enter, exit;
+	input logic [4:0] counterstate;
+	output logic [4:0] nextstate;
+	output logic [6:0] HEX [1:0];
+	
+	parameter HEXD0 = 7'b0000001;
+	parameter HEXD1 = 7'b1001111;
+	parameter HEXD2 = 7'b0010010;
+	parameter HEXD3 = 7'b0000110;
+	parameter HEXD4 = 7'b1001100;
+	parameter HEXD5 = 7'b0100100;
+	parameter HEXD6 = 7'b0100000;
+	
+	logic [6:0] nextdisplay [1:0];
+	
+	always_ff @(posedge clk) begin
+		if (enter & counterstate != 16'd) 
+			counterstate++;
+		else if (exit & counterstate != 0'd) 
+			counterstate--;
+	end
+	
+	
