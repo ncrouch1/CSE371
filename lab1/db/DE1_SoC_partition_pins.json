@@ -4,23 +4,71 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "incr",
+					"name" : "Enter",
 					"strict" : false
 				},
 				{
-					"name" : "decr",
+					"name" : "Exit",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "HEX0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[1]",
+					"name" : "HEX0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "CLOCK_50",
+					"name" : "HEX0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Sensor[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Sensor[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "Rst",
 					"strict" : false
 				}
 			]

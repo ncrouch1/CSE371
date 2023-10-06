@@ -1,84 +1,27 @@
 /* Top-level module for LandsLand hardware connections to implement the parking lot system.*/
 
-module DE1_SoC (CLOCK_50, SW, incr, decr);
+module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
 
 	input  logic		 CLOCK_50;	// 50MHz clock
-	input  logic [1:0] SW;
-	output logic incr, decr;
+	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;	// active low
+	output logic [9:0] LEDR;
+	inout  logic [35:0] V_GPIO;	// expansion header 0 (LabsLand board)
+	logic Enter, Exit;
 	
-	logic [1:0] flags;
+	photoSensor psensor (.Clk(~V_GPIO[0]), .Rst(~V_GPIO[3]), .Sensor(V_GPIO[6:5]), .Enter(Enter), .Exit(Exit), .HEX0(HEX0), .HEX1(HEX1));
 	
-	/*
-		State progressions should be combinational logic
-		since we don't really care if the states change 
-		synchronously.
-		
-		But the exit and enter signals need to be high 
-		for one clock cycle when triggered
-	*/
-	always_latch 
-		begin
-			case (SW)
-				2'b00: flags = 2'b00;
-				2'b01: begin
-					if (flags == 2'b00) begin
-						flags = 2'b01;
-					end
-				end
-				2'b10: begin
-					if (flags == 2'b00) begin
-						flags = 2'b10;
-					end
-				end
-				2'b11: ;			
-			endcase
-		end
-		
-	always_ff @(posedge CLOCK_50) begin
-		if (flags == 2'b10 && SW[1:0] == 2'b11 && ~incr) begin
-			incr <= 1;
-		end
-		else if (flags == 2'b01 && SW[1:0] == 2'b11 && ~decr) begin
-			decr <= 1;
-		end
-		else begin
-			incr <= 0;
-			decr <= 0;
-		end
-	end
+	assign LEDR[9] = Enter;
+	assign LEDR[7] = Exit;
 	
-
+	assign LEDR[0] = ~V_GPIO[0];
+	assign LEDR[1] = ~V_GPIO[3];
+	assign LEDR[6:2] = 0;
+	assign LEDR[8] = 0;
 	
-
+	assign HEX2 = 7'b1111111;
+	assign HEX3 = 7'b1111111;
+	assign HEX4 = 7'b1111111;
+	assign HEX5 = 7'b1111111;
+	
+	
 endmodule  // DE1_SoC
-
-module DE1_SoC_tb();
-
-	// define signals
-	logic	CLOCK_50;
-	logic SW[1:0];
-	logic incr;
-	logic decr;
-	
-	// define parameters
-	parameter T = 20;
-	
-	// instantiate module
-	DE1_SoC dut (.CLOCK_50(CLOCK_50), .SW(SW), .incr(incr), .decr(decr));
-	
-	// define simulated clock
-	initial begin
-		CLOCK_50 <= 0;
-		forever	#(T/2)	CLOCK_50 <= ~CLOCK_50;
-	end  // initial clock
-	
-	initial begin
-		SW[1:0] <= 2'b00; #10;
-		SW[1:0] <= 2'b01; #10;
-		SW[1:0] <= 2'b11; #10;
-		SW[1:0] <= 2'b00; #10;
-		SW[1:0] <= 2'b10; #10;
-		SW[1:0] <= 2'b11; #10;
-	end
-	
-endmodule  // DE1_SoC_tb

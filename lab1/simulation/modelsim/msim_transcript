@@ -1,5 +1,5 @@
 # Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
-# do Lab1_run_msim_rtl_verilog.do
+# do DE1_SoC_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
@@ -12,33 +12,47 @@
 # 
 # vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab1 {C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:17:35 on Oct 04,2023
+# Start time: 00:35:06 on Oct 06,2023
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab1" C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv 
 # -- Compiling module photoSensor
 # -- Compiling module PhotoSensor_tb
 # 
 # Top level modules:
 # 	PhotoSensor_tb
-# End time: 17:17:35 on Oct 04,2023, Elapsed time: 0:00:00
+# End time: 00:35:06 on Oct 06,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab1 {C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:06 on Oct 06,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab1" C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv 
+# -- Compiling module enter_exit_handler
+# -- Compiling module enter_exit_handler_tb
+# 
+# Top level modules:
+# 	enter_exit_handler_tb
+# End time: 00:35:06 on Oct 06,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vsim rtl_work.PhotoSensor_tb
 # vsim rtl_work.PhotoSensor_tb 
-# Start time: 17:17:39 on Oct 04,2023
+# Start time: 00:35:17 on Oct 06,2023
 # Loading sv_std.std
 # Loading rtl_work.PhotoSensor_tb
 # Loading rtl_work.photoSensor
+# Loading rtl_work.enter_exit_handler
 add wave -position end  sim:/PhotoSensor_tb/dut/Clk
 add wave -position end  sim:/PhotoSensor_tb/dut/Rst
 add wave -position end  sim:/PhotoSensor_tb/dut/Sensor
+add wave -position end  sim:/PhotoSensor_tb/dut/HEX0
+add wave -position end  sim:/PhotoSensor_tb/dut/HEX1
 add wave -position end  sim:/PhotoSensor_tb/dut/Enter
 add wave -position end  sim:/PhotoSensor_tb/dut/Exit
 add wave -position end  sim:/PhotoSensor_tb/dut/counter
 add wave -position end  sim:/PhotoSensor_tb/dut/ps
 add wave -position end  sim:/PhotoSensor_tb/dut/ns
 run -all
-# ** Note: $stop    : C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv(109)
-#    Time: 1630 ps  Iteration: 1  Instance: /PhotoSensor_tb
-# Break in Module PhotoSensor_tb at C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv line 109
-# End time: 17:18:19 on Oct 04,2023, Elapsed time: 0:00:40
+# ** Note: $stop    : C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv(114)
+#    Time: 3230 ps  Iteration: 1  Instance: /PhotoSensor_tb
+# Break in Module PhotoSensor_tb at C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv line 114
+# End time: 00:36:07 on Oct 06,2023, Elapsed time: 0:00:50
 # Errors: 0, Warnings: 0

@@ -1,5 +1,5 @@
 Flow report for DE1_SoC
-Mon Oct 02 16:39:32 2023
+Fri Oct 06 00:34:43 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Oct 02 16:39:32 2023       ;
+; Flow Status                     ; Successful - Fri Oct 06 00:34:43 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; DE1_SoC                                     ;
-; Top-level Entity Name           ; DE1_SoC                                     ;
+; Top-level Entity Name           ; photoSensor                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CGXFC7C7F23C8                              ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 5 / 56,480 ( < 1 % )                        ;
-; Total registers                 ; 2                                           ;
-; Total pins                      ; 41 / 268 ( 15 % )                           ;
+; Logic utilization (in ALMs)     ; 18 / 56,480 ( < 1 % )                       ;
+; Total registers                 ; 17                                          ;
+; Total pins                      ; 20 / 268 ( 7 % )                            ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 7,024,640 ( 0 % )                       ;
 ; Total DSP Blocks                ; 0 / 156 ( 0 % )                             ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/02/2023 16:38:02 ;
+; Start date & time ; 10/06/2023 00:32:49 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE1_SoC             ;
 +-------------------+---------------------+
@@ -79,12 +79,17 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 44440924455996.169628988231120         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 44440924455996.169657756910576         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; photoSensor ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; photoSensor ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; photoSensor ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; photoSensor                            ; DE1_SoC       ; --          ; --             ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -93,12 +98,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:10     ; 1.0                     ; 4897 MB             ; 00:00:05                           ;
-; Fitter                    ; 00:00:51     ; 1.0                     ; 7443 MB             ; 00:00:50                           ;
-; Assembler                 ; 00:00:13     ; 1.0                     ; 4826 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.1                     ; 5232 MB             ; 00:00:02                           ;
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 4883 MB             ; 00:00:09                           ;
+; Fitter                    ; 00:01:13     ; 1.0                     ; 7516 MB             ; 00:01:21                           ;
+; Assembler                 ; 00:00:10     ; 1.0                     ; 4829 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:09     ; 1.1                     ; 5276 MB             ; 00:00:03                           ;
 ; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4736 MB             ; 00:00:01                           ;
-; Total                     ; 00:01:24     ; --                      ; --                  ; 00:01:02                           ;
+; Total                     ; 00:01:50     ; --                      ; --                  ; 00:01:38                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

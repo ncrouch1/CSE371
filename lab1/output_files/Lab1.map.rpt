@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab1
-Wed Oct 04 18:13:24 2023
+Thu Oct 05 23:47:51 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -47,7 +47,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Oct 04 18:13:24 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu Oct 05 23:47:51 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; Lab1                                        ;
 ; Top-level Entity Name           ; enter_exit_handler                          ;
@@ -159,15 +159,15 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processors 2-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -176,7 +176,7 @@ agreement for further details.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                               ; Library ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
-; enter_exit_handler.sv            ; yes             ; User SystemVerilog HDL File  ; C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv ;         ;
+; enter_exit_handler.sv            ; yes             ; User SystemVerilog HDL File  ; C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv ;         ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------+---------+
 
 
@@ -312,46 +312,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Oct 04 18:13:09 2023
+    Info: Processing started: Thu Oct 05 23:47:36 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab1 -c Lab1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file photosensor.sv
-    Info (12023): Found entity 1: photoSensor File: C:/Users/AHIMt/Documents/CSE371/lab1/photoSensor.sv Line: 1
-    Info (12023): Found entity 2: PhotoSensor_tb File: C:/Users/AHIMt/Documents/CSE371/lab1/photoSensor.sv Line: 78
+    Info (12023): Found entity 1: photoSensor File: C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv Line: 1
+    Info (12023): Found entity 2: PhotoSensor_tb File: C:/Users/noah-/Documents/CSE371/lab1/photoSensor.sv Line: 78
 Info (12021): Found 2 design units, including 2 entities, in source file enter_exit_handler.sv
-    Info (12023): Found entity 1: enter_exit_handler File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 1
-    Info (12023): Found entity 2: enter_exit_handler_tb File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 93
-Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Clk" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
-Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Rst" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
-Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Enter" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
-Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Exit" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+    Info (12023): Found entity 1: enter_exit_handler File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 1
+    Info (12023): Found entity 2: enter_exit_handler_tb File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 93
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Clk" File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Rst" File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Enter" File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
+Warning (10236): Verilog HDL Implicit Net warning at enter_exit_handler.sv(104): created implicit net for "Exit" File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 104
 Info (12127): Elaborating entity "enter_exit_handler" for the top level hierarchy
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX[1][0]" is stuck at VCC File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
-    Warning (13410): Pin "HEX[1][4]" is stuck at GND File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
-    Warning (13410): Pin "HEX[1][5]" is stuck at GND File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
+    Warning (13410): Pin "HEX[1][0]" is stuck at VCC File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
+    Warning (13410): Pin "HEX[1][4]" is stuck at GND File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
+    Warning (13410): Pin "HEX[1][5]" is stuck at GND File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 17
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file C:/Users/AHIMt/Documents/CSE371/lab1/output_files/Lab1.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/noah-/Documents/CSE371/lab1/output_files/Lab1.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "enter" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 2
-    Warning (15610): No output dependent on input pin "exit" File: C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler.sv Line: 2
+    Warning (15610): No output dependent on input pin "enter" File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 2
+    Warning (15610): No output dependent on input pin "exit" File: C:/Users/noah-/Documents/CSE371/lab1/enter_exit_handler.sv Line: 2
 Info (21057): Implemented 34 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 14 output pins
     Info (21061): Implemented 11 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4862 megabytes
-    Info: Processing ended: Wed Oct 04 18:13:24 2023
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Thu Oct 05 23:47:51 2023
     Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/AHIMt/Documents/CSE371/lab1/output_files/Lab1.map.smsg.
+The suppressed messages can be found in C:/Users/noah-/Documents/CSE371/lab1/output_files/Lab1.map.smsg.
 
 
