@@ -2,208 +2,140 @@
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:03:41 on Oct 04,2023
-# vlog -reportprogress 300 ./enter_exit_handler.sv 
-# -- Compiling module enter_exit_handler
-# -- Compiling module enter_exit_handler_tb
-# 
-# Top level modules:
-# 	enter_exit_handler_tb
-# End time: 18:03:41 on Oct 04,2023, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs=""+acc"" -t 1ps -lib work enter_exit_handler_tb 
-# Start time: 18:03:43 on Oct 04,2023
-# Loading sv_std.std
-# Loading work.enter_exit_handler_tb
-# Loading work.enter_exit_handler
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
-# ** Error: Cannot open macro file: enter_exit_handler_wave.do
-# Error in macro ./runlab.do line 31
-# Cannot open macro file: enter_exit_handler_wave.do
+# Start time: 23:29:29 on Oct 05,2023
+# vlog -reportprogress 300 ./parkingLotOccupancy.sv 
+# -- Compiling module parkingLotOccupancy
+# ** Error: ./parkingLotOccupancy.sv(8): (vlog-2730) Undefined variable: 'sensors'.
+# ** Error: (vlog-13069) ./parkingLotOccupancy.sv(8): near "[": syntax error, unexpected '[', expecting ')'.
+# -- Compiling module parkingLotOccupancy_tb
+# End time: 23:29:30 on Oct 05,2023, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 0
+# ** Error: C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 16
+# C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
 #     while executing
-# "do enter_exit_handler_wave.do"
-add wave -position end sim:/enter_exit_handler_tb/dut/*
-run -all
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/AHIMt/Documents/CSE371/lab1/enter_exit_handler_wave.do
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD0
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD1
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD2
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD3
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD4
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD5
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD6
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD7
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD8
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD9
-add wave -position end  sim:/enter_exit_handler_tb/dut/clk
-add wave -position end  sim:/enter_exit_handler_tb/dut/reset
-add wave -position end  sim:/enter_exit_handler_tb/dut/enter
-add wave -position end  sim:/enter_exit_handler_tb/dut/exit
-add wave -position end  sim:/enter_exit_handler_tb/dut/counterstate
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEX
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD0
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD1
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD2
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD3
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD4
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD5
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD6
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD7
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD8
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD9
-add wave -position end  sim:/enter_exit_handler_tb/dut/clk
-add wave -position end  sim:/enter_exit_handler_tb/dut/reset
-add wave -position end  sim:/enter_exit_handler_tb/dut/enter
-add wave -position end  sim:/enter_exit_handler_tb/dut/exit
-add wave -position end  sim:/enter_exit_handler_tb/dut/counterstate
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEX
+# "vlog "./parkingLotOccupancy.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:09:57 on Oct 04,2023
-# vlog -reportprogress 300 ./enter_exit_handler.sv 
-# -- Compiling module enter_exit_handler
-# -- Compiling module enter_exit_handler_tb
-# 
-# Top level modules:
-# 	enter_exit_handler_tb
-# End time: 18:09:58 on Oct 04,2023, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# End time: 18:09:59 on Oct 04,2023, Elapsed time: 0:06:16
-# Errors: 3, Warnings: 1
-# vsim -voptargs=""+acc"" -t 1ps -lib work enter_exit_handler_tb 
-# Start time: 18:09:59 on Oct 04,2023
-# Loading sv_std.std
-# Loading work.enter_exit_handler_tb
-# Loading work.enter_exit_handler
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./enter_exit_handler.sv(119)
-#    Time: 330 ps  Iteration: 1  Instance: /enter_exit_handler_tb
-# Break in Module enter_exit_handler_tb at ./enter_exit_handler.sv line 119
+# Start time: 23:30:53 on Oct 05,2023
+# vlog -reportprogress 300 ./parkingLotOccupancy.sv 
+# -- Compiling module parkingLotOccupancy
+# ** Error: ./parkingLotOccupancy.sv(8): (vlog-2730) Undefined variable: 'sensors'.
+# -- Compiling module parkingLotOccupancy_tb
+# End time: 23:30:53 on Oct 05,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 16
+# C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./parkingLotOccupancy.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:10:05 on Oct 04,2023
-# vlog -reportprogress 300 ./enter_exit_handler.sv 
-# -- Compiling module enter_exit_handler
-# -- Compiling module enter_exit_handler_tb
-# 
-# Top level modules:
-# 	enter_exit_handler_tb
-# End time: 18:10:05 on Oct 04,2023, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 18:10:07 on Oct 04,2023, Elapsed time: 0:00:08
-# Errors: 0, Warnings: 1
-# vsim -voptargs=""+acc"" -t 1ps -lib work enter_exit_handler_tb 
-# Start time: 18:10:07 on Oct 04,2023
-# Loading sv_std.std
-# Loading work.enter_exit_handler_tb
-# Loading work.enter_exit_handler
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
-# .main_pane.wave.interior.cs.body.pw.wf
-# .main_pane.structure.interior.cs.body.struct
-# .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./enter_exit_handler.sv(119)
-#    Time: 330 ps  Iteration: 1  Instance: /enter_exit_handler_tb
-# Break in Module enter_exit_handler_tb at ./enter_exit_handler.sv line 119
+# Start time: 23:31:07 on Oct 05,2023
+# vlog -reportprogress 300 ./parkingLotOccupancy.sv 
+# -- Compiling module parkingLotOccupancy
+# ** Error: ./parkingLotOccupancy.sv(8): (vlog-2730) Undefined variable: 'sensors'.
+# -- Compiling module parkingLotOccupancy_tb
+# End time: 23:31:08 on Oct 05,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runlab.do line 16
+# C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog "./parkingLotOccupancy.sv""
 do runlab.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:10:13 on Oct 04,2023
-# vlog -reportprogress 300 ./enter_exit_handler.sv 
-# -- Compiling module enter_exit_handler
-# -- Compiling module enter_exit_handler_tb
+# Start time: 23:41:38 on Oct 05,2023
+# vlog -reportprogress 300 ./parkingLotOccupancy.sv 
+# -- Compiling module parkingLotOccupancy
+# -- Compiling module parkingLotOccupancy_tb
 # 
 # Top level modules:
-# 	enter_exit_handler_tb
-# End time: 18:10:13 on Oct 04,2023, Elapsed time: 0:00:00
+# 	parkingLotOccupancy_tb
+# End time: 23:41:38 on Oct 05,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 18:10:15 on Oct 04,2023, Elapsed time: 0:00:08
-# Errors: 0, Warnings: 1
-# vsim -voptargs=""+acc"" -t 1ps -lib work enter_exit_handler_tb 
-# Start time: 18:10:16 on Oct 04,2023
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:41:39 on Oct 05,2023
+# vlog -reportprogress 300 ./carDetection.sv 
+# -- Compiling module carDetection
+# -- Compiling module carDetection_tb
+# 
+# Top level modules:
+# 	carDetection_tb
+# End time: 23:41:39 on Oct 05,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:41:39 on Oct 05,2023
+# vlog -reportprogress 300 ./carCounter.sv 
+# -- Compiling module carCounter
+# -- Compiling module carCounter_tb
+# 
+# Top level modules:
+# 	carCounter_tb
+# End time: 23:41:39 on Oct 05,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work parkingLotOccupancy_tb 
+# Start time: 23:41:39 on Oct 05,2023
 # Loading sv_std.std
-# Loading work.enter_exit_handler_tb
-# Loading work.enter_exit_handler
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
+# Loading work.parkingLotOccupancy_tb
+# Loading work.parkingLotOccupancy
+# Loading work.carDetection
+# Loading work.carCounter
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./enter_exit_handler.sv(119)
-#    Time: 330 ps  Iteration: 1  Instance: /enter_exit_handler_tb
-# Break in Module enter_exit_handler_tb at ./enter_exit_handler.sv line 119
-restart -f
+# ** Note: $stop    : ./parkingLotOccupancy.sv(173)
+#    Time: 4430 ps  Iteration: 1  Instance: /parkingLotOccupancy_tb
+# Break in Module parkingLotOccupancy_tb at ./parkingLotOccupancy.sv line 173
 do runlab.do
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:10:22 on Oct 04,2023
-# vlog -reportprogress 300 ./enter_exit_handler.sv 
-# -- Compiling module enter_exit_handler
-# -- Compiling module enter_exit_handler_tb
+# Start time: 23:43:50 on Oct 05,2023
+# vlog -reportprogress 300 ./parkingLotOccupancy.sv 
+# -- Compiling module parkingLotOccupancy
+# -- Compiling module parkingLotOccupancy_tb
 # 
 # Top level modules:
-# 	enter_exit_handler_tb
-# End time: 18:10:22 on Oct 04,2023, Elapsed time: 0:00:00
+# 	parkingLotOccupancy_tb
+# End time: 23:43:50 on Oct 05,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 18:10:24 on Oct 04,2023, Elapsed time: 0:00:08
-# Errors: 0, Warnings: 2
-# vsim -voptargs=""+acc"" -t 1ps -lib work enter_exit_handler_tb 
-# Start time: 18:10:24 on Oct 04,2023
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:43:50 on Oct 05,2023
+# vlog -reportprogress 300 ./carDetection.sv 
+# -- Compiling module carDetection
+# -- Compiling module carDetection_tb
+# 
+# Top level modules:
+# 	carDetection_tb
+# End time: 23:43:50 on Oct 05,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:43:51 on Oct 05,2023
+# vlog -reportprogress 300 ./carCounter.sv 
+# -- Compiling module carCounter
+# -- Compiling module carCounter_tb
+# 
+# Top level modules:
+# 	carCounter_tb
+# End time: 23:43:51 on Oct 05,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 23:43:52 on Oct 05,2023, Elapsed time: 0:02:13
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work parkingLotOccupancy_tb 
+# Start time: 23:43:52 on Oct 05,2023
 # Loading sv_std.std
-# Loading work.enter_exit_handler_tb
-# Loading work.enter_exit_handler
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
+# Loading work.parkingLotOccupancy_tb
+# Loading work.parkingLotOccupancy
+# Loading work.carDetection
+# Loading work.carCounter
 # .main_pane.wave.interior.cs.body.pw.wf
 # .main_pane.structure.interior.cs.body.struct
 # .main_pane.objects.interior.cs.body.tree
-# ** Note: $stop    : ./enter_exit_handler.sv(119)
-#    Time: 330 ps  Iteration: 1  Instance: /enter_exit_handler_tb
-# Break in Module enter_exit_handler_tb at ./enter_exit_handler.sv line 119
-restart -f
-restart -f
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
-run -all
-# ** Note: $stop    : ./enter_exit_handler.sv(119)
-#    Time: 330 ps  Iteration: 1  Instance: /enter_exit_handler_tb
-# Break in Module enter_exit_handler_tb at ./enter_exit_handler.sv line 119
-run -all
-run -all
-run -all
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD0
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD1
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD2
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD3
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD4
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD5
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD6
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD7
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD8
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEXD9
-add wave -position end  sim:/enter_exit_handler_tb/dut/clk
-add wave -position end  sim:/enter_exit_handler_tb/dut/reset
-add wave -position end  sim:/enter_exit_handler_tb/dut/enter
-add wave -position end  sim:/enter_exit_handler_tb/dut/exit
-add wave -position end  sim:/enter_exit_handler_tb/dut/counterstate
-add wave -position end  sim:/enter_exit_handler_tb/dut/HEX
-restart -f
-# ** Warning: (vsim-3015) ./enter_exit_handler.sv(104): [PCDPC] - Port size (5) does not match connection size (1) for port 'counterstate'. The port definition is at: ./enter_exit_handler.sv(1).
-#    Time: 0 ps  Iteration: 0  Instance: /enter_exit_handler_tb/dut File: ./enter_exit_handler.sv
-run -all
-# ** Note: $stop    : ./enter_exit_handler.sv(119)
-#    Time: 330 ps  Iteration: 1  Instance: /enter_exit_handler_tb
-# Break in Module enter_exit_handler_tb at ./enter_exit_handler.sv line 119
-# End time: 18:18:19 on Oct 04,2023, Elapsed time: 0:07:55
-# Errors: 0, Warnings: 4
+# ** Note: $stop    : ./parkingLotOccupancy.sv(174)
+#    Time: 4430 ps  Iteration: 1  Instance: /parkingLotOccupancy_tb
+# Break in Module parkingLotOccupancy_tb at ./parkingLotOccupancy.sv line 174
+# End time: 23:44:58 on Oct 05,2023, Elapsed time: 0:01:06
+# Errors: 0, Warnings: 0

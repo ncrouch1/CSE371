@@ -39,12 +39,17 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
+<<<<<<< HEAD
 set_global_assignment -name TOP_LEVEL_ENTITY photoSensor
+=======
+set_global_assignment -name TOP_LEVEL_ENTITY parkingLotOccupancy
+>>>>>>> af10525df4666732e1a9f035e57ffbcdb4fa08dc
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:21:18  OCTOBER 02, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
+<<<<<<< HEAD
 set_global_assignment -name SYSTEMVERILOG_FILE photoSensor.sv
 set_global_assignment -name SYSTEMVERILOG_FILE enter_exit_handler.sv
 set_global_assignment -name SYSTEMVERILOG_FILE DE1_SoC_tb.sv
@@ -54,6 +59,12 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+=======
+set_global_assignment -name SYSTEMVERILOG_FILE counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE carDetection.sv
+set_global_assignment -name SYSTEMVERILOG_FILE carCounter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE parkingLotOccupancy.sv
+>>>>>>> af10525df4666732e1a9f035e57ffbcdb4fa08dc
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

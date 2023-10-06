@@ -1,0 +1,109 @@
+module carDetection (Clk, Rst, Sensor, Enter, Exit);
+	input logic  Clk, Rst;
+	input logic  [1:0] Sensor;
+	output logic Enter, Exit;
+	
+	enum { empty, oBlocked, iBlocked, both} ps, ns;
+	
+	always_comb begin
+		case(ps)
+			empty: begin
+				if (Sensor == 2'b11)			ns = both;
+				else if (Sensor == 2'b01)	ns = iBlocked;
+				else if (Sensor == 2'b10)	ns = oBlocked;
+				else								ns = empty;
+			end
+			
+			oBlocked: begin
+				if (Sensor == 2'b11)			ns = both;
+				else if (Sensor == 2'b01)	ns = iBlocked;
+				else if (Sensor == 2'b10)	ns = oBlocked;
+				else								ns = empty;
+			end
+			
+			iBlocked: begin
+				if (Sensor == 2'b11)			ns = both;
+				else if (Sensor == 2'b01)	ns = iBlocked;
+				else if (Sensor == 2'b10)	ns = oBlocked;
+				else								ns = empty;
+			end
+			
+			both: begin
+				if (Sensor == 2'b11)			ns = both;
+				else if (Sensor == 2'b01)	ns = iBlocked;
+				else if (Sensor == 2'b10)	ns = oBlocked;
+				else								ns = empty;
+			end
+			
+			default: ns = empty;
+		endcase
+	end
+	
+	always_ff @(posedge Clk) begin
+		if (Rst)
+			ps <= empty;
+		else
+			ps <= ns;
+	end
+		
+	always_ff @(posedge Clk) begin
+		if (Rst)
+			counter <= 0;
+			
+		// Entering Condtion
+		else if ((ns == iBlocked) & (ps == both)) begin
+			Enter = 1;
+			Exit = 0;
+		end
+		
+		// Exiting condition
+		else if ((ns == oBlocked) & (ps == both)) begin
+			Enter = 0;
+			Exit = 1;
+		end
+		
+		else begin
+			Enter = 0;
+			Exit = 0;
+		end
+	end
+endmodule
+
+
+module carDetection_tb();
+
+	// define signals
+	logic	clk, reset;
+	logic [9:0] SW;
+	logic Enter, Exit;
+
+	
+	// define parameters
+	parameter T = 20;
+	
+	// instantiate module
+	carDetection dut (.Clk(clk), .Rst(reset), .Sensor(SW[1:0]), .Enter(Enter), .Exit(Exit));
+	
+	// define simulated clock
+	initial begin
+		clk <= 0;
+		forever	#(T/2)	clk <= ~clk;
+	end  // initial clock
+	
+	initial begin
+		SW[9] <= 1; reset <= 1; 	@(posedge clk);
+		SW[9] <= 0; reset <= 0;	@(posedge clk);
+		for (int i = 0; i < 10; i++) begin
+			SW[1:0] 	<=  2'b01; @(posedge clk);
+			SW[1:0] 	<=  2'b11; @(posedge clk);
+			SW[1:0] 	<=  2'b10; @(posedge clk);
+			SW[1:0] 	<=  2'b00; @(posedge clk);
+			SW[1:0] 	<=  2'b10; @(posedge clk);
+			SW[1:0] 	<=  2'b11; @(posedge clk);
+			SW[1:0] 	<=  2'b01; @(posedge clk);
+			SW[1:0]  <=  2'b00; @(posedge clk);
+		end
+		$stop;
+	end
+	
+endmodule  // DE1_SoC_tb
