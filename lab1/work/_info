@@ -8,35 +8,36 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/AHIMt/Documents/CSE371/lab1
-venter_exit_handler
+vcarCounter
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1696468222
+Z2 !s110 1696574631
 !i10b 1
-!s100 55DJ]OB895V>2Z=^ki3MB0
-IYY;[R9AW2BM6od71Cf^P^0
+!s100 C[n5g@=]5_ahFcM6LSIk=3
+IWCAzhii7QOKfW;PcfC<`53
 Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 !s105 enter_exit_handler_sv_unit
+Z4 !s105 carCounter_sv_unit
 S1
 R0
-Z5 w1696468075
-Z6 8./enter_exit_handler.sv
-Z7 F./enter_exit_handler.sv
-L0 1
+Z5 w1696570128
+Z6 8./carCounter.sv
+Z7 F./carCounter.sv
+L0 4
 Z8 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z9 !s108 1696468222.000000
-Z10 !s107 ./enter_exit_handler.sv|
-Z11 !s90 -reportprogress|300|./enter_exit_handler.sv|
+Z9 !s108 1696574631.000000
+Z10 !s107 ./carCounter.sv|
+Z11 !s90 -reportprogress|300|./carCounter.sv|
 !i113 1
 Z12 tCvgOpt 0
-venter_exit_handler_tb
+ncar@counter
+vcarCounter_tb
 R1
 R2
 !i10b 1
-!s100 T]@2l=X^DB1dQHo>nGLDa3
-Ig2lzE?@ECnYnKmEE@mXkK2
+!s100 AAX`B^EzB5cNHDlO@8JA`1
+I0bA@`^aDVaGJaBOARYYYJ0
 R3
 R4
 S1
@@ -44,7 +45,7 @@ R0
 R5
 R6
 R7
-L0 93
+L0 153
 R8
 r1
 !s85 0
@@ -54,3 +55,192 @@ R10
 R11
 !i113 1
 R12
+ncar@counter_tb
+vcarDetection
+R1
+Z13 !s110 1696574630
+!i10b 1
+!s100 i_Ugzn^QnPbn`0LfYj^WG0
+ISNnEL>@MCG=e;RjU]`@M23
+R3
+Z14 !s105 carDetection_sv_unit
+S1
+R0
+Z15 w1696570127
+Z16 8./carDetection.sv
+Z17 F./carDetection.sv
+L0 4
+R8
+r1
+!s85 0
+31
+Z18 !s108 1696574630.000000
+Z19 !s107 ./carDetection.sv|
+Z20 !s90 -reportprogress|300|./carDetection.sv|
+!i113 1
+R12
+ncar@detection
+vcarDetection_tb
+R1
+R13
+!i10b 1
+!s100 cH<X01Wfgc7I3a@W18jgf3
+IX5F2RC5k0bIk9ZYD5zO4L0
+R3
+R14
+S1
+R0
+R15
+R16
+R17
+L0 79
+R8
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R12
+ncar@detection_tb
+vcounter
+R1
+Z21 !s110 1696569445
+!i10b 1
+!s100 aQ=HlCM<cQ<YAfI6;81[70
+I6AKV:TWNhBzMJ2<2TNjJd3
+R3
+Z22 !s105 counter_sv_unit
+S1
+R0
+Z23 w1696563901
+Z24 8./counter.sv
+Z25 F./counter.sv
+L0 6
+R8
+r1
+!s85 0
+31
+Z26 !s108 1696569445.000000
+Z27 !s107 ./counter.sv|
+Z28 !s90 -reportprogress|300|./counter.sv|
+!i113 1
+R12
+vcounter_tb
+R1
+R21
+!i10b 1
+!s100 `6EA89mGL52^?Z>A0BLZL0
+I_H1fZ3Sc[NXG7aX<]L_Ga0
+R3
+R22
+S1
+R0
+R23
+R24
+R25
+L0 110
+R8
+r1
+!s85 0
+31
+R26
+R27
+R28
+!i113 1
+R12
+venter_exit_handler
+R1
+Z29 !s110 1696557950
+!i10b 1
+!s100 55DJ]OB895V>2Z=^ki3MB0
+IYY;[R9AW2BM6od71Cf^P^0
+R3
+Z30 !s105 enter_exit_handler_sv_unit
+S1
+R0
+Z31 w1696468368
+Z32 8./enter_exit_handler.sv
+Z33 F./enter_exit_handler.sv
+L0 1
+R8
+r1
+!s85 0
+31
+Z34 !s108 1696557950.000000
+Z35 !s107 ./enter_exit_handler.sv|
+Z36 !s90 -reportprogress|300|./enter_exit_handler.sv|
+!i113 1
+R12
+venter_exit_handler_tb
+R1
+R29
+!i10b 1
+!s100 ^Jf7bkd=0mFSo6Qg[Sg2Z0
+Ig8BNF1Y;4l_c1N`D?:j:71
+R3
+R30
+S1
+R0
+R31
+R32
+R33
+L0 93
+R8
+r1
+!s85 0
+31
+R34
+R35
+R36
+!i113 1
+R12
+vparkingLotOccupancy
+R1
+R13
+!i10b 1
+!s100 ?LGKQMQC=4I[ODWCX:9XB3
+Ih>aYXSPeAEdMhmd9jf?W[3
+R3
+Z37 !s105 parkingLotOccupancy_sv_unit
+S1
+R0
+Z38 w1696574627
+Z39 8./parkingLotOccupancy.sv
+Z40 F./parkingLotOccupancy.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R18
+Z41 !s107 ./parkingLotOccupancy.sv|
+Z42 !s90 -reportprogress|300|./parkingLotOccupancy.sv|
+!i113 1
+R12
+nparking@lot@occupancy
+vparkingLotOccupancy_tb
+R1
+R13
+!i10b 1
+!s100 zo`d4lNa^VNHfWDR5TY;]2
+IU4ZV4[F=>mzm_=CKo<6zg2
+R3
+R37
+S1
+R0
+R38
+R39
+R40
+L0 114
+R8
+r1
+!s85 0
+31
+R18
+R41
+R42
+!i113 1
+R12
+nparking@lot@occupancy_tb

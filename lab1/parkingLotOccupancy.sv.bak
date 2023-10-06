@@ -1,0 +1,127 @@
+module parkingLotOccupancy();
+	input  logic 		 clk, reset;
+	input  logic [1:0] Sensors;
+	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+			 logic 	  	 enter, exit;
+			 logic [4:0] count;
+	
+	carDetection outerInner (.clk, .reset, .sensor, .enter, .exit);
+	carCounter zeroSixteen (.clk, .reset, .incr(enter), .decr(exit)., .count);
+	
+	parameter HEXD0 = 7'b0000001;
+	parameter HEXD1 = 7'b1001111;
+	parameter HEXD2 = 7'b0010010;
+	parameter HEXD3 = 7'b0000110;
+	parameter HEXD4 = 7'b1001100;
+	parameter HEXD5 = 7'b0100100;
+	parameter HEXD6 = 7'b0100000;
+	parameter HEXD7 = 7'b0001111;
+	parameter HEXD8 = 7'b0000000;
+	parameter HEXD9 = 7'b0000100;
+	
+	always_comb begin
+		if (count == '0) begin // HEXs (5-1) = "CLEAR0"
+			HEX0 = HEXD0;
+			HEX1 = 7'b1001110;
+			HEX2 = 7'b0001110;
+			HEX3 = 7'b1111110;
+			HEX4 = 7'b1011011;
+			HEX5 = 7'b1001111;
+		end
+		
+		else if (count == 5'b10000) begin // HEXs (5-2) = "FULL"
+			HEX0 = '0;
+			HEX1 = '0;
+			HEX2 = 7'b1000111;
+			HEX3 = 7'b0111110;
+			HEX4 = 7'b0001110;
+			HEX5 = 7'b0001110;
+		end
+		
+		else begin
+			HEX3 = 0';
+			HEX4 = 0';
+			HEX5 = 0';
+			
+			if (count == 5'b00001) begin
+				HEX1 = 0';
+				HEX2 = HEXD1;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD2;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD3;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD4;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD5;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD6;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD7;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD8;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = 0';
+				HEX2 = HEXD9;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = HEXD1;
+				HEX2 = HEXD0;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = HEXD1;
+				HEX2 = HEXD1;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = HEXD1;
+				HEX2 = HEXD2;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = HEXD1;
+				HEX2 = HEXD3;
+			end
+			
+			else if (count == 5'b00010) begin
+				HEX1 = HEXD1;
+				HEX2 = HEXD4;
+			end
+			
+			else (count == 5'b00010) begin
+				HEX1 = HEXD1;
+				HEX2 = HEXD5;
+			end
+		end // else
+	end // always_comb
+endmodule // parkingLotOccupancy
+			
+			
+			
+			
+				

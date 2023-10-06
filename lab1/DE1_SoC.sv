@@ -1,84 +1,14 @@
 /* Top-level module for LandsLand hardware connections to implement the parking lot system.*/
 
-module DE1_SoC (CLOCK_50, SW, incr, decr);
+module DE1_SoC (CLOCK_50, SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR);
 
 	input  logic		 CLOCK_50;	// 50MHz clock
-	input  logic [1:0] SW;
-	output logic incr, decr;
+	input  logic [9:0] SW;
+	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;	// active low
+	output logic [9:0] LEDR;
+	inout  logic [35:0] V_GPIO;	// expansion header 0 (LabsLand board)
 	
-	logic [1:0] flags;
-	
-	/*
-		State progressions should be combinational logic
-		since we don't really care if the states change 
-		synchronously.
-		
-		But the exit and enter signals need to be high 
-		for one clock cycle when triggered
-	*/
-	always_latch 
-		begin
-			case (SW)
-				2'b00: flags = 2'b00;
-				2'b01: begin
-					if (flags == 2'b00) begin
-						flags = 2'b01;
-					end
-				end
-				2'b10: begin
-					if (flags == 2'b00) begin
-						flags = 2'b10;
-					end
-				end
-				2'b11: ;			
-			endcase
-		end
-		
-	always_ff @(posedge CLOCK_50) begin
-		if (flags == 2'b10 && SW[1:0] == 2'b11 && ~incr) begin
-			incr <= 1;
-		end
-		else if (flags == 2'b01 && SW[1:0] == 2'b11 && ~decr) begin
-			decr <= 1;
-		end
-		else begin
-			incr <= 0;
-			decr <= 0;
-		end
-	end
-	
-
-	
+	parkingLotOccupancy lab1 (.clk(CLOCK_50), .reset(GPIO_0[]), .sensors(GPIO_0[]), 
+										.HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
 
 endmodule  // DE1_SoC
-
-module DE1_SoC_tb();
-
-	// define signals
-	logic	CLOCK_50;
-	logic SW[1:0];
-	logic incr;
-	logic decr;
-	
-	// define parameters
-	parameter T = 20;
-	
-	// instantiate module
-	DE1_SoC dut (.CLOCK_50(CLOCK_50), .SW(SW), .incr(incr), .decr(decr));
-	
-	// define simulated clock
-	initial begin
-		CLOCK_50 <= 0;
-		forever	#(T/2)	CLOCK_50 <= ~CLOCK_50;
-	end  // initial clock
-	
-	initial begin
-		SW[1:0] <= 2'b00; #10;
-		SW[1:0] <= 2'b01; #10;
-		SW[1:0] <= 2'b11; #10;
-		SW[1:0] <= 2'b00; #10;
-		SW[1:0] <= 2'b10; #10;
-		SW[1:0] <= 2'b11; #10;
-	end
-	
-endmodule  // DE1_SoC_tb

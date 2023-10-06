@@ -1,4 +1,4 @@
-module enter_exit_handler(clk, reset, enter, exit, counterstate, HEX);
+module counter(clk, reset, incr, decr, carryIn, carroyOut, HEX);
 	input logic clk, reset, enter, exit;
 	input logic [4:0] counterstate;
 	output logic [6:0] HEX [1:0];

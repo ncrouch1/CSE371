@@ -13,8 +13,9 @@ vlib work
 # Compile Verilog
 #  - All Verilog files that are part of this design should have
 #    their own "vlog" line below.
-vlog "./enter_exit_handler.sv"
-
+vlog "./parkingLotOccupancy.sv"
+vlog "./carDetection.sv"
+vlog "./carCounter.sv"
 
 
 # Call vsim to invoke simulator
@@ -22,13 +23,13 @@ vlog "./enter_exit_handler.sv"
 #    the testbench module you want to execute.
 #  - If you need the altera_mf_ver library, add "-Lf altera_mf_lib"
 #    (no quotes) to the end of the vsim command
-vsim -voptargs="+acc" -t 1ps -lib work enter_exit_handler_tb
+vsim -voptargs="+acc" -t 1ps -lib work parkingLotOccupancy_tb
 
 
 # Source the wave do file
 #  - This should be the file that sets up the signal window for
 #    the module you are testing.
-do enter_exit_handler_wave.do
+do parkingLotOccupancy_wave.do
 
 
 # Set the window types
