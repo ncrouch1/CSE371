@@ -1,6 +1,6 @@
 // This module handles the signals for the hex displays based on the current counterstate
 // reset and clock signals
-module enter_exit_handler(clk, reset, counterstate, HEX0, HEX1);
+module enter_exit_handler(clk, reset, counterstate, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	input logic clk, reset;
 	input logic [4:0] counterstate;
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
@@ -169,13 +169,13 @@ module enter_exit_handler_tb();
 	// define signals
 	logic clk, reset;
 	logic [4:0] counterstate;
-	logic [6:0] HEX0, HEX1;
+	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
 	// define parameters
 	parameter T = 20;
 	
 	// instantiate module
-	enter_exit_handler dut (.clk(clk), .reset(reset), .counterstate(counterstate), .HEX0(HEX0), .HEX1(HEX1));
+	enter_exit_handler dut (.clk(clk), .reset(reset), .counterstate(counterstate), .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
 	
 	// define simulated clock
 	initial begin

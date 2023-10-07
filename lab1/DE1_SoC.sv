@@ -24,13 +24,27 @@ module DE1_SoC_tb();
 	logic	clk;
 	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	logic [9:0] LEDR;
-	logic [35:0] V_GPIO
+	wire [35:0] V_GPIO;
+	logic [35:0] V_GPIO_in, V_GPIO_dir;
+
+	initial begin
+		V_GPIO_dir[6] = 1'b1;
+		V_GPIO_dir[5] = 1'b1;
+		V_GPIO_dir[0] = 1'b1;
+	end
+	
+	genvar i;
+	generate
+		for (i = 0; i < 36; i++) begin : gpio
+			assign V_GPIO[i] = V_GPIO_dir[i] ? V_GPIO_in[i] : 1'bZ;
+		end
+	endgenerate
 	
 	// define parameters
 	parameter T = 20;
 	
 	// instantiate module
-	DE1_SoC dut (.clk, .HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .LEDR, .V_GPIO);
+	DE1_SoC dut (.CLOCK_50(clk), .HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .LEDR, .V_GPIO);
 	
 	// define simulated clock
 	initial begin
@@ -39,19 +53,20 @@ module DE1_SoC_tb();
 	end  // initial clock
 	
 	initial begin
-		SW[9] <= 1; reset <= 1; 	@(posedge clk);
-		SW[9] <= 0; reset <= 0;	@(posedge clk);
+		V_GPIO_in[0] <= 1; @(posedge clk);
+		@(posedge clk); repeat(5);
+		V_GPIO_in[0] <= 0; @(posedge clk);
 		for (int i = 0; i < 20; i++) begin
-			SW[1:0] 	<=  2'b10; @(posedge clk);
-			SW[1:0] 	<=  2'b11; @(posedge clk);
-			SW[1:0] 	<=  2'b01; @(posedge clk);
-			SW[1:0]  <=  2'b00; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b10; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b11; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b01; @(posedge clk);
+			V_GPIO_in[6:5]  <=  2'b00; @(posedge clk);
 		end
 		for (int i = 0; i < 20; i++) begin
-			SW[1:0] 	<=  2'b01; @(posedge clk);
-			SW[1:0] 	<=  2'b11; @(posedge clk);
-			SW[1:0] 	<=  2'b10; @(posedge clk);
-			SW[1:0] 	<=  2'b00; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b01; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b11; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b10; @(posedge clk);
+			V_GPIO_in[6:5] 	<=  2'b00; @(posedge clk);
 		end
 
 		$stop;
