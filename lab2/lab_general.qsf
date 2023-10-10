@@ -43,9 +43,14 @@ set_global_assignment -name TOP_LEVEL_ENTITY lab_general
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:03:16  OCTOBER 10, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
-set_global_assignment -name SYSTEMVERILOG_FILE seg7.sv
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name SYSTEMVERILOG_FILE DE1_SoC.sv
+set_global_assignment -name VERILOG_FILE ram32x3_bb.v
+set_global_assignment -name VERILOG_FILE ram32x3port2_bb.v
+set_global_assignment -name SYSTEMVERILOG_FILE seg7.sv
 set_global_assignment -name QIP_FILE ram32x3.qip
+set_global_assignment -name SYSTEMVERILOG_FILE task1.sv
+set_global_assignment -name QIP_FILE ram32x3port2.qip
