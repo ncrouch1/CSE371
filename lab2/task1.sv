@@ -26,6 +26,7 @@ module task1_tb();
 		addr <= 0; wren <= 0; @(posedge clock);
 		addr <= 0; wren <= 1; datain <= 3'b111; @(posedge clock);
 		addr <= 1; wren <= 0; @(posedge clock);
+		$stop;
 	end
 	
 endmodule

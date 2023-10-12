@@ -51,3 +51,7 @@ module DE1_SoC(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
     seg7 hex0 (.hex(dataout), .leds(HEX0));
 
 endmodule
+
+module DE1_SoC_tb();
+
+endmodule
