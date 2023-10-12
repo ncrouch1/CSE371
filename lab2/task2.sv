@@ -24,7 +24,7 @@ module task2_tb();
 	logic clock, wren;
 
 	parameter T = 20;
-	task2 dut (.address(addr), .enable(1), .clock(clock), .datain(datain), .wren(wren), .dataout(dataout));
+	task2 dut (.address(addr), .enable(1'b1), .clock(clock), .datain(datain), .wren(wren), .dataout(dataout));
 
 	initial begin
 		clock <= 0;
@@ -32,14 +32,15 @@ module task2_tb();
 	end
 
 	initial begin
-		addr <= 0; wren <= 0; @(posedge clock);
-		for (int i = 0; i < 32; i++) begin
-			addr++;	@(posedge clock);
-		end
 		addr <= 0; wren <= 1; datain <= 3'b111; @(posedge clock);
 		for (int i = 0; i < 32; i++) begin
 			addr++; @(posedge clock);
 		end
+		addr <= 0; wren <= 0; @(posedge clock);
+		for (int i = 0; i < 32; i++) begin
+			addr++;	@(posedge clock);
+		end
+		$stop;
 	end
 
 endmodule

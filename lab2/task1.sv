@@ -8,6 +8,7 @@ module task1(address, clock, datain, wren, dataout);
 	
 endmodule 
 
+`timescale 1 ps / 1 ps
 module task1_tb();
 	logic [4:0] addr;
 	logic [2:0] datain, dataout;

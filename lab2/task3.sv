@@ -20,6 +20,7 @@ module task3(clock, enable, reset, datain, rdaddress, wraddress, wren, dataout);
     end
 endmodule
 
+`timescale 1 ps / 1 ps
 module task3_tb();
     logic clock, wren, reset;
     logic [4:0] rdaddress, wraddress;
