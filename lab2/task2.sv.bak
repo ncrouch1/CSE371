@@ -1,6 +1,6 @@
-module task2 (address, enable, clock, datain, wren, dataout);
+module task2 (address, clock, datain, wren, dataout);
 	input logic [4:0] address;
-	input logic wren, clock, enable;
+	input logic wren, clock;
 	input logic [2:0] datain;
 	output logic [2:0] dataout;
 
@@ -8,11 +8,11 @@ module task2 (address, enable, clock, datain, wren, dataout);
 
 
     always_ff @(posedge clock) begin 
-        if (wren & enable) begin
+        if (wren) begin
             RAM[address] <= datain;
             dataout <= datain;
         end
-        else if (enable)
+        else 
             dataout <= RAM[address];
     end
 
@@ -24,7 +24,7 @@ module task2_tb();
 	logic clock, wren;
 
 	parameter T = 20;
-	task2 dut (.address(addr), .enable(1), .clock(clock), .datain(datain), .wren(wren), .dataout(dataout));
+	task2 dut (.address(addr), .clock(clock), .datain(datain), .wren(wren), .dataout(dataout));
 
 	initial begin
 		clock <= 0;

@@ -1,4 +1,4 @@
-module DE1_SoC(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
+module DE1_SoC(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO)
     output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;	// active low
 	output logic [9:0] LEDR;
 	inout  logic [35:0] V_GPIO;	// expansion header 0 (LabsLand board)
@@ -13,10 +13,10 @@ module DE1_SoC(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
     assign KEY3 = V_GPIO[3];
     assign LEDR[9:0] = 0;
     
-    logic wrtensplace = SW[8:4] / 10;
-    logic wronesplace = SW[8:4] % 10;
-    logic rdtensplace = counter / 10;
-    logic rdonesplace = counter % 10;
+    parameter wrtensplace = SW[8:4] / 10;
+    parameter wronesplace = SW[8:4] % 10;
+    parameter rdtensplace = counter / 10;
+    parameter rdonesplace = counter % 10;
 
     always_comb begin
         case(SW[9]) 
@@ -36,12 +36,15 @@ module DE1_SoC(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
         end
         else begin
             counter++;
-        end
+        end;
     end
     
-    task3 ram2 (.clock(~KEY0), .enable(SW[9]), .reset(~KEY3), .datain(SW[3:1]), .rdaddress(counter), .wraddress(SW[8:4]), .wren(SW[0]), .dataout(HEX0));
-    
-    task2 ram1 (.address(SW[8:4]), .enable(~SW[9]), .clock(KEY0), .datain(SW[3:1]), .wren(SW[0]), .dataout(HEX0));
+    if (SW[9]) begin 
+        task3 ram2 (.clock(~KEY0), .reset(~KEY3), .datain(SW[3:1]), .rdaddress(counter), .wraddress(SW[8:4]), .wren(SW[0]), .dataout(HEX0))
+    end
+    else begin
+        task2 ram1 (.address(SW[8:4]), .clock(KEY0), .datain(SW[3:1]), .wren(SW[0]), .dataout(HEX0))
+    end
 
     seg7 hex5 (.hex(wrtensplace), .leds(HEX5));
     seg7 hex4 (.hex(wronesplace), .leds(HEX4));
