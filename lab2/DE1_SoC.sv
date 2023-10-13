@@ -5,10 +5,10 @@ module DE1_SoC(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
 	logic [4:0] counter;
 	logic [6:0] HEX2valid, HEX3valid;
 	logic [2:0] read, read1, read2;
-	logic wrtensplace;
-	logic wronesplace;
-	logic rdtensplace;
-	logic rdonesplace;
+	int wrtensplace;
+	int wronesplace;
+	int rdtensplace;
+	int rdonesplace;
 	
 	// turn of all LEDs
 	assign LEDR[9:0] = 0;
@@ -77,7 +77,7 @@ module DE1_SoC_tb();
 		V_GPIO_dir[8]  = 1'b1; // SW[3] - write data
 		V_GPIO_dir[7]  = 1'b1; // SW[2] - write data
 		V_GPIO_dir[6]  = 1'b1; // SW[1] - write data
-		V_GPIO-dir[5]  = 1'b1; // SW[0] - write enable
+		V_GPIO_dir[5]  = 1'b1; // SW[0] - write enable
 		V_GPIO_dir[3]  = 1'b1; // KEY3  - reset
 		V_GPIO_dir[0]  = 1'b1; // KEY0  - clock
 	end
@@ -102,30 +102,29 @@ module DE1_SoC_tb();
 	end  // initial clock
 	
 	initial begin
-																																									@(posedge V_GPIO_in[0]);
-		V_GPIO_in[3] <= 1;																																	@(posedge V_GPIO_in[0]);	// reset
-		
+		@(posedge V_GPIO_in[0]);
+		V_GPIO_in[3] <= 1;	@(posedge V_GPIO_in[0]);	// reset
 		// enable ram1 and test
-		V_GPIO_in[3] <= 1'b0; V_GPIO_in[14] <= 1'b0; 																								@(posedge V_GPIO_in[0]);	// ram1 enable
-														V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1'b1;  V_GPIO_in[8:6] <= 3'b000; 	@(posedge V_GPIO_in[0]);	// write 111 on ram1[0]
+		V_GPIO_in[3] <= 1'b0; V_GPIO_in[14] <= 1'b0;  @(posedge V_GPIO_in[0]);	// ram1 enable
+		V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1'b1;  V_GPIO_in[8:6] <= 3'b000; 	@(posedge V_GPIO_in[0]);	// write 111 on ram1[0]
 		for (int i = 0; i < 32; i++) begin  
-														V_GPIO_in[13:9]++; 											  V_GPIO_in[8:6]++;				@(posedge V_GPIO_in[0]);	// iterate through ram1
+			V_GPIO_in[13:9]++; 	V_GPIO_in[8:6]++;  @(posedge V_GPIO_in[0]);	// iterate through ram1
 		end
-														V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1'b0; 										@(posedge V_GPIO_in[0]);	// read ram1[0]
+		V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1'b0;  @(posedge V_GPIO_in[0]);	// read ram1[0]
 		for (int i = 0; i < 32; i++) begin
-														V_GPIO_in[13:9]++;																					@(posedge V_GPIO_in[0]);	// iterate through ram1
+			V_GPIO_in[13:9]++;  @(posedge V_GPIO_in[0]);	// iterate through ram1
 		end
 		
 		// enable ram2 and test
-		V_GPIO_in[3] <= 1'b1; V_GPIO_in[14] <= 1'b1; 																								@(posedge V_GPIO_in[0]);	// reset & ram2 enable
-		V_GPIO_in[3] <= 1'b0;					V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1'b0;  V_GPIO_in[8:6] <= 3'b000;	@(posedge V_GPIO_in[0]);	// read ram2[0]	
+		V_GPIO_in[3] <= 1'b1; V_GPIO_in[14] <= 1'b1; @(posedge V_GPIO_in[0]);	// reset & ram2 enable
+		V_GPIO_in[3] <= 1'b0; V_GPIO_in[13:9] <= 5'b00000; V_GPIO_in[5] <= 1'b0; V_GPIO_in[8:6] <= 3'b000;  @(posedge V_GPIO_in[0]);	// read ram2[0]	
 		for (int i = 0; i < 32; i++) begin
-																																									@(posedge V_GPIO_in[0]);	// iterate through ram2
+			V_GPIO_in[13:9]++; @(posedge V_GPIO_in[0]);	// iterate through ram2
 		end
-		V_GPIO_in[3] <= 1'b1; 																	  															@(posedge V_GPIO_in[0]);	// reset
-		V_GPIO_in[3] <= 1'b0;													  		V_GPIO_in[5] <= 1'b1;  V_GPIO_in[8:6] <= 3'b000; 	@(posedge V_GPIO_in[0]);	// write 111 on ram2[0]
+		V_GPIO_in[3] <= 1'b1;  @(posedge V_GPIO_in[0]);	// reset
+		V_GPIO_in[3] <= 1'b0;  V_GPIO_in[5] <= 1'b1;  V_GPIO_in[8:6] <= 3'b000; @(posedge V_GPIO_in[0]);	// write 111 on ram2[0]
 		for (int i = 0; i < 32; i++) begin
-														V_GPIO_in[13:9]++; 											  V_GPIO_in[8:6]++;				@(posedge V_GPIO_in[0]);	// iterate through ram2
+			V_GPIO_in[13:9]++;  V_GPIO_in[8:6]++;  @(posedge V_GPIO_in[0]);	// iterate through ram2
 		end
 		$stop;
 	end
