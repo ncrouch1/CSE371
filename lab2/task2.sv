@@ -19,7 +19,7 @@ module task2 (address, enable, clock, datain, wren, dataout);
 endmodule
 
 module task2_tb();
-    logic [4:0] addr;
+   logic [4:0] addr;
 	logic [2:0] datain, dataout;
 	logic clock, wren;
 

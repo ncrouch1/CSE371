@@ -1,0 +1,209 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Daddy/Documents/CSE371/lab2/simulation/modelsim
+vDE1_SoC
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1697190033
+!i10b 1
+!s100 dVJjzJ4j[VZ`gPbU[]7Jf2
+IC`l^TZWl8C_YAD8i[GACU1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 DE1_SoC_sv_unit
+S1
+R0
+Z5 w1697188569
+Z6 8C:/Users/Daddy/Documents/CSE371/lab2/DE1_SoC.sv
+Z7 FC:/Users/Daddy/Documents/CSE371/lab2/DE1_SoC.sv
+L0 1
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1697190033.000000
+Z10 !s107 C:/Users/Daddy/Documents/CSE371/lab2/DE1_SoC.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Daddy/Documents/CSE371/lab2|C:/Users/Daddy/Documents/CSE371/lab2/DE1_SoC.sv|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+C:/Users/Daddy/Documents/CSE371/lab2
+Z14 tCvgOpt 0
+n@d@e1_@so@c
+vDE1_SoC_tb
+R1
+R2
+!i10b 1
+!s100 ?:jW8bdNahYYjRPi9`PTz1
+IKRE2^k4V6YeFUOVKBzQ5j2
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 63
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+n@d@e1_@so@c_tb
+vram32x3port2
+R2
+!i10b 1
+!s100 @8Y7jL2J4PIOhW3<YAzDn1
+I3WJWNiaU47Y22;[jH58TR0
+R3
+R0
+Z15 w1697136880
+8C:/Users/Daddy/Documents/CSE371/lab2/ram32x3port2.v
+FC:/Users/Daddy/Documents/CSE371/lab2/ram32x3port2.v
+L0 40
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/Daddy/Documents/CSE371/lab2/ram32x3port2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Daddy/Documents/CSE371/lab2|C:/Users/Daddy/Documents/CSE371/lab2/ram32x3port2.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/Daddy/Documents/CSE371/lab2
+R14
+vseg7
+R1
+R2
+!i10b 1
+!s100 jj9HOZ_?ONU=EkYa?Y1[J2
+I`NhajoV<R3^Ldz[6K_PRe3
+R3
+!s105 seg7_sv_unit
+S1
+R0
+R15
+8C:/Users/Daddy/Documents/CSE371/lab2/seg7.sv
+FC:/Users/Daddy/Documents/CSE371/lab2/seg7.sv
+L0 10
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/Daddy/Documents/CSE371/lab2/seg7.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Daddy/Documents/CSE371/lab2|C:/Users/Daddy/Documents/CSE371/lab2/seg7.sv|
+!i113 1
+R12
+R13
+R14
+vtask2
+R1
+Z16 !s110 1697190034
+!i10b 1
+!s100 d37?KX_53@=F;_W_6YDka3
+Id=:BODRKR4gEho7^gP@0I3
+R3
+Z17 !s105 task2_sv_unit
+S1
+R0
+Z18 w1697175024
+Z19 8C:/Users/Daddy/Documents/CSE371/lab2/task2.sv
+Z20 FC:/Users/Daddy/Documents/CSE371/lab2/task2.sv
+L0 1
+R8
+r1
+!s85 0
+31
+Z21 !s108 1697190034.000000
+Z22 !s107 C:/Users/Daddy/Documents/CSE371/lab2/task2.sv|
+Z23 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Daddy/Documents/CSE371/lab2|C:/Users/Daddy/Documents/CSE371/lab2/task2.sv|
+!i113 1
+R12
+R13
+R14
+vtask2_tb
+R1
+R16
+!i10b 1
+!s100 `^ZcCXbnhPlnUd:;knnZM1
+IeZg7_@UkO[Oi>[UglAOLa2
+R3
+R17
+S1
+R0
+R18
+R19
+R20
+L0 21
+R8
+r1
+!s85 0
+31
+R21
+R22
+R23
+!i113 1
+R12
+R13
+R14
+vtask3
+R1
+R16
+!i10b 1
+!s100 UeT5=P<GhV7DoXf:kAzE[3
+IT]B65?4fVk[S745g80Ye?1
+R3
+Z24 !s105 task3_sv_unit
+S1
+R0
+Z25 w1697173700
+Z26 8C:/Users/Daddy/Documents/CSE371/lab2/task3.sv
+Z27 FC:/Users/Daddy/Documents/CSE371/lab2/task3.sv
+L0 1
+R8
+r1
+!s85 0
+31
+R21
+Z28 !s107 C:/Users/Daddy/Documents/CSE371/lab2/task3.sv|
+Z29 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/Daddy/Documents/CSE371/lab2|C:/Users/Daddy/Documents/CSE371/lab2/task3.sv|
+!i113 1
+R12
+R13
+R14
+vtask3_tb
+R1
+R16
+!i10b 1
+!s100 :H6Sl4NhR=OmRd`>A^IWc3
+I_od_G>bel8VQdz]ch;SVV0
+R3
+R24
+S1
+R0
+R25
+R26
+R27
+L0 24
+R8
+r1
+!s85 0
+31
+R21
+R28
+R29
+!i113 1
+R12
+R13
+R14

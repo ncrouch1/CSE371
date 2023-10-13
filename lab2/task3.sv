@@ -45,5 +45,6 @@ module task3_tb();
         for (int i = 0; i < 32; i++) begin
             rdaddress++; wraddress++; @(posedge clock);
         end
+		  $stop;
     end
 endmodule

@@ -1,0 +1,60 @@
+# Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+ls
+# 371_lab2.pdf                           
+# DE1_SoC.sv                             
+# DE1_SoC.sv.bak                         
+# Launch_ModelSim.bat                    
+# c5_pin_model_dump.txt                  
+# lab_general.asm.rpt                    
+# lab_general.done                       
+# lab_general.eda.rpt                    
+# lab_general.fit.rpt                    
+# lab_general.fit.smsg                   
+# lab_general.fit.summary                
+# lab_general.flow.rpt                   
+# lab_general.jdi                        
+# lab_general.map.rpt                    
+# lab_general.map.smsg                   
+# lab_general.map.summary                
+# lab_general.pin                        
+# lab_general.qpf                        
+# lab_general.qsf                        
+# lab_general.sld                        
+# lab_general.sof                        
+# lab_general.sta.rpt                    
+# lab_general.sta.summary                
+# lab_general_nativelink_simulation.rpt  
+# ram32x3.mif                            
+# ram32x3.qip                            
+# ram32x3.v                              
+# ram32x3_bb.v                           
+# ram32x3_bb.v.bak                       
+# ram32x3port2.qip                       
+# ram32x3port2.v                         
+# ram32x3port2_bb.v                      
+# ram32x3port2_bb.v.bak                  
+# runlab.do                              
+# seg7.sv                                
+# task1.sv                               
+# task1.sv.bak                           
+# task2.sv                               
+# task2.sv.bak                           
+# task3.sv                               
+# task3.sv.bak                           
+# transcript                             
+# 
+# db:
+# 
+# greybox_tmp:
+# cbx_args.txt  greybox_tmp                                                                              
+# 
+# incremental_db:
+# README  compiled_partitions                                                                              
+# 
+# simulation:
+# modelsim                                                                                                                                                                
+# 
+# work:
+# _info  _lib.qdb  _lib1_0.qdb  _lib1_0.qpg  _lib1_0.qtl  _vmake                
+task2.sv
+# couldn't execute ".\task2.sv": no such file or directory
