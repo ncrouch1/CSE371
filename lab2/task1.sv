@@ -1,32 +1,44 @@
+// module that calls quartus generated 32x3 RAM submodule.
+// inputs: 	clock - 1-bit
+// 			address - 5-bit, used to specify location on RAM for reading or writing
+// 			wren - 1-bit, enables writing onto the RAM
+// 			datain - 3-bit, data to be written to RAM
+// outputs: dataout - 3-bit, data read from the RAM
 module task1(address, clock, datain, wren, dataout);
 	input logic [4:0] address;
 	input logic wren, clock;
 	input logic [2:0] datain;
 	output logic [2:0] dataout;
 
+	// 32x3 ram submodule
 	ram32x3 ram (.address(address), .clock(clock), .data(datain), .wren(wren), .q(dataout));
 	
-endmodule 
+endmodule // task1
 
 `timescale 1 ps / 1 ps
+
 module task1_tb();
+	// define signals
 	logic [4:0] addr;
 	logic [2:0] datain, dataout;
 	logic clock, wren;
 
+	// define parameters
 	parameter T = 20;
+	
+	// instantiate module
 	task1 dut (addr, clock, datain, wren, dataout);
 
+	// define simulated clock
 	initial begin
 		clock <= 0;
 		forever #(T/2) clock <= ~clock;
 	end
 
 	initial begin
-		addr <= 0; wren <= 0; @(posedge clock);
-		addr <= 0; wren <= 1; datain <= 3'b111; @(posedge clock);
-		addr <= 1; wren <= 0; @(posedge clock);
+		addr <= 0; wren <= 0; @(posedge clock); // read addr[0]
+		addr <= 0; wren <= 1; datain <= 3'b111; @(posedge clock); // write 111 at adr[0]
+		addr <= 1; wren <= 0; @(posedge clock); // read addr[1]
 		$stop;
 	end
-	
-endmodule
+endmodule // task1_tb
