@@ -30,7 +30,7 @@ module DE1_SoC(CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
 	clock_divider cd (.clock(CLOCK_50), .reset(~V_GPIO[3]), .divided_clocks(div_clock));
 
 	// read address counter w/delay to synch wth ram2 
-   always_ff @(posedge CLOCK_50) begin
+   always_ff @(posedge div_clock[24]) begin
 		if (~V_GPIO[3] | ~V_GPIO[14]) begin
 			num <= 0;
 			buff1 <= 0;
