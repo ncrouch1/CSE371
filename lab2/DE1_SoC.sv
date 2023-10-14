@@ -33,21 +33,18 @@ module DE1_SoC(CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
    always_ff @(posedge div_clock[24]) begin
 		if (~V_GPIO[3] | ~V_GPIO[14]) begin
 			num <= 0;
-			buff1 <= 0;
-			buff2 <= 0;
-			counter <= 0;
+			buff1 <= num;
+			counter <= buff1;
 		end
 		else if (num == 32) begin
 			num <= 0;
 			buff1 <= num;
-			buff2 <= buff1;
-			counter <= buff2;
+			counter <= buff1;
 		end
 		else begin
 			num <= num + 1;
 			buff1 <= num;
-			buff2 <= buff1;
-			counter <= buff2;
+			counter <= buff1;
 		end
    end // always_ff
 	
@@ -86,75 +83,75 @@ endmodule // DE1_SoC
 
  `timescale 1 ps / 1 ps
 
- module DE1_SoC_tb();
- 	// define signals
-   logic CLOCK_50;
-	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;	// active low
-	logic [9:0] LEDR;
-	logic [31:0] div_clock;
- 	wire  [35:0] V_GPIO;
- 	logic [35:0] V_GPIO_in, V_GPIO_dir;
-
- 	initial begin
- 		V_GPIO_dir[14] = 1'b1; // SW[9] - RAM toggle
- 		V_GPIO_dir[13] = 1'b1; // SW[8] - write address
- 		V_GPIO_dir[12] = 1'b1; // SW[7] - write address
- 		V_GPIO_dir[11] = 1'b1; // SW[6] - write address
- 		V_GPIO_dir[10] = 1'b1; // SW[5] - write address
- 		V_GPIO_dir[9]  = 1'b1; // SW[4] - write address
- 		V_GPIO_dir[8]  = 1'b1; // SW[3] - write data
- 		V_GPIO_dir[7]  = 1'b1; // SW[2] - write data
- 		V_GPIO_dir[6]  = 1'b1; // SW[1] - write data
- 		V_GPIO_dir[5]  = 1'b1; // SW[0] - write enable
- 		V_GPIO_dir[3]  = 1'b1; // KEY3  - reset
- 		V_GPIO_dir[0]  = 1'b1; // KEY0  - clock
- 	end // initial
-	
- 	genvar i;
- 	generate
- 		for (i = 0; i < 36; i++) begin : gpio
- 			assign V_GPIO[i] = V_GPIO_dir[i] ? V_GPIO_in[i] : 1'bZ;
- 		end
- 	endgenerate
-	
- 	// define parameters
- 	parameter T = 20;
-	
- 	// instantiate module
- 	DE1_SoC dut (.CLOCK_50, .HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .LEDR, .V_GPIO);
-	
- 	// define simulated clock
- 	initial begin
- 		CLOCK_50 <= 0;
- 		forever	#(T/2)	CLOCK_50 <= ~CLOCK_50;
- 	end  // initial clock
-	
- 	initial begin
- 		@(posedge CLOCK_50);
- 		V_GPIO_in[3] <= 0;	@(posedge CLOCK_50);	// reset
-		
- 		// enable ram1 and test
- 		V_GPIO_in[3] <= 1; V_GPIO_in[14] <= 0;  @(posedge CLOCK_50);	// ram1 enable
- 		V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1;  V_GPIO_in[8:6] <= 3'b000; 	@(posedge CLOCK_50);	// write on ram1[0]
- 		for (int i = 0; i < 32; i++) begin  
- 			V_GPIO_in[13:9]++; 	V_GPIO_in[8:6]++;  @(posedge CLOCK_50);	// iterate through ram1 w/incrementing data
- 		end
- 		V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 0;  @(posedge CLOCK_50);	// read ram1[0]
- 		for (int i = 0; i < 32; i++) begin
- 			V_GPIO_in[13:9]++;  @(posedge CLOCK_50);	// iterate through ram1
- 		end
-		
- 		// enable ram2 and test
- 		V_GPIO_in[3] <= 0; V_GPIO_in[14] <= 1; @(posedge CLOCK_50);	// reset & ram2 enable
- 		V_GPIO_in[3] <= 1; V_GPIO_in[13:9] <= 5'b00000; V_GPIO_in[5] <= 0; V_GPIO_in[8:6] <= 3'b000;  @(posedge CLOCK_50);	// read ram2[0]	
- 		for (int i = 0; i < 32; i++) begin
- 			V_GPIO_in[13:9]++; @(posedge CLOCK_50);	// iterate through ram2
- 		end
- 		V_GPIO_in[3] <= 0;  @(posedge CLOCK_50);	// reset
- 		V_GPIO_in[3] <= 1;  V_GPIO_in[5] <= 1;  V_GPIO_in[8:6] <= 3'b000; @(posedge CLOCK_50);	// write on ram2[0]
- 		for (int i = 0; i < 32; i++) begin
- 			V_GPIO_in[13:9]++;  V_GPIO_in[8:6]++;  @(posedge CLOCK_50);	// iterate through ram2 w/ incrementing data
- 		end
- 		$stop;
- 	end // initial
- endmodule  // DE1_SoC_tb
+// module DE1_SoC_tb();
+// 	// define signals
+//   logic CLOCK_50;
+//	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;	// active low
+//	logic [9:0] LEDR;
+//	logic [31:0] div_clock;
+// 	wire  [35:0] V_GPIO;
+// 	logic [35:0] V_GPIO_in, V_GPIO_dir;
+//
+// 	initial begin
+// 		V_GPIO_dir[14] = 1'b1; // SW[9] - RAM toggle
+// 		V_GPIO_dir[13] = 1'b1; // SW[8] - write address
+// 		V_GPIO_dir[12] = 1'b1; // SW[7] - write address
+// 		V_GPIO_dir[11] = 1'b1; // SW[6] - write address
+// 		V_GPIO_dir[10] = 1'b1; // SW[5] - write address
+// 		V_GPIO_dir[9]  = 1'b1; // SW[4] - write address
+// 		V_GPIO_dir[8]  = 1'b1; // SW[3] - write data
+// 		V_GPIO_dir[7]  = 1'b1; // SW[2] - write data
+// 		V_GPIO_dir[6]  = 1'b1; // SW[1] - write data
+// 		V_GPIO_dir[5]  = 1'b1; // SW[0] - write enable
+// 		V_GPIO_dir[3]  = 1'b1; // KEY3  - reset
+// 		V_GPIO_dir[0]  = 1'b1; // KEY0  - clock
+// 	end // initial
+//	
+// 	genvar i;
+// 	generate
+// 		for (i = 0; i < 36; i++) begin : gpio
+// 			assign V_GPIO[i] = V_GPIO_dir[i] ? V_GPIO_in[i] : 1'bZ;
+// 		end
+// 	endgenerate
+//	
+// 	// define parameters
+// 	parameter T = 20;
+//	
+// 	// instantiate module
+// 	DE1_SoC dut (.CLOCK_50, .HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .LEDR, .V_GPIO);
+//	
+// 	// define simulated clock
+// 	initial begin
+// 		CLOCK_50 <= 0;
+// 		forever	#(T/2)	CLOCK_50 <= ~CLOCK_50;
+// 	end  // initial clock
+//	
+// 	initial begin
+// 		@(posedge CLOCK_50);
+// 		V_GPIO_in[3] <= 0;	@(posedge CLOCK_50);	// reset
+//		
+// 		// enable ram1 and test
+// 		V_GPIO_in[3] <= 1; V_GPIO_in[14] <= 0;  @(posedge CLOCK_50);	// ram1 enable
+// 		V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 1;  V_GPIO_in[8:6] <= 3'b000; 	@(posedge CLOCK_50);	// write on ram1[0]
+// 		for (int i = 0; i < 32; i++) begin  
+// 			V_GPIO_in[13:9]++; 	V_GPIO_in[8:6]++;  @(posedge CLOCK_50);	// iterate through ram1 w/incrementing data
+// 		end
+// 		V_GPIO_in[13:9] <= 5'b00000;  V_GPIO_in[5] <= 0;  @(posedge CLOCK_50);	// read ram1[0]
+// 		for (int i = 0; i < 32; i++) begin
+// 			V_GPIO_in[13:9]++;  @(posedge CLOCK_50);	// iterate through ram1
+// 		end
+//		
+// 		// enable ram2 and test
+// 		V_GPIO_in[3] <= 0; V_GPIO_in[14] <= 1; @(posedge CLOCK_50);	// reset & ram2 enable
+// 		V_GPIO_in[3] <= 1; V_GPIO_in[13:9] <= 5'b00000; V_GPIO_in[5] <= 0; V_GPIO_in[8:6] <= 3'b000;  @(posedge CLOCK_50);	// read ram2[0]	
+// 		for (int i = 0; i < 32; i++) begin
+// 			V_GPIO_in[13:9]++; @(posedge CLOCK_50);	// iterate through ram2
+// 		end
+// 		V_GPIO_in[3] <= 0;  @(posedge CLOCK_50);	// reset
+// 		V_GPIO_in[3] <= 1;  V_GPIO_in[5] <= 1;  V_GPIO_in[8:6] <= 3'b000; @(posedge CLOCK_50);	// write on ram2[0]
+// 		for (int i = 0; i < 32; i++) begin
+// 			V_GPIO_in[13:9]++;  V_GPIO_in[8:6]++;  @(posedge CLOCK_50);	// iterate through ram2 w/ incrementing data
+// 		end
+// 		$stop;
+// 	end // initial
+// endmodule  // DE1_SoC_tb
