@@ -23,7 +23,8 @@ module task3(clock, enable, reset, datain, rdaddress, wraddress, wren, dataout);
 		end
 	end
 			
-	 // 32x3 ram submodule
+	 // 32x3 ram submodule, inputs - clock, datein, rdaddress, wraddress, wren
+     // output - q (3-bit word)
     ram32x3port2 ram(.clock(clock), .data(datain), .rdaddress(rdaddress), .wraddress(wraddress), .wren(enwren), .q(dataout));
 
 endmodule // task3
@@ -48,17 +49,22 @@ module task3_tb();
         forever #(T/2) clock <= ~clock;
     end
 
+    /*
+    Test Procedure:
+    - Increment both addresses while reading
+    - Increment both addresses with incrementing data
+    */
     initial begin
         rdaddress <= 0; wraddress <= 0; wren <= 0; datain <= 0; reset <= 1; @(posedge clock); // reset
         reset <= 0; @(posedge clock);
         for (int i = 0; i < 32; i++) begin 
-            rdaddress++; @(posedge clock); // increment both address while reading
+            rdaddress++; @(posedge clock); 
         end
 		  
         rdaddress <= 0; @(posedge clock);
-        wren <= 1; datain <= 3'b111; @(posedge clock); 
+        wren <= 1; datain <= 3'b000; @(posedge clock); 
         for (int i = 0; i < 32; i++) begin
-            rdaddress++; wraddress++; @(posedge clock); // increment both addresses while writing 111
+            rdaddress++; wraddress++; datain++; @(posedge clock); 
         end
 		  $stop;
     end // initial

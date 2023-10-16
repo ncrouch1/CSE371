@@ -43,13 +43,19 @@ module task2_tb();
 		forever #(T/2) clock <= ~clock;
 	end
 
+	/*
+	Test Procedure:
+	- Iterate through RAM with incrementing data
+	- Read from addr[0]
+	- Iterate through RAM and read
+	*/
 	initial begin
-		addr <= 0; wren <= 1; datain <= 3'b111; @(posedge clock); // write 111 at addr[0]
-		for (int i = 0; i < 32; i++) begin	// iterate through RAM and write 111
-			addr++; @(posedge clock);
+		addr <= 0; wren <= 1; datain <= 3'b000; @(posedge clock);
+		for (int i = 0; i < 32; i++) begin	
+			addr++; datain++; @(posedge clock);
 		end
-		addr <= 0; wren <= 0; @(posedge clock); // read addr[0]
-		for (int i = 0; i < 32; i++) begin // iterate through RAM and read
+		addr <= 0; wren <= 0; @(posedge clock); 
+		for (int i = 0; i < 32; i++) begin 
 			addr++;	@(posedge clock);
 		end
 		$stop;

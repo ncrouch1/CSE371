@@ -10,7 +10,8 @@ module task1(address, clock, datain, wren, dataout);
 	input logic [2:0] datain;
 	output logic [2:0] dataout;
 
-	// 32x3 ram submodule
+	// 32x3 ram submodule, inputs - address, clock, data, wren
+	// output- q
 	ram32x3 ram (.address(address), .clock(clock), .data(datain), .wren(wren), .q(dataout));
 	
 endmodule // task1
@@ -35,10 +36,21 @@ module task1_tb();
 		forever #(T/2) clock <= ~clock;
 	end
 
+	/*
+	Test Procedure:
+	- Iterate through RAM and write with incrementing data
+	- Read from addr[0]
+	- Iterate through RAM and read
+	*/
 	initial begin
-		addr <= 0; wren <= 0; @(posedge clock); // read addr[0]
-		addr <= 0; wren <= 1; datain <= 3'b111; @(posedge clock); // write 111 at adr[0]
-		addr <= 1; wren <= 0; @(posedge clock); // read addr[1]
+		addr <= 0; wren <= 1; datain <= 3'b000; @(posedge clock); 
+		for (int i = 0; i < 32; i++) begin	
+			addr++; datain++; @(posedge clock);
+		end
+		addr <= 0; wren <= 0; @(posedge clock); 
+		for (int i = 0; i < 32; i++) begin 
+			addr++;	@(posedge clock);
+		end
 		$stop;
-	end
+	end // initial
 endmodule // task1_tb
