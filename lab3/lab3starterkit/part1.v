@@ -21,38 +21,13 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 
 	/////////////////////////////////
 	// Your code goes here 
-	reg [23:0] intermediate_left, intermediate_right;
-	reg copied;
-	
-	// If read ready, sample have been read and are ready to write
-	always @(posedge CLOCK_50) begin
-		if (reset) begin
-			intermediate_left <= 24'b0;
-			intermediate_right <= 24'b0;
-			copied <= 0;
-		end
-		else if (read_ready & ~copied) begin
-			intermediate_left <= readdata_left;
-			intermediate_right <= readdata_right;
-			copied <= 1;
-		end
-		else if (write) begin
-			copied <= 0;
-		end
-	end
-	// copy the data to the writedata buffers and then wait for a write_ready signal
-	// flip the write signal to high, until write ready is low again
-	// flip the read signal to high signifying we want more data, until the read read signal
-	// is high again
-
-
 
 	/////////////////////////////////
 	
-	assign writedata_left = intermediate_left;
-	assign writedata_right = intermediate_right;
-	assign read = (copied & read_ready & ~reset);
-	assign write = (copied & write_ready & ~reset);
+	assign writedata_left = readdata_left;
+	assign writedata_right = readdata_right;
+	assign read = (read_ready & ~reset);
+	assign write = (write_ready & ~reset);
 	
 /////////////////////////////////////////////////////////////////////////////////
 // Audio CODEC interface. 
