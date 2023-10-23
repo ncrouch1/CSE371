@@ -22,31 +22,27 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 	/////////////////////////////////
 	// Your code goes here
 	reg [15:0] counter;
-	reg [23:0] ram_data;
-	wire [23:0] ram_write_data;
+	wire [23:0] ram_data;
 	input SW9;
 
 	always @(posedge CLOCK_50) begin
-		if (SW9 & read &write) begin
-			counter <= counter + 1;
-			if (counter >= 48000) begin
-				counter <= 0;
-			end
-		end
-		else if (reset | ~SW9) begin
-			ram_data <= 24'b0;
-			counter <= 0;
+		if (reset | ~SW9)
+		    counter <= 0;
+		else begin
+		    counter <= counter + 1;
+		    if (counter >= 48000)
+		        counter <= 0;
 		end
 	end
 
-	ram1port ram (.address(counter), .clock(CLOCK_50), .data(ram_data), .wren(1'b0), .q(ram_write_data));
+	rom1port rom (.address(counter), .clock(CLOCK_50), .q(ram_data));
 
 	/////////////////////////////////
 	
 	assign writedata_left = SW9 ? ram_data : readdata_left;
 	assign writedata_right = SW9 ? ram_data : readdata_right;
-	assign read = (read_ready & ~reset);
-	assign write = (write_ready & ~reset);
+	assign read = (read_ready & write_ready & ~reset);
+	assign write = (write_ready & read_ready & ~reset);
 	
 /////////////////////////////////////////////////////////////////////////////////
 // Audio CODEC interface. 
@@ -103,5 +99,3 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 	);
 
 endmodule
-
-
