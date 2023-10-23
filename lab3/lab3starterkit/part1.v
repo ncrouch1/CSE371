@@ -1,5 +1,5 @@
 module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK, 
-		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT, SW9);
+		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT, SW9, SW8);
 
 	input CLOCK_50, CLOCK2_50;
 	input [0:0] KEY;
@@ -16,6 +16,7 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 	wire read_ready, write_ready, read, write;
 	wire [23:0] readdata_left, readdata_right;
 	wire [23:0] writedata_left, writedata_right;
+	wire [23:0] intermediate_left, intermediate_right;
 	wire reset = ~KEY[0];
 
 
@@ -23,7 +24,8 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 	// Your code goes here
 	reg [15:0] counter;
 	wire [23:0] ram_data;
-	input SW9;
+	input SW9, SW8;
+	wire [23:0] filtered_left, filtered_right;
 
 	always @(posedge CLOCK_50) begin
 		if (reset | ~SW9)
@@ -38,9 +40,13 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 	rom1port rom (.address(counter), .clock(CLOCK_50), .q(ram_data));
 
 	/////////////////////////////////
-	
-	assign writedata_left = SW9 ? ram_data : readdata_left;
-	assign writedata_right = SW9 ? ram_data : readdata_right;
+	assign intermediate_left = SW9 ? ram_data : readdata_left;
+	assign intermediate_right = SW9 ? ram_data : readdata_right;
+
+	filter filter_l(.clock(CLOCK_50), .reset(reset), .data(intermediate_left), .dataout(filtered_left));
+	filter filter_r(.clock(CLOCK_50), .reset(reset), .data(intermediate_right), .dataout(filtered_right));
+	assign writedata_left = SW8 ? filtered_left : intermediate_left;
+	assign writedata_right = SW8 ? filtered_right : intermediate_right;
 	assign read = (read_ready & write_ready & ~reset);
 	assign write = (write_ready & read_ready & ~reset);
 	
