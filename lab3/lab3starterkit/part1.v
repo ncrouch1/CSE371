@@ -1,5 +1,5 @@
 module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK, 
-		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT);
+		        AUD_DACLRCK, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT, AUD_DACDAT, SW9);
 
 	input CLOCK_50, CLOCK2_50;
 	input [0:0] KEY;
@@ -20,12 +20,31 @@ module part1 (CLOCK_50, CLOCK2_50, KEY, FPGA_I2C_SCLK, FPGA_I2C_SDAT, AUD_XCK,
 
 
 	/////////////////////////////////
-	// Your code goes here 
+	// Your code goes here
+	reg [15:0] counter;
+	reg [23:0] ram_data;
+	wire [23:0] ram_write_data;
+	input SW9;
+
+	always @(posedge CLOCK_50) begin
+		if (SW9 & read &write) begin
+			counter <= counter + 1;
+			if (counter >= 48000) begin
+				counter <= 0;
+			end
+		end
+		else if (reset | ~SW9) begin
+			ram_data <= 24'b0;
+			counter <= 0;
+		end
+	end
+
+	ram1port ram (.address(counter), .clock(CLOCK_50), .data(ram_data), .wren(1'b0), .q(ram_write_data));
 
 	/////////////////////////////////
 	
-	assign writedata_left = readdata_left;
-	assign writedata_right = readdata_right;
+	assign writedata_left = SW9 ? ram_data : readdata_left;
+	assign writedata_right = SW9 ? ram_data : readdata_right;
 	assign read = (read_ready & ~reset);
 	assign write = (write_ready & ~reset);
 	
