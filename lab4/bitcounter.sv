@@ -42,17 +42,16 @@ module bitcounter (input_a, s, clock, reset, result, done, enable);
 					.done(done),
 					.enable(enable)
 					);
-					
 	bitcounter_datapath   task1_datapath   (
-					.A(A), 
-					.clock(clock), 
-					.result(result), 
-					.input_a(input_a), 
-					.clear(clear), 
-					.r_shift(r_shift), 
-					.incr(incr), 
-					.load_a(load_a)
-					);
+        .A(A), 
+        .clock(clock), 
+        .result(result), 
+        .input_a(input_a), 
+        .clear(clear), 
+        .r_shift(r_shift), 
+        .incr(incr), 
+        .load_a(load_a)
+    );
 	
 endmodule // bitcounter
 

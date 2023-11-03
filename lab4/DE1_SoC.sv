@@ -29,7 +29,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
 
     bitcounter task1 (
         .input_a(A), 
-        .s(s), 
+        .s(start), 
         .clock(CLOCK_50), 
         .reset(reset), 
         .result(result), 
@@ -39,7 +39,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
 
     BinarySearch task2 (
         .A(A),
-        .Start(s),
+        .Start(start),
         .Reset(reset),
         .Clock(CLOCK_50),
         .Loc(Loc),
@@ -48,25 +48,32 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
         .Enable(SW[8])
     );
 
-    assign HEX5 = 7'b1111111;
-    assign HEX4 = 7'b1111111;
     assign HEX3 = 7'b1111111;
     assign HEX2 = 7'b1111111;
 
-    logic [6:0] hex1_intermediate, hex0_intermediate;
+    logic [6:0] hex1_intermediate, hex0_intermediate, hex1_final, hex0_final;
 
     seg7 hex1signal (.hex({3'b000, Loc[4]}), .leds(hex1_intermediate));
-    seg7 hex0signal (.hex(SW8 ? Loc[3:0] : result), .leds(hex0_intermediate));
+    seg7 hex0signal (.hex(SW[8] ? Loc[3:0] : result), .leds(hex0_intermediate));
+
+    seg7 hex5inputhandler (.hex(SW[7:4]), .leds(HEX5));
+    seg7 hex4inputhandler (.hex(SW[3:0]), .leds(HEX4));
 
     always_comb begin
-        if (~SW8)
-            hex1_intermediate = 7'b1111111;
-        else if (SW8 & ~Found & Done) begin
-            hex1_intermediate = 7'b0111111;
-            hex0_intermediate = 7'b0111111;
+        if (~SW[8]) begin
+            hex1_final = 7'b1111111;
+            hex0_final = hex0_intermediate;
+        end
+        // else if (SW[8] & ~Found & Done) begin
+        //     hex1_final = 7'b0111111;
+        //     hex0_final = 7'b0111111;
+        // end
+        else begin
+            hex1_final = hex1_intermediate;
+            hex0_final = hex0_intermediate;
         end
     end
 
-    assign HEX1 = hex1_intermediate;
-    assign HEX0 = hex0_intermediate;
+    assign HEX1 = hex1_final;
+    assign HEX0 = hex0_final;
 endmodule
