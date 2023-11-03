@@ -20,9 +20,9 @@ Outputs:
 	
 */
 
-module bitcounter_controller(A, s, clock, reset, clear, r_shift, incr, load_a, done);
+module bitcounter_controller(A, s, clock, reset, clear, r_shift, incr, load_a, done, enable);
 	input logic [7:0] A;
-	input logic s, clock, reset;
+	input logic s, clock, reset, enable;
 	output logic clear, r_shift, incr, load_a, done;
 	
 	// States and definitions 
@@ -46,7 +46,7 @@ module bitcounter_controller(A, s, clock, reset, clear, r_shift, incr, load_a, d
 		
 	// Clock and reset
 	always_ff @(posedge clock)
-		if (reset)
+		if (reset | ~enable)
 			ps <= s_idle;
 		else 
 			ps <= ns;
