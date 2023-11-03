@@ -68,10 +68,10 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
             hex1_final = 7'b1111111;
             hex0_final = hex0_intermediate;
         end
-        // else if (SW[8] & ~Found & Done) begin
-        //     hex1_final = 7'b0111111;
-        //     hex0_final = 7'b0111111;
-        // end
+        else if (SW[8] & ~Found & Done) begin
+            hex1_final = 7'b0111111;
+            hex0_final = 7'b0111111;
+        end
         else begin
             hex1_final = hex1_intermediate;
             hex0_final = hex0_intermediate;
