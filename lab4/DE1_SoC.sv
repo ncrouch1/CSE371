@@ -28,8 +28,6 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     logic [4:0] Loc;
     // Logic Signals for Binary Search
     logic Found, Done;
-    assign LEDR[9] = Done;
-    assign LEDR[0] = Found;
     
     bitcounter task1 (
         .input_a(A), 
