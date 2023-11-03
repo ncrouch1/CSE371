@@ -20,7 +20,7 @@ module binarysearch_datapath (A, Clock, Reset, load_regs, compute_next,
                 left = middle + 1;
             else
                 right = middle - 1;
-  			   middle = left + ((right - left) >> 1);
+  			middle = left + ((right - left) >> 1);
         end
     end
 
