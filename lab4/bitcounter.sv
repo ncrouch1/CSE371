@@ -80,7 +80,7 @@ module bitcounter_tb();
 		reset <= 0; @(posedge clock);
 		
 		// Set user input
-		input_a <= 8'b01010101;
+		input_a <= 8'b11111111;
 		
 		// Test all states
 		s 		<= 0; @(posedge clock); // Load input
