@@ -1,5 +1,5 @@
-module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found);
-    input logic Start, Reset, Clock;
+module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found, Enable);
+    input logic Start, Reset, Clock, Enable;
     input logic [7:0] A;
     output logic Done, Found;
     output logic [4:0] Loc;
@@ -59,7 +59,7 @@ module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found);
     end
 
     always_ff @(posedge Clock) begin
-        if (Reset)
+        if (Reset | ~Enable)
             ps <= S_idle;
         else
             ps <= ns;
@@ -77,7 +77,7 @@ module bsearch_tb();
     logic [4:0] Loc;
 
     BinarySearch dut (.A(A), .Start(Start), .Reset(Reset), .Clock(Clock),
-                .Loc(Loc), .Done(Done), .Found(Found));
+                .Loc(Loc), .Done(Done), .Found(Found), .Enable(1'b1));
     
     parameter T = 20;
 
