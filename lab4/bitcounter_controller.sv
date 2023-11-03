@@ -33,13 +33,13 @@ module bitcounter_controller(A, s, clock, reset, clear, r_shift, incr, load_a, d
 	assign r_shift = (ps == s_1);
 	assign done 	= (ps == s_2);
 	assign load_a 	= (ps == s_idle) & (s == 0);
-	assign incr 	= (ps == s_1) 	  & (A != 8'b0) & (A[0] == 1'b1);
+	assign incr 	= (ps == s_1) 	  & (A != 8'h0) & (A[0] == 1'h1);
 			
 	// next state logic
 	always_comb
 		case(ps)
 			s_idle:  ns = s ? s_1 : s_idle;
-			s_1:     ns = (A == 8'b0) ? s_2 : s_1;
+			s_1:     ns = (A == 8'h0) ? s_2 : s_1;
 			s_2:     ns = s ? s_2 : s_idle;
 			default: ns = s_idle;
 		endcase
