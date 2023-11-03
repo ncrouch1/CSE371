@@ -1,67 +1,37 @@
-module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found, Enable);
+module binarysearch (A, Start, Reset, Clock, Loc, Done, Found, Enable);
     input logic Start, Reset, Clock, Enable;
-    input logic [7:0] A;
     output logic Done, Found;
+    input logic [7:0] A;
     output logic [4:0] Loc;
-
-    logic [4:0] left, right, middle;
+    logic [4:0] left, right;
     logic [7:0] middle_data;
-    
-    enum {S_idle, S_searching, S_done} ps, ns;
+    logic Finished, Located, load_regs, compute_next;
 
-    ram32x8 ram (.address(middle), .clock(Clock), .data(8'h00), .wren(1'b0), .q(middle_data));
-    
-    always_latch begin
-        Done = 0; Found = 0;
-        case(ps)
-            S_idle: begin
-                left = 5'b00000;
-                right = 5'b11111;
-                middle = 5'b01111;
-                Loc = 5'b00000;
-                ns = S_idle;
-                if (Start) begin
-                    ns = S_searching;
-                end
-            end
-            S_searching: begin
-                if (left <= right) begin
-                    if (A == middle_data) begin
-                        Done = 1;
-                        Found = 1;
-                        Loc = middle;
-                        ns = S_done;
-                    end
-                    else begin
-                        if (middle_data > A) 
-                            right = middle - 1;
-                        else if (middle_data < A)
-                            left = middle + 1;
-                    end
-				    middle = left + ((right - left) / 2);
-                end
-                else begin
-                    Done = 1;
-                    Found = 0;
-                    ns = S_done;
-                end
-            end
-            S_done: begin
-                Done = 1;
-                if (Loc == middle) 
-                    Found = 1;
-                ns = Start ? S_done : S_idle;
-            end
-        endcase
-    end
+    binarysearch_controller controller (
+        .A(A), .Start(Start),
+        .Clock(Clock),
+        .Reset(Reset),
+        .Finished(Finished),
+        .Located(Located),
+        .Enable(Enable),
+        .load_regs(load_regs),
+        .compute_next(compute_next),
+        .left(left), .right(right),
+        .middle_data(middle_data)
+    );
 
-    always_ff @(posedge Clock) begin
-        if (Reset | ~Enable)
-            ps <= S_idle;
-        else
-            ps <= ns;
-    end
-	
+    binarysearch_datapath datapath(
+        .A(A),
+        .Clock(Clock),
+        .Reset(Reset),
+        .load_regs(load_regs),
+        .compute_next(compute_next),
+		.Finished(Finished), .Located(Located),
+        .Loc(Loc), .left(left), .right(right),
+        .middle_data(middle_data),
+        .Done(Done), .Found(Found)
+    );
+
 endmodule
 
 `timescale 1 ps / 1 ps
@@ -70,7 +40,7 @@ module bsearch_tb();
     logic Clock, Reset, Start, Done, Found;
     logic [4:0] Loc;
 
-    BinarySearch dut (.A(A), .Start(Start), .Reset(Reset), .Clock(Clock),
+    binarysearch dut (.A(A), .Start(Start), .Reset(Reset), .Clock(Clock),
                 .Loc(Loc), .Done(Done), .Found(Found), .Enable(1'b1));
     
     parameter T = 20;
@@ -81,23 +51,17 @@ module bsearch_tb();
     end
 
     initial begin
-        Reset <= 1; Start <= 0; A <= 5'b01111;         @(posedge Clock);
+        Reset <= 1; Start <= 0;                        @(posedge Clock);
         Reset <= 0;                                    @(posedge Clock);
-        Start <= 1;                                    @(posedge Clock);
-        while (~Done) begin
-            @(posedge Clock);
-        end
-        Start <= 0;                                    @(posedge Clock);
-        A <= 5'b00011;                                 @(posedge Clock);
-        Start <= 1;                                    @(posedge Clock);
-        while (~Done) begin
-            @(posedge Clock);
-        end
-        Start <= 0;												 @(posedge Clock);
-        A <= 6'b100000;											 @(posedge Clock);
-        Start <= 1;												 @(posedge Clock);
-        while (~Done) begin
-            @(posedge Clock);
+        for (int i = 0; i < 64; i++) begin
+            A <= i;             @(posedge Clock);
+				@(posedge Clock);
+            Start <= 1;         @(posedge Clock);
+            while (~Done) begin
+                @(posedge Clock);
+            end
+            Start <= 0; @(posedge Clock);
+				@(posedge Clock);
         end
         $stop;
     end
