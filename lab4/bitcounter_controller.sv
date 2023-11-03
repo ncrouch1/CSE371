@@ -66,7 +66,18 @@ module bitcounter_controller_tb();
 		forever #(T/2) clock <= ~clock;
 	end 
 	
-	bitcounter_controller dut (.*);
+	bitcounter_controller dut (
+					.A(A), 
+					.s(s), 
+					.clock(clock), 
+					.reset(reset), 
+					.clear(clear), 
+					.r_shift(r_shift), 
+					.incr(incr), 
+					.load_a(load_a), 
+					.done(done),
+					.enable(enable)
+					);
 	
 	initial begin
 	    enable <=1; 

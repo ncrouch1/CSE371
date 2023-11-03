@@ -27,7 +27,7 @@ module bitcounter_datapath (A, clock, result, input_a, clear, r_shift, incr, loa
 	input logic  clear, r_shift, incr, load_a, clock;
 	input logic  [7:0] input_a; // 8 bit input
 	output logic [3:0] result;
-	output logic [3:0] A;
+	output logic [7:0] A;
 	
 	// datapath logic
 	always_ff @(posedge clock) begin
@@ -62,10 +62,19 @@ module bitcounter_datapath_tb();
 		forever #(T/2) clock <= ~clock;
 	end 
 	
-	bitcounter_datapath dut(.*);
+	bitcounter_datapath dut(
+		.A(A), 
+        .clock(clock), 
+        .result(result), 
+        .input_a(input_a), 
+        .clear(clear), 
+        .r_shift(r_shift), 
+        .incr(incr), 
+        .load_a(load_a)
+    );
 	
 	initial begin
-		input_a <= 8'b01010101;
+		input_a <= 8'b11111111;
 		
 		// Testing all combonations
 		clear <= 0; r_shift <= 0; incr <= 0; load_a <= 0; @(posedge clock);
