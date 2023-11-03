@@ -1,9 +1,10 @@
 // Module to implement lab 4
 
-module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
+module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     // port declarations
     input  logic CLOCK_50;  // 50MHz clock
     output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;  // active low
+    output logic [9:0] LEDR;
     input logic [3:0] KEY;
     input logic [9:0] SW;
 
@@ -26,7 +27,9 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
     logic [4:0] Loc;
     // Logic Signals for Binary Search
     logic Found, Done;
-
+    assign LEDR[9] = Done;
+    assign LEDR[0] = Found;
+    
     bitcounter task1 (
         .input_a(A), 
         .s(start), 
