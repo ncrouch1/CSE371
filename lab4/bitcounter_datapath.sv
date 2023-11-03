@@ -39,9 +39,9 @@ module bitcounter_datapath (A, clock, result, input_a, clear, r_shift, incr, loa
 			A <= A;
 			
 		if (clear)
-			result <= 4'b0;
+			result <= 4'h0;
 		else if (incr)
-			result <= result + 4'b1;
+			result <= result + 4'h1;
 		else
 			result <= result;
 	end // datapath logic
