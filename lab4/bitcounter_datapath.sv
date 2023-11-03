@@ -27,7 +27,7 @@ module bitcounter_datapath (A, clock, result, input_a, clear, r_shift, incr, loa
 	input logic  clear, r_shift, incr, load_a, clock;
 	input logic  [7:0] input_a; // 8 bit input
 	output logic [3:0] result;
-	output logic [3:0] A;
+	output logic [7:0] A;
 	
 	// datapath logic
 	always_ff @(posedge clock) begin
