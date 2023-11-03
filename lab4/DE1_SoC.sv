@@ -1,11 +1,12 @@
 // Module to implement lab 4
 
-module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
+module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     // port declarations
     input  logic CLOCK_50;  // 50MHz clock
     output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;  // active low
     input logic [3:0] KEY;
     input logic [9:0] SW;
+    output logic [9:0] LEDR;
 
     // logic for task 1
     logic reset, start, s, done;
@@ -50,6 +51,8 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW);
 
     assign HEX3 = 7'b1111111;
     assign HEX2 = 7'b1111111;
+
+    assign LEDR[9] = done;
 
     logic [6:0] hex1_intermediate, hex0_intermediate, hex1_final, hex0_final;
 
