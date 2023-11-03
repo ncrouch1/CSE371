@@ -1,0 +1,97 @@
+module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found);
+    input logic Start, Reset, Clock;
+    input logic A[7:0];
+    output logic Done, Found;
+    output logic [4:0] loc;
+
+    logic [4:0] left, right, middle;
+    logic [7:0] middle_data;
+    
+    enum {S_idle, S_searching, S_done} ps, ns;
+
+    ram32x8 ram (.address(middle), .clock(Clock), .data(8'h00), .wren(1'b0), .q(middle_data));
+    
+    always_comb begin
+        Done = 0; Found = 0;
+        case(ps)
+            S_idle: begin
+                left = 5'b00000;
+                right = 5'b11111;
+                middle = 5'b01111;
+                loc = 5'b00000;
+                ns = S_idle
+                if (Start) begin
+                    ns = S_searching;
+                end
+            end
+            S_searching: begin
+                if (left <= right) begin
+                    if (middle_data == A) begin
+                        Done = 1;
+                        Found = 1;
+                        loc = middle;
+                        ns = S_done;
+                    end
+                    else begin
+                        if (middle_data > A) 
+                            right = middle - 1;
+                        else if (middle_data < A)
+                            left = middle + 1
+                    end
+                end
+                else begin
+                    Done = 0;
+                    Found = 1;
+                    ns = S_done;
+                end
+            end
+            S_done: begin
+                Done = 1;
+                if (loc == middle) 
+                    Found = 1;
+                if (Start)
+                    ns = S_done;
+                else
+                    ns = S_idle;
+            end
+        endcase
+    end
+
+    always_ff @( clock ) begin
+        if (Reset)
+            ps <= S_idle
+        else
+            ps <= ns;
+    end
+endmodule
+
+module bsearch_tb();
+    logic [7:0] A;
+    logic Clock, Reset, Start, Done, Found;
+    logic [4:0] Loc;
+
+    BinarySearch dut (.A(A), .Start(Start), .Reset(Reset), .Clock(Clock),
+                .Loc(Loc), .Done(Done), .Found(Found));
+    
+    parameter T = 20;
+
+    initial begin
+        Clock <= 0;
+        forever #(T/2) Clock <= ~Clock;
+    end
+
+    initial begin
+        Reset <= 1; Start <= 0; A <= 5'b01111;         @(posedge Clock);
+        Reset <= 0;                                    @(posedge Clock);
+        Start <= 1;                                    @(posedge Clock);
+        while (~Done) begin
+            @(posedge Clock);
+        end
+        Start <= 0;                                    @(posedge Clock);
+        A <= 5'b00011;                                 @(posedge CLock);
+        Start <= 1;                                    @(posedge Clock);
+        while (~Done) begin
+            @(posedge Clock);
+        end      
+    end
+endmodule
