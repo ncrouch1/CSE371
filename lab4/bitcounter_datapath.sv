@@ -1,0 +1,90 @@
+/*
+Henri Lower 2276644
+Noah Crouch
+*/
+
+/* Bit-counter datapath module
+
+Control signals
+	clear: Clears the data
+	r_shift: Right shift of A
+	incr: Increment the data
+	load_a: Loads the data
+	
+Input data	
+	clk: 50 MHz clock
+	input_a: 8-bit user input
+
+Outputs
+	result: count of 1's found from the input
+	A: Copy of the input
+
+*/
+
+
+module bitcounter_datapath (A, clock, result, input_a, clear, r_shift, incr, load_a);
+	// Port definitions
+	input logic  clear, r_shift, incr, load_a, clock;
+	input logic  [7:0] input_a; // 8 bit input
+	output logic [3:0] result;
+	output logic [3:0] A;
+	
+	// datapath logic
+	always_ff @(posedge clock) begin
+		if 	  (r_shift)
+			A <= A >> 1;
+		else if (load_a)
+			A <= input_a;
+		else
+			A <= A;
+			
+		if (clear)
+			result <= 4'b0;
+		else if (incr)
+			result <= result + 4'b1;
+		else
+			result <= result;
+	end // datapath logic
+	
+endmodule
+	
+module bitcounter_datapath_tb();
+	// Port definitions
+	logic [7:0] A;
+	logic clock, clear, r_shift, incr, load_a;
+	logic [7:0] input_a; // 8 bit input
+	logic [3:0] result;
+	
+	// simulated clock
+	parameter T = 100; // 50 MHz when divided by 2
+	initial begin
+		clock <= 0;
+		forever #(T/2) clock <= ~clock;
+	end 
+	
+	bitcounter_datapath dut(.*);
+	
+	initial begin
+		input_a <= 8'b01010101;
+		
+		// Testing all combonations
+		clear <= 0; r_shift <= 0; incr <= 0; load_a <= 0; @(posedge clock);
+		clear <= 0; r_shift <= 0; incr <= 0; load_a <= 1; @(posedge clock);
+		clear <= 0; r_shift <= 0; incr <= 1; load_a <= 0; @(posedge clock);
+		clear <= 0; r_shift <= 0; incr <= 1; load_a <= 1; @(posedge clock);
+		clear <= 0; r_shift <= 1; incr <= 0; load_a <= 0; @(posedge clock);
+		clear <= 0; r_shift <= 1; incr <= 0; load_a <= 1; @(posedge clock);
+		clear <= 0; r_shift <= 1; incr <= 1; load_a <= 0; @(posedge clock);
+		clear <= 0; r_shift <= 1; incr <= 1; load_a <= 1; @(posedge clock);
+		clear <= 1; r_shift <= 0; incr <= 0; load_a <= 0; @(posedge clock);
+		clear <= 1; r_shift <= 0; incr <= 0; load_a <= 1; @(posedge clock);
+		clear <= 1; r_shift <= 0; incr <= 1; load_a <= 0; @(posedge clock);
+		clear <= 1; r_shift <= 0; incr <= 1; load_a <= 1; @(posedge clock);
+		clear <= 1; r_shift <= 1; incr <= 0; load_a <= 0; @(posedge clock);
+		clear <= 1; r_shift <= 1; incr <= 0; load_a <= 1; @(posedge clock);
+		clear <= 1; r_shift <= 1; incr <= 1; load_a <= 0; @(posedge clock);
+		clear <= 1; r_shift <= 1; incr <= 1; load_a <= 1; @(posedge clock);
+		
+		$stop;
+	end
+endmodule 
