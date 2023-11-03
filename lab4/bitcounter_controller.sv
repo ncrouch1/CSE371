@@ -56,7 +56,7 @@ endmodule
 module bitcounter_controller_tb();
 	// port definitions
 	logic [7:0] A;
-	logic s, clock, reset;
+	logic s, clock, reset, enable;
 	logic clear, r_shift, incr, load_a, done;
 	
 	// simulated clock
@@ -69,6 +69,7 @@ module bitcounter_controller_tb();
 	bitcounter_controller dut (.*);
 	
 	initial begin
+	    enable <=1; 
 		#2 reset <= 1; @(posedge clock);
 		#2 reset <= 0; @(posedge clock);
 		

@@ -25,7 +25,7 @@ module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found, Enable);
                 end
             end
             S_searching: begin
-                if (left < right) begin
+                if (left <= right) begin
                     if (A == middle_data) begin
                         Done = 1;
                         Found = 1;
@@ -38,7 +38,7 @@ module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found, Enable);
                         else if (middle_data < A)
                             left = middle + 1;
                     end
-						  middle = left + ((right - left) / 2);
+				    middle = left + ((right - left) / 2);
                 end
                 else begin
                     Done = 1;
@@ -50,10 +50,7 @@ module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found, Enable);
                 Done = 1;
                 if (Loc == middle) 
                     Found = 1;
-                if (Start)
-                    ns = S_done;
-                else
-                    ns = S_idle;
+                ns = Start ? S_done : S_idle;
             end
         endcase
     end
@@ -64,10 +61,7 @@ module BinarySearch(A, Start, Reset, Clock, Loc, Done, Found, Enable);
         else
             ps <= ns;
     end
-	 
-	 always_ff @(posedge Clock) begin
-
-	 end
+	
 endmodule
 
 `timescale 1 ps / 1 ps
