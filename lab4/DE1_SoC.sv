@@ -4,7 +4,6 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     // port declarations
     input  logic CLOCK_50;  // 50MHz clock
     output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;  // active low
-    output logic [9:0] LEDR;
     input logic [3:0] KEY;
     input logic [9:0] SW;
     output logic [9:0] LEDR;
@@ -39,7 +38,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
         .enable(~SW[8])
     );
 
-    BinarySearch task2 (
+    binarysearch task2 (
         .A(A),
         .Start(start),
         .Reset(reset),
@@ -52,9 +51,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
 
     assign HEX3 = 7'b1111111;
     assign HEX2 = 7'b1111111;
-
-    assign LEDR[9] = done;
-
+    
     logic [6:0] hex1_intermediate, hex0_intermediate, hex1_final, hex0_final;
 
     seg7 hex1signal (.hex({3'b000, Loc[4]}), .leds(hex1_intermediate));
@@ -68,10 +65,10 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
             hex1_final = 7'b1111111;
             hex0_final = hex0_intermediate;
         end
-        // else if (SW[8] & ~Found & Done) begin
-        //     hex1_final = 7'b0111111;
-        //     hex0_final = 7'b0111111;
-        // end
+        else if (SW[8] & ~Found & Done) begin
+            hex1_final = 7'b0111111;
+            hex0_final = 7'b0111111;
+        end
         else begin
             hex1_final = hex1_intermediate;
             hex0_final = hex0_intermediate;
@@ -79,7 +76,8 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     end
 
     assign LEDR[0] = Found;
-    assign LEDR[9] = SW[8] ? done : Done;
+    assign LEDR[9] = SW[8] ? Done : done;
+    assign LEDR[8:1] = 8'h00;
 
     assign HEX1 = hex1_final;
     assign HEX0 = hex0_final;
