@@ -17,11 +17,11 @@ Outputs:
 
 */
 
-module bitcounter (input_a, s, clock, reset, result, done);
+module bitcounter (input_a, s, clock, reset, result, done, enable);
 
 	// port declarations
 	input logic [7:0] input_a;
-	input logic s, clock, reset;
+	input logic s, clock, reset, enable;
 	output logic [3:0] result;
 	output logic done;
 	
@@ -39,7 +39,8 @@ module bitcounter (input_a, s, clock, reset, result, done);
 					.r_shift(r_shift), 
 					.incr(incr), 
 					.load_a(load_a), 
-					.done(done)
+					.done(done),
+					.enable(enable)
 					);
 	bitcounter_datapath   task1_datapath   (.*);
 	
@@ -50,7 +51,7 @@ module bitcounter_tb();
 	
 	// port declarations
 	logic [7:0] input_a;
-	logic s, clock, reset, done;
+	logic s, clock, reset, done, enable;
 	logic [3:0] result;
 	
 	// simulated clock
@@ -65,17 +66,16 @@ module bitcounter_tb();
 	
 	initial begin 
 		// Toggle reset
-		#2 reset <= 1; @(posedge clock);
-		#2 reset <= 0; @(posedge clock);
+		enable <= 1;
+		reset <= 1; @(posedge clock);
+		reset <= 0; @(posedge clock);
 		
 		// Set user input
 		input_a <= 8'b01010101;
 		
 		// Test all states
-		#2 s 		<= 0; @(posedge clock); // Load input
-		#2 s		<= 1; @(posedge clock); // s_idle to s_1
-		#10
-	
+		s 		<= 0; @(posedge clock); // Load input
+		s		<= 1; @(posedge clock); // s_idle to s_1	
 		$stop;
 	end
 endmodule // bitcounter_tb
