@@ -77,6 +77,9 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
         end
     end
 
+    assign LEDR[0] = Found;
+    assign LEDR[9] = SW[8] ? done : Done;
+
     assign HEX1 = hex1_final;
     assign HEX0 = hex0_final;
 endmodule
