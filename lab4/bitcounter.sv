@@ -1,6 +1,6 @@
 /*
 Henri Lower 2276644
-Noah Crouch 
+Noah Crouch 2078812
 */
 
 /* Top level module for bit counter
@@ -76,15 +76,18 @@ module bitcounter_tb();
 	initial begin 
 		// Toggle reset
 		enable <= 1;
-		reset <= 1; @(posedge clock);
-		reset <= 0; @(posedge clock);
 		
 		// Set user input
-		input_a <= 8'b11111111;
+		input_a <= 8'b11111111; s <= 0; @(posedge clock); // Load
 		
+		reset <= 1; @(posedge clock);
+		reset <= 0; @(posedge clock);
+				
 		// Test all states
-		s 		<= 0; @(posedge clock); // Load input
-		s		<= 1; @(posedge clock); // s_idle to s_1	
+		s		<= 1; @(posedge clock); // s_idle to s_1
+		while (~done) begin
+			@(posedge clock);
+		end
 		$stop;
 	end
 endmodule // bitcounter_tb
