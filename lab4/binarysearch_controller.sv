@@ -13,10 +13,10 @@ module binarysearch_controller (
     A, middle_data, left, right
 );
 
-	 input logic Start, Reset, Clock, Enable;
-	 input logic [7:0] A, middle_data;
-	 input logic [4:0] left, right;
-	 output logic Finished, Located, load_regs, compute_next;
+	input logic Start, Reset, Clock, Enable;
+	input logic [7:0] A, middle_data;
+	input logic [4:0] left, right;
+	output logic Finished, Located, load_regs, compute_next;
 
     // Declare the current state (ps) and next state (ns) as an enum
     enum {idle, search, fetch, compute, done} ps, ns;
