@@ -35,7 +35,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
         .reset(reset), 
         .result(result), 
         .done(done),
-        .enable(~SW[8])
+        .enable(~SW[9])
     );
 
     binarysearch task2 (
@@ -46,7 +46,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
         .Loc(Loc),
         .Done(Done),
         .Found(Found),
-        .Enable(SW[8])
+        .Enable(SW[9])
     );
 
     assign HEX3 = 7'b1111111;
@@ -55,17 +55,17 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     logic [6:0] hex1_intermediate, hex0_intermediate, hex1_final, hex0_final;
 
     seg7 hex1signal (.hex({3'b000, Loc[4]}), .leds(hex1_intermediate));
-    seg7 hex0signal (.hex(SW[8] ? Loc[3:0] : result), .leds(hex0_intermediate));
+    seg7 hex0signal (.hex(SW[9] ? Loc[3:0] : result), .leds(hex0_intermediate));
 
     seg7 hex5inputhandler (.hex(SW[7:4]), .leds(HEX5));
     seg7 hex4inputhandler (.hex(SW[3:0]), .leds(HEX4));
 
     always_comb begin
-        if (~SW[8]) begin
+        if (~SW[9]) begin
             hex1_final = 7'b1111111;
             hex0_final = hex0_intermediate;
         end
-        else if (SW[8] & ~Found & Done) begin
+        else if (SW[9] & ~Found & Done) begin
             hex1_final = 7'b0111111;
             hex0_final = 7'b0111111;
         end
@@ -76,7 +76,7 @@ module DE1_SoC (CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, SW, LEDR);
     end
 
     assign LEDR[0] = Found;
-    assign LEDR[9] = SW[8] ? Done : done;
+    assign LEDR[9] = SW[9] ? Done : done;
     assign LEDR[8:1] = 8'h00;
 
     assign HEX1 = hex1_final;
