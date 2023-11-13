@@ -43,14 +43,23 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	assign HEX5 = '1;
 	assign LEDR[8:0] = SW[8:0];
 	
+	// Divided clock so output is visible
+    logic clk;
+    logic [6:0] divided_clocks = 0;
+    always_ff @(posedge CLOCK_50) begin
+        divided_clocks <= divided_clocks + 7'd1;
+    end
+    assign clk = divided_clocks[5];
+	
 	logic [10:0] x0, y0, x1, y1, x, y;
+	logic done, reset, rreset;
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
-		.reset			(1'b0), 
+		.reset			(reset), 
 		.x, 
 		.y,
-		.pixel_color	(1'b1), 
+		.pixel_color	(done ? 1'b0 : 1'b1), 
 		.pixel_write	(1'b1),
 		.VGA_R, 
 		.VGA_G, 
@@ -61,14 +70,69 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N));
 				
-	logic done;
-
-	line_drawer lines (.clk(CLOCK_50), .reset(1'b0),.x0, .y0, .x1, .y1, .x, .y, .done);
 	
+	
+	always_ff @(posedge CLOCK_50) begin
+		rreset <= ~KEY[0];
+		reset  <= rreset;
+	end
+
+	line_drawer lines (.clk(clk), .reset(reset),.x0, .y0, .x1, .y1, .x, .y, .done);
+	
+	parameter T = 100;
 	assign LEDR[9] = done;
-	assign x0 = 0;
-	assign y0 = 0;
-	assign x1 = 240;
-	assign y1 = 240;
+	// 640 x 480
+	// 1x = 64
+	// 1y = 48
+	
+	integer i;
+	reg [9:0] x_values [0:10], y_values [0:10];
+	
+	initial begin
+		for (i = 0; i <= 640; i = i + 64) begin
+        x_values[i / 64] = i;
+		end
+		
+		for (i = 0; i <= 480; i = i + 48) begin
+        y_values[i / 48] = i;
+		end
+	end
+	
+	reg [3:0] counter;
+    reg [1:0] x_line [3:0] = '{default:0};
+    reg [1:0] y_line [3:0] = '{default:0};
+    
+    initial begin
+        x_line[0] = x_values[1];
+        x_line[1] = x_values[3];
+        x_line[2] = x_values[5];
+        x_line[3] = x_values[7];
+    
+        y_line[0] = y_values[2];
+        y_line[1] = y_values[4];
+        y_line[2] = y_values[6];
+        y_line[3] = y_values[8];
+    end
+    
+	always_ff @(posedge clk) begin
+	    if (reset) begin
+			counter <= 0; // Reset counter
+			x0 <= 0;
+			y0 <= 0;
+		end 
+		
+		if (done) begin
+			if (counter < 5) begin
+			    x0 <= x_line[counter];
+				y0 <= y_line[counter];
+				x1 <= x_line[counter + 1];
+				y1 <= y_line[counter + 1];
+				counter <= counter + 1;
+			end 
+			else begin
+		        counter <= 0;
+		    end
+		end 
+	end
 
 endmodule  // DE1_SoC
