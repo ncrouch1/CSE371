@@ -85,13 +85,13 @@ module line_drawer(clk, reset, x0, y0, x1, y1, x, y, done);
 			
 				if(y < y_end) begin // if y less than y_end
 				
-					y <= y + 11'd1; // y = y++
+					y <= y + 1'd1; // y = y++
 					
 					// if error + delta y is greater than or equal to 0
 					if(error + delta_y >= 0) begin 
 						error <= error + delta_y - delta_x;
 						// set x according to step
-						x <= step ? x + 11'd1 : x - 11'd1;
+						x <= step ? x + 1'd1 : x - 1'd1;
 					end // error + delta y is greater than or equal to 0
 					
 					else begin // error + delta y is less than 0
@@ -105,10 +105,10 @@ module line_drawer(clk, reset, x0, y0, x1, y1, x, y, done);
 			
 			else begin // x equal or greater than x_end
 				if(x < x_end) begin
-					x <= x + 11'd1; // x = x++
+					x <= x + 1'd1; // x = x++
 					if( error + delta_y >= 0) begin
 						error <= error + delta_y - delta_x;
-						y <= step ? y + 11'd1 : y - 11'd1;
+						y <= step ? y + 1'd1 : y - 1'd1;
 					end 
 					
 					else begin
@@ -151,75 +151,75 @@ module line_drawer_tb ();
 		// Draw line right and down - gradual 
 		// Should go up 5 x for 1 y
 		x0 <= 0 ; y0 <= 0 ; x1 <= 10 ; y1 <= 2; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 
 		// _________________________________________________________________
 		// Draw line left and up - gradual
 		// Should go up 5 y for 1 x
 		x0 <= 10 ; y0 <= 2 ; x1 <= 0 ; y1 <= 0; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 			
 		// _________________________________________________________________
 		// Draw line right and down - steep
 		x0 <= 0 ; y0 <= 0 ; x1 <= 2 ; y1 <= 10; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 	
 		// _________________________________________________________________
 		// Draw line left and up - steep
 		x0 <= 2 ; y0 <= 10 ; x1 <= 0 ; y1 <= 0; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 		
 		// _________________________________________________________________
 		// Draw line right and up - gradual
 		x0 <= 0 ; y0 <= 2 ; x1 <= 10 ; y1 <= 0; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 		
 		// _________________________________________________________________
 		// Draw line left and down - gradual
 		x0 <= 10 ; y0 <= 0 ; x1 <= 0 ; y1 <= 2; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 		
 		// _________________________________________________________________
 		// Draw line right and up - steep
 		x0 <= 0 ; y0 <= 10 ; x1 <= 2 ; y1 <= 0; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
 	
 		// _________________________________________________________________
 		// Draw line left and down - steep
 		x0 <= 2 ; y0 <= 0 ; x1 <= 0 ; y1 <= 10; reset <= 1; @(posedge clk);
-		#T reset <= 0; @(posedge clk);
+		reset <= 0; @(posedge clk);
 		
 		while(~done) begin
-		@(posedge clk);
+			@(posedge clk);
 		end
-		#T $stop;
+		$stop;
 	end
 endmodule 
