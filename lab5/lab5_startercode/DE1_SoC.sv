@@ -43,23 +43,20 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	assign HEX5 = '1;
 	assign LEDR[8:0] = SW[8:0];
 	
-	// Divided clock so output is visible
-    logic clk;
-    logic [6:0] divided_clocks = 0;
-    always_ff @(posedge CLOCK_50) begin
-        divided_clocks <= divided_clocks + 7'd1;
-    end
-    assign clk = divided_clocks[5];
-	
 	logic [10:0] x0, y0, x1, y1, x, y;
-	logic done, reset, rreset;
+
+	logic [31:0] divided_clocks;
+	clock_divider cd(.clock(CLOCK_50), .reset(KEY[0]), .divided_clocks(divided_clocks));
+
+	logic animation_clock;
+	assign animation_clock = divided_clocks[13];
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
-		.reset			(reset), 
+		.reset			(1'b0), 
 		.x, 
 		.y,
-		.pixel_color	(done ? 1'b0 : 1'b1), 
+		.pixel_color	(1'b1), 
 		.pixel_write	(1'b1),
 		.VGA_R, 
 		.VGA_G, 
@@ -70,69 +67,65 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N));
 				
-	
-	
-	always_ff @(posedge CLOCK_50) begin
-		rreset <= ~KEY[0];
-		reset  <= rreset;
+	logic line_done, done;
+
+	enum {top_left, top_right, bottom_right, bottom_left, clearing} ps, ns;
+	always_comb begin
+	    x0 = 0; x1 = 0; y0 = 0; y1 = 0;
+		case (ps)
+			top_left: begin
+				x0 = 0;
+				y0 = 100;
+				x1 = 100;
+				y1 = 0;
+				ns = line_done ? top_right : top_left;
+			end
+			top_right: begin
+				x0 = 100;
+				y0 = 0;
+				x1 = 200;
+				y1 = 100;
+				ns = line_done ? bottom_right : top_right;
+			end
+			bottom_right: begin
+				x0 = 200;
+				y0 = 100;
+				x1 = 100;
+				y1 = 200;
+				ns = line_done ? bottom_left : bottom_right;
+			end
+			bottom_left: begin
+				x0 = 100;
+				y0 = 200;
+				x1 = 0;
+				y1 = 100;
+				ns = line_done ? clearing : bottom_left;
+			end
+			clearing: begin
+				ns = done ? top_left : clearing;
+			end
+			default: begin
+			    x0 = 0;
+			    x1 = 0;
+			    y0 = 0;
+			    y1 = 0;
+			    ns = top_left;
+			end
+		endcase
 	end
 
-	line_drawer lines (.clk(clk), .reset(reset),.x0, .y0, .x1, .y1, .x, .y, .done);
+	always_ff @(posedge CLOCK_50) begin
+		if (KEY[0]) begin
+			ps <= top_left;
+		end
+		else begin
+			ps <= ns;
+		end
+	end
 	
-	parameter T = 100;
+	line_drawer lines (.clk(animation_clock), .reset(((ps != clearing) & line_done)),.x0, .y0, .x1, .y1, .x, .y, .done(line_done));
+	
 	assign LEDR[9] = done;
-	// 640 x 480
-	// 1x = 64
-	// 1y = 48
-	
-	integer i;
-	reg [9:0] x_values [0:10], y_values [0:10];
-	
-	initial begin
-		for (i = 0; i <= 640; i = i + 64) begin
-        x_values[i / 64] = i;
-		end
-		
-		for (i = 0; i <= 480; i = i + 48) begin
-        y_values[i / 48] = i;
-		end
-	end
-	
-	reg [3:0] counter;
-    reg [1:0] x_line [3:0] = '{default:0};
-    reg [1:0] y_line [3:0] = '{default:0};
-    
-    initial begin
-        x_line[0] = x_values[1];
-        x_line[1] = x_values[3];
-        x_line[2] = x_values[5];
-        x_line[3] = x_values[7];
-    
-        y_line[0] = y_values[2];
-        y_line[1] = y_values[4];
-        y_line[2] = y_values[6];
-        y_line[3] = y_values[8];
-    end
-    
-	always_ff @(posedge clk) begin
-	    if (reset) begin
-			counter <= 0; // Reset counter
-			x0 <= 0;
-			y0 <= 0;
-		end 
-		
-		if (done) begin
-			if (counter < 5) begin
-			    x0 <= x_line[counter];
-				y0 <= y_line[counter];
-				x1 <= x_line[counter + 1];
-				y1 <= y_line[counter + 1];
-				counter <= counter + 1;
-			end 
-			else begin
-		        counter <= 0;
-		    end
-		end 
-	end
+
 
 endmodule  // DE1_SoC
