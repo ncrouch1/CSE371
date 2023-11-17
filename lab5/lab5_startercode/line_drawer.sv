@@ -69,7 +69,7 @@ module line_drawer(clk, reset, x0, y0, x1, y1, x, y, done);
 	
 	always_ff @(posedge clk) begin
 		// YOUR CODE HERE
-		
+		done <= 1'b0;
 		// reset logic
 		if(reset) begin
 			done <= 1'b0;
