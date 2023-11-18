@@ -42,17 +42,26 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	assign HEX4 = '1;
 	assign HEX5 = '1;
 
+	// create logic reset
     logic reset;
+	// assign reset to inverted button 0
     assign reset = ~KEY[0];
+	// given logic
 	logic [10:0] x0, y0, x1, y1, x, y;
 
+	// instantiate divided clocks
 	logic [31:0] divided_clocks;
 	clock_divider cd(.clock(CLOCK_50), .reset(~KEY[0]), .divided_clocks(divided_clocks));
 
+	// create animation clock
 	logic animation_clock;
+	// assign animation clock
 	assign animation_clock = divided_clocks[18];
+	// create color container
 	logic color;
+	// assign color to white if not clearing, black if clearing
 	assign color = (ps == clearing) ? 1'b0 : 1'b1;
+	// instantiate buffer
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
 		.reset			(1'b0), 
@@ -69,34 +78,48 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N));
 				
+	// create line drawer helper logic and clearer done signal container
 	logic line_done, line_start, done;
+	// assign start to current state as idle
 	assign line_start = (ps == idle);
+	// create logic clearer reset
 	logic clear_reset;
+	// assign clearer reset to inverted button 3
 	assign clear_reset = ~KEY[3];
+	// create counter
     logic [3:0] counter;
+	// create enums and state containers
  	enum {idle, draw_line, clearing} ps, ns;
  	
+	// state logic
  	always_comb begin
+		// put this so no latching error
  	    x0 = 0; y0 = 0; x1 = 1; y1 = 1;
  	    case(ps) 
  	        idle: begin
+				// load in next lines coordinates
                 x0 = 0 + (counter * 20);
                 y0 = 0 + (counter * 20);
                 x1 = 50 + (counter * 20);
                 y1 = 50 + (counter * 20);
+				// traverse to draw line
                 ns = draw_line;
  	        end
  	        draw_line: begin
+				// assert line coordinates are correct still
  	            x0 = 0 + (counter * 20);
                 y0 = 0 + (counter * 20);
                 x1 = 50 + (counter * 20);
                 y1 = 50 + (counter * 20);
+				// if line done move to clearing else continue drawing
                 ns = line_done ? clearing : draw_line;
  	        end
  	        clearing: begin
+				// if clearer done move to idle, else remain in clearing
  	            ns = done ? idle : clearing;
  	        end
  	        default: begin
+				// default load in no latch coords and goto idle
  	            x0 = 0;
  	            y0 = 0;
  	            x1 = 1;
@@ -106,31 +129,42 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
  	    endcase
  	end
  	
+	// containers for line drawer x,y and clearer x,y
  	logic [10:0] x_cont, y_cont, x_clear, y_clear;
+	// declare clearer
  	screen_clearer sc (.clock(CLOCK_50), .done(done), .start(ps == clearing), .reset(reset), .x(x_clear), .y(y_clear));
     
+	// on line_start rising edge
     always @(posedge line_start) begin
+		// if the reset is high go back to 0
         if (reset)
             counter <= 0;
+		// else increment counter
         else
             counter <= counter + 1;
     end
     
-    
+	// on animation clock rising edge
  	always_ff @(posedge animation_clock) begin
+		// if reset goto idle
  		if (reset) begin
  			ps <= idle;
  		end
+		// else if clearer reset goto clearing
  		else if (clear_reset)
  		    ps <= clearing;
+		// else goto next state
  		else begin
  			ps <= ns;
  		end
  	end
 
+	// create line drawer
 	line_drawer lines (.clk(animation_clock), .reset(line_start),.x0, .y0, .x1, .y1, .x(x_cont), .y(y_cont), .done(line_done));
+	// if clearing get coords from clearer else get from drawer
 	assign x = (ps == clearing) ? x_clear : x_cont;
 	assign y = (ps == clearing) ? y_clear : y_cont;
+	// assign LEDR 9 to done, set rest to LOW
 	assign LEDR[9] = done;
 	assign LEDR[8:0] = 9'b000000000;
 
