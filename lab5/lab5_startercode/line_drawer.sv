@@ -30,7 +30,7 @@ module line_drawer(clk, reset, x0, y0, x1, y1, x, y, done);
 	/* You'll need to create some registers to keep track of things
 	 * such as error and direction.
 	 */
-	 
+	
 	// Port declarations
 	logic signed [11:0] error, abs_x, abs_y, delta_x, delta_y;  
 	logic [10:0] temp_1, temp_2, x_start, x_end, y_start, y_end;
@@ -59,10 +59,10 @@ module line_drawer(clk, reset, x0, y0, x1, y1, x, y, done);
 	always_comb begin
 		 if (is_steep) begin // if is_steep
 			  delta_y = x_end > x_start ? x_end - x_start : x_start - x_end;
-			  step = x_start < x_end ? 1'b1 : 1'b0;  // -1 if 0
+			  step = x_start < x_end ? 1'b1 : 1'b0; 
 		 end else begin // else
 			  delta_y = y_end > y_start ? y_end - y_start : y_start - y_end;
-			  step = y_start < y_end ? 1'b1 : 1'b0;  // -1 if 0
+			  step = y_start < y_end ? 1'b1 : 1'b0;
 		 end // is_steep	 
 	end  // delta_y and step assignment
 	
