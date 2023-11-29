@@ -1,12 +1,13 @@
 module input_handler (
     input logic clock, reset,
     input logic [9:0] SW,
-    input logic button, drawing, player
+    input logic button, drawing, player,
     output logic [9:0] metaSW,
     output logic holding, gameover
 );
-    logic [9:0] gamestate [1:0];
-    enum {reading, hold, hold2} ps, ns
+    logic [1:0] gamestate [9:0];
+	logic valid;
+    enum {reading, hold, hold2} ps, ns;
     assign holding = (ps != reading);
 
     
@@ -19,7 +20,7 @@ module input_handler (
                     ns = hold;
             end
             hold: ns =  valid? hold2 : reading;
-            hold2: ns = drawing? hold3 : reading;
+            hold2: ns = drawing? hold2 : reading;
         endcase
     end
     
