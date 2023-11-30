@@ -3,13 +3,13 @@ module input_handler (
     input logic [9:0] SW,
     input logic button, drawing, player,
     output logic [9:0] metaSW,
-    output logic holding, gameover
-);
+    output logic gameover
+);                                                                                                                                                                                                                                                                                                                                                                                                                                                                               vvvbn
     logic [1:0] gamestate [9:0];
-	logic valid;
+	logic valid, enable_validation;
     enum {reading, hold, hold2} ps, ns;
     assign holding = (ps != reading);
-
+    assign enable_validation = 
     
     always_comb begin : _State_logic
         case(ps)
