@@ -8,7 +8,7 @@ module input_handler (
     logic [9:0] gamestate [1:0];
     enum {reading, hold, hold2} ps, ns;
     assign holding = (ps != reading);
-
+    assign enable_validation = 
     
     always_comb begin : _State_logic
         case(ps)
@@ -19,7 +19,7 @@ module input_handler (
                     ns = hold;
             end
             hold: ns =  valid? hold2 : reading;
-            hold2: ns = drawing? hold3 : reading;
+            hold2: ns = drawing? hold2 : reading;
         endcase
     end
     
