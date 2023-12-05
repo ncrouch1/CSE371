@@ -31,6 +31,8 @@ module input_handler (clock, reset, SW, button, drawing, player, metaSW, holding
             ps <= reading;
         else
             ps <= ns;
+        if (ps == hold2)
+            gamestate <= gamestate_next;
     end
 endmodule
 
