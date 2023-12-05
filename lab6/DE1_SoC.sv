@@ -9,7 +9,6 @@
  * Outputs:
  *   HEX 			- On board 7 segment displays of the FPGA
  *   LEDR 			- On board LEDs of the FPGA
- *   VGA Monitor
  *   
  */
 module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50);
@@ -21,20 +20,20 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50);
 	input CLOCK_50;
 	
 	// Divided clock so output is visible
-   logic clk;
-   logic [6:0] divided_clocks = 0;
-   always_ff @(posedge CLOCK_50) begin
-       divided_clocks <= divided_clocks + 7'd1;
-   end
-   assign clk = divided_clocks[5];
+	logic clk;
+	logic [6:0] divided_clocks = 0;
+	always_ff @(posedge CLOCK_50) begin
+		divided_clocks <= divided_clocks + 7'd1;
+	end
+	assign clk = divided_clocks[5];
 	
-	logic done, reset; //, rreset;
-
+	logic done, reset, rreset;
+	
 	tic_tac_toe game (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, reset);
 	
-//	always_ff @(posedge CLOCK_50) begin
-//		rreset <= ~KEY[0];
-//		reset  <= rreset;
-//	end
+	always_ff @(posedge CLOCK_50) begin
+		rreset <= ~KEY[0];
+		reset  <= rreset;
+	end
     
 endmodule  // DE1_SoC

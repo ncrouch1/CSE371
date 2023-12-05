@@ -1,11 +1,11 @@
-module set_move (metaSW, gamestate, valid, player, enable, gamestate_next);
-
-	input logic [9:0] metaSW;
-	input logic [1:0] gamestate [9:0];
-	input logic player, enable, valid;
-	output logic [1:0] gamestate_next [9:0];
-
-    always_comb begin 
+module set_move (
+    input logic [9:0] metaSW,
+    input logic [1:0] gamestate [9:0],
+    input logic player, enable,
+    output logic [1:0] gamestate_next [9:0]
+);
+	
+    always_comb begin : validate_input
         case(metaSW)
             10'd1: begin
                 if (enable) begin
@@ -64,7 +64,7 @@ endmodule
 module set_move_tb();
     logic [9:0] metaSW;
     logic [1:0] gamestate [9:0];
-    logic enable, player, valid;
+    logic enable, player;
     logic [1:0] gamestate_next [9:0];
 
     set_move dut (.*);

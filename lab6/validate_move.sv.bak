@@ -5,7 +5,7 @@ module validate_move (
     output logic valid
 );
 
-    always_comb begin 
+    always_comb begin : validate_input
         case(metaSW)
             10'd1: begin
                 if (enable)
