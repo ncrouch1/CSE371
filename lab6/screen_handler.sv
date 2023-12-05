@@ -2,9 +2,7 @@
  * as input and outputs the lines drawn from the VGA port.
  *
  * Inputs:
- *   KEY 			- On board keys of the FPGA
- *   SW 			- On board switches of the FPGA
- *   CLOCK_50 		- On board 50 MHz clock of the FPGA
+ *   
  *
  * Outputs:
  *   VGA_R 			- Red data of the VGA connection
@@ -16,21 +14,21 @@
  *   VGA_SYNC_N 	- Enable signal for the sync of the VGA connection
  *   VGA_VS 		- Vertical Sync of the VGA connection
  */
-module screenhandler (
-	input logic clock, reset;
-	input logic [9:0] gamestate_next [1:0];
-	input logic valid, player;
-	);
+module screen_handler (clock, reset, gamestate_next, valid, player, done, start);
 	
-	output [7:0] VGA_R;
-	output [7:0] VGA_G;
-	output [7:0] VGA_B;
-	output VGA_BLANK_N;
-	output VGA_CLK;
-	output VGA_HS;
-	output VGA_SYNC_N;
-	output VGA_VS;
+	input logic clock, reset, valid, player, done, start;
+	input logic [1:0] gamestate_next [9:0];
+	logic [7:0] VGA_R;
+	logic [7:0] VGA_G;
+	logic [7:0] VGA_B;
+	logic VGA_BLANK_N;
+	logic VGA_CLK;
+	logic VGA_HS;
+	logic VGA_SYNC_N;
+	logic VGA_VS;
 	
+	logic [10:0] x0, y0, x1, y1, x, y;
+
 	// Divided clock so output is visible
     logic clk;
     logic [6:0] divided_clocks = 0;
@@ -39,32 +37,23 @@ module screenhandler (
     end
     assign clk = divided_clocks[5];
 	
-	logic [10:0] x0, y0, x1, y1, x, y;
-	logic done, reset, rreset;
-
 	VGA_framebuffer fb (
 		.clk50			(clk), 
 		.reset			(reset), 
-		.x, 
-		.y,
+		.x					(x), 
+		.y 				(y),
 		.pixel_color	(done ? 1'b0 : 1'b1), 
 		.pixel_write	(1'b1),
-		.VGA_R, 
-		.VGA_G, 
-		.VGA_B, 
-		.VGA_CLK, 
-		.VGA_HS, 
-		.VGA_VS,
+		.VGA_R			(VGA_R), 
+		.VGA_G			(VGA_G), 
+		.VGA_B			(VGA_B), 
+		.VGA_CLK			(VGA_CLK), 
+		.VGA_HS			(VGA_HS), 
+		.VGA_VS			(VGA_VS),
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N));
-				
-	
-	always_ff @(posedge CLOCK_50) begin
-		rreset <= ~KEY[0];
-		reset  <= rreset;
-	end
 
-	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x0), .y0(y0), .x1(x1), .y1(y1), .x(x), .y(y), .done);
+	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x0), .y0(y0), .x1(x1), .y1(y1), .x(x), .y(y), .done(done));
 	
     // logic for grid design
 	logic grid_done, grid_start;
@@ -111,16 +100,17 @@ module screenhandler (
     assign x1 = grid_coordinates[grid_counter][2];
     assign y1 = grid_coordinates[grid_counter][3];
     
-    always_comb begin
-        // Check each switch
-        if (SW[0]) begin
-            // Code to execute when the i-th switch is on
-            x0 = line_coordinates[0][0];
-            y0 = line_coordinates[0][1];
-            x1 = line_coordinates[0][2];
-            y1 = line_coordinates[0][3];
-        end
-    end
+//    always_comb begin
+//        // Check each switch
+//        if (gamestate_next[0]) begin
+//            // Code to execute when the i-th switch is on
+//            x0 = line_coordinates[0][0];
+//            y0 = line_coordinates[0][1];
+//            x1 = line_coordinates[0][2];
+//            y1 = line_coordinates[0][3];
+//        end
+//		  default: 
+//    end
 
     // State machine logic
     always_ff @(posedge clk) begin
@@ -138,7 +128,7 @@ module screenhandler (
     always_ff @(posedge clk) begin
         case (ps)
             idle: begin
-                grid_start = ~KEY[3];
+                grid_start = start;
                 // Need clear screen logic here
                 ns = ~grid_start ? ps : grid_line1;
             end
