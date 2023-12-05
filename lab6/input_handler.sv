@@ -1,17 +1,18 @@
 module input_handler (
     input logic clock, reset,
     input logic [9:0] SW,
-    input logic button, drawing, player,
+    input logic button, drawing,
     output logic [9:0] metaSW,
-    output logic gameover
+    output logic gameover, player
 );                                                                                                                                                                                                                                                                                                                                                                                                                                                                               vvvbn
     logic [1:0] gamestate [9:0];
-	logic valid, enable_validation;
+	logic valid, enable_validation, enable_set;
     enum {reading, hold, hold2} ps, ns;
     assign holding = (ps != reading);
-    assign enable_validation = 
+    assign enable_validation = (ps == hold);
+    assign enable_set = (ps == hold) & valid;
     
-    always_comb begin : _State_logic
+    always_comb begin : state_logic
         case(ps)
             reading: begin
                 metaSW = SW;
@@ -29,6 +30,8 @@ module input_handler (
             ps <= reading;
         else
             ps <= ns;
+        if (ps == hold2)
+            gamestate <= gamestate_next;
     end
 endmodule
 
