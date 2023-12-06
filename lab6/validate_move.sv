@@ -11,28 +11,28 @@ module validate_move (
                 valid = (gamestate[0] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10000000010: begin
-					 valid = (gamestate[1] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[1] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10000000100: begin
-					 valid = (gamestate[2] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[2] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10000001000: begin
-					 valid = (gamestate[3] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[3] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10000010000: begin
-					 valid = (gamestate[4] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[4] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10000100000: begin
-					 valid = (gamestate[5] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[5] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10001000000: begin
-					 valid = (gamestate[6] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[6] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10010000000: begin
-					 valid = (gamestate[7] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[7] == 2'b00) ? 1'b1 : 1'b0;
             end
             11'b10100000000: begin
-					 valid = (gamestate[8] == 2'b00) ? 1'b1 : 1'b0;
+					valid = (gamestate[8] == 2'b00) ? 1'b1 : 1'b0;
             end           
             default: valid = 1'b0;                                                                                                                 
         endcase          
