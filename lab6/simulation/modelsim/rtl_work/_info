@@ -1,0 +1,60 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/noah-/Documents/CSE371/lab6/simulation/modelsim
+vvalidate_move
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1701838407
+!i10b 1
+!s100 GTL]E3di3ONH3`M[G;9>C0
+IXTnEZP?[SkZ<XB<lCCBHE3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 validate_move_sv_unit
+S1
+R0
+Z5 w1701836840
+Z6 8C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv
+Z7 FC:/Users/noah-/Documents/CSE371/lab6/validate_move.sv
+L0 1
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1701838407.000000
+Z10 !s107 C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6
+Z14 tCvgOpt 0
+vvalidate_move_tb
+R1
+R2
+!i10b 1
+!s100 a]hJgY^DE7CB9GmoOImCS1
+I2flD<K8=SzdSLZe];aDSC3
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 42
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14

@@ -1,0 +1,129 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "valid",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[9]",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[7]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[8]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[6]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[4][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[4][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[3][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[3][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[8][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[8][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[7][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[7][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[6][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[6][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[5][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[5][1]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "metaSW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[2][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[2][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[1][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[1][1]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[0][0]",
+					"strict" : false
+				},
+				{
+					"name" : "gamestate[0][1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

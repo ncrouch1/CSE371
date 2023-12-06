@@ -6,48 +6,35 @@ module validate_move (
 );
 
     always_comb begin : validate_input
-        case(metaSW)
-            10'd1: begin
-                if (enable)
-                    valid = (gamestate[0] == 2'b00) ? 1'b1 : 1'b0;
+        case({enable, metaSW})
+            11'b10000000001: begin
+                valid = (gamestate[0] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd2: begin
-                if (enable)
-                    valid = (gamestate[1] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10000000010: begin
+					 valid = (gamestate[1] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd4: begin
-                if (enable)
-                    valid = (gamestate[2] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10000000100: begin
+					 valid = (gamestate[2] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd8: begin
-                if (enable)
-                    valid = (gamestate[3] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10000001000: begin
+					 valid = (gamestate[3] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd16: begin
-                if (enable)
-                    valid = (gamestate[4] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10000010000: begin
+					 valid = (gamestate[4] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd32: begin
-                if (enable)
-                    valid = (gamestate[5] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10000100000: begin
+					 valid = (gamestate[5] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd64: begin
-                if (enable)
-                    valid = (gamestate[6] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10001000000: begin
+					 valid = (gamestate[6] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd128: begin
-                if (enable)
-                    valid = (gamestate[7] == 2'b00) ? 1'b1 : 1'b0;
+            11'b10010000000: begin
+					 valid = (gamestate[7] == 2'b00) ? 1'b1 : 1'b0;
             end
-            10'd256: begin
-                if (enable)
-                    valid = (gamestate[8] == 2'b00) ? 1'b1 : 1'b0;
-            end
-            10'd512: begin
-                if (enable)
-                    valid = 1'b0;
+            11'b10100000000: begin
+					 valid = (gamestate[8] == 2'b00) ? 1'b1 : 1'b0;
             end           
-            default: if (enable) valid = 1'b0;                                                                                                                 
+            default: valid = 1'b0;                                                                                                                 
         endcase          
     end
 endmodule

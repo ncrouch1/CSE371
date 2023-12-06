@@ -5,7 +5,7 @@ module set_move (
     output logic [1:0] gamestate_next [9:0]
 );
 	
-    always_comb begin : validate_input
+    always_comb begin : set_move
         case(metaSW)
             10'd1: begin
                 if (enable) begin

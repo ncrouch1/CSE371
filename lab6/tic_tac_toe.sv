@@ -8,7 +8,7 @@ module tic_tac_toe (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, rese
 	
 	logic button, drawing, player, holding, gameover;
 	logic [9:0] metaSW;
-	logic [9:0] gamestate_next [1:0];
+	logic [1:0] gamestate_next [9:0];
 	
 	
 	input_handler(clk, reset, SW, button, drawing, player, metaSW, holding, gameover);
