@@ -18,7 +18,7 @@
  */
 module screenhandler (
 	input logic clock, reset;
-	input logic [9:0] gamestate_next [1:0];
+	input logic [1:0] gamestate_next [9:0];
 	input logic valid, player;
 	);
 	
