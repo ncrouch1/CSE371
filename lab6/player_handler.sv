@@ -1,12 +1,15 @@
-module player_handler(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, player);
-	output logic player;
+module player_handler (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, player, clk, valid);
+	input logic clk; 
+	output logic player, valid, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	
-	assign HEX1 = ~segments[0] & segments[1] & segments[2] & ~segments[3] & ~segments[4] & ~segments[5] & ~segments[6];
+	assign HEX1 = 7'b1111111;
 	
-	if(player) begin
-		assign HEX0 = 2'b01;
-	end else begin
-		assign HEX0 = 2'b10;
+	always_ff @(posedge clk) begin
+		if(player) begin
+			HEX0 = 7'b1111111;
+		end else begin
+			HEX0 = 7'b1111111;
+		end
 	end
 
 endmodule

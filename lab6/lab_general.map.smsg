@@ -1,1 +1,6 @@
+<<<<<<< HEAD:lab6/lab_general.map.smsg
 Warning (10268): Verilog HDL information at screen_handler.sv(138): always construct contains both blocking and non-blocking assignments File: C:/Users/noah-/Documents/CSE371/lab6/screen_handler.sv Line: 138
+=======
+Warning (10268): Verilog HDL information at screen_handler.sv(126): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 126
+Warning (10268): Verilog HDL information at input_handler.sv(16): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 16
+>>>>>>> 33116a48e453ac4a0ae91098c387212dacc468be:lab6/output_files/DE1_SoC.map.smsg

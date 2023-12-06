@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="DE1_SoC">
 	</PROJECT>
 </LOG_ROOT>
+=======
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="DE1_SoC">
+	</PROJECT>
+</LOG_ROOT>
+>>>>>>> 33116a48e453ac4a0ae91098c387212dacc468be

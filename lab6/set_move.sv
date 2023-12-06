@@ -64,7 +64,7 @@ endmodule
 module set_move_tb();
     logic [9:0] metaSW;
     logic [1:0] gamestate [9:0];
-    logic enable, player;
+    logic enable, player, valid;
     logic [1:0] gamestate_next [9:0];
 
     set_move dut (.*);
