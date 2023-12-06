@@ -16,58 +16,46 @@
  *   VGA_SYNC_N 	- Enable signal for the sync of the VGA connection
  *   VGA_VS 		- Vertical Sync of the VGA connection
  */
-module screenhandler (
+module screen_handler (clock, reset, gamestate_next, valid, player, done, start);
+	
 	input logic clock, reset;
 	input logic [1:0] gamestate_next [9:0];
-	input logic valid, player;
-	);
+	input logic valid, player, done, start;
 	
-	output [7:0] VGA_R;
-	output [7:0] VGA_G;
-	output [7:0] VGA_B;
-	output VGA_BLANK_N;
-	output VGA_CLK;
-	output VGA_HS;
-	output VGA_SYNC_N;
-	output VGA_VS;
-	
-	// Divided clock so output is visible
-    logic clk;
-    logic [6:0] divided_clocks = 0;
-    always_ff @(posedge clock) begin
-        divided_clocks <= divided_clocks + 7'd1;
-    end
-    assign clk = divided_clocks[5];
+	logic [7:0] VGA_R;
+	logic [7:0] VGA_G;
+	logic [7:0] VGA_B;
+	logic VGA_BLANK_N;
+	logic VGA_CLK;
+	logic VGA_HS;
+	logic VGA_SYNC_N;
+	logic VGA_VS;
 	
 	logic [10:0] x0, y0, x1, y1, x, y;
-	logic done, reset, rreset;
+	logic rreset;
 
 	VGA_framebuffer fb (
 		.clk50			(clk), 
 		.reset			(reset), 
-		.x, 
-		.y,
+		.x					(x), 
+		.y					(y),
 		.pixel_color	(done ? 1'b0 : 1'b1), 
 		.pixel_write	(1'b1),
-		.VGA_R, 
-		.VGA_G, 
-		.VGA_B, 
-		.VGA_CLK, 
-		.VGA_HS, 
-		.VGA_VS,
+		.VGA_R			(VGA_R), 
+		.VGA_G			(VGA_G), 
+		.VGA_B			(VGA_B), 
+		.VGA_CLK			(VGA_CLK), 
+		.VGA_HS			(VGA_HS), 
+		.VGA_VS			(VGA_VS),
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N));
 				
-	
-	always_ff @(posedge CLOCK_50) begin
-		rreset <= ~KEY[0];
-		reset  <= rreset;
-	end
-
-	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x0), .y0(y0), .x1(x1), .y1(y1), .x(x), .y(y), .done);
+	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x0), .y0(y0), .x1(x1), .y1(y1), .x(x), .y(y), .done(done));
 	
     // logic for grid design
 	logic grid_done, grid_start;
+	
+	// line_draw_done signal asserted to input handler
 	
 	// reset for line_drawer
 	logic line_reset;
@@ -89,7 +77,7 @@ module screenhandler (
         grid_coordinates[2] = '{11'd186, 11'd106, 11'd186, 11'd532};  // Grid 3
         grid_coordinates[3] = '{11'd292, 11'd106, 11'd292, 11'd532};  // Grid 4
         
-        line_coordinates[0] = '{11'd0, 11'd0, 11'd480, 11'd640};   // Line 1
+        line_coordinates[0] = '{11'd0, 11'd0, 11'd480, 11'd640};   	 // Line 1
         line_coordinates[1] = '{11'd80, 11'd390, 11'd400, 11'd390};   // Line 2
         line_coordinates[2] = '{11'd186, 11'd106, 11'd186, 11'd532};  // Line 3
         line_coordinates[3] = '{11'd292, 11'd106, 11'd292, 11'd532};  // Line 4

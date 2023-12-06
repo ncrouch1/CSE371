@@ -6,7 +6,7 @@ module tic_tac_toe (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, rese
 	input logic [9:0] SW;
 	input logic clk, reset;
 	
-	logic start, button, drawing, player, holding, gameover, valid, done;
+	logic start, button, drawing, player, holding, gameover, valid, done, line_drawer_done;
 	logic [9:0] metaSW;
 	logic [1:0] gamestate_next [9:0];
 	logic [1:0] gamestate [9:0];
@@ -24,7 +24,8 @@ module tic_tac_toe (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, rese
 		metaSW, 
 		holding, 
 		gameover,
-		valid
+		valid,
+		line_drawer_done
 	);
 		
 	player_handler pl_h(
@@ -46,7 +47,8 @@ module tic_tac_toe (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, rese
 		.valid(valid), 
 		.player(player), 
 		.done(done),
-		.start(start)
+		.start(start),
+		.line_drawer_done(line_drawer_done)
 	);
 		
 	set_move sm (

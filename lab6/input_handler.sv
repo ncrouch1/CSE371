@@ -1,6 +1,6 @@
-module input_handler (clock, reset, SW, button, drawing, player, metaSW, holding, gameover, valid);
+module input_handler (clock, reset, SW, button, drawing, player, metaSW, holding, gameover, valid, line_drawer_done);
 
-	input logic clock, reset, valid;
+	input logic clock, reset, valid, line_drawer_done;
 	input logic [9:0] SW;
 	input logic button, drawing, player;
 	output logic [9:0] metaSW;
