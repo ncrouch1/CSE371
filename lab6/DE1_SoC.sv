@@ -35,7 +35,22 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	output VGA_SYNC_N;
 	output VGA_VS;
 	
+	// Divided clock so output is visible
+	logic clk;
+	logic [6:0] divided_clocks = 0;
+	always_ff @(posedge CLOCK_50) begin
+		divided_clocks <= divided_clocks + 7'd1;
+	end
+	assign clk = divided_clocks[5];
+
+	logic start, button, drawing, player, holding, gameover, valid, line_draw_done;
+	logic [9:0] metaSW;
+	logic [1:0] gamestate_next [9:0];
+	logic [1:0] gamestate [9:0];
 	logic [10:0] x, y;
+
+	
+	assign start = ~KEY[3];
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
@@ -56,20 +71,6 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 				
 	logic done;
 	
-	// Divided clock so output is visible
-	logic clk;
-	logic [6:0] divided_clocks = 0;
-	always_ff @(posedge CLOCK_50) begin
-		divided_clocks <= divided_clocks + 7'd1;
-	end
-	assign clk = divided_clocks[5];
-
-	logic start, button, drawing, player, holding, gameover, valid, line_draw_done;
-	logic [9:0] metaSW;
-	logic [1:0] gamestate_next [9:0];
-	logic [1:0] gamestate [9:0];
-	
-	assign start = ~KEY[3];
 	
     always_ff @(posedge clk) begin
         clk_input <= clk;
@@ -164,7 +165,7 @@ module DE1_SoC_tb;
         CLOCK_50 = 0;
 
         // Apply stimulus
-        #10 KEY = 4'b0001;  // Assuming KEY[3] controls "start"
+        #10 KEY = 4'b0011;  // Assuming KEY[3] controls "start"
         #100 KEY = 4'b0000;
         #100 SW = 10'b1010101010;  // Update switches
 

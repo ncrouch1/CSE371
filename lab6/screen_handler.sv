@@ -1,60 +1,19 @@
-/* Top level module of the FPGA that takes the onboard resources 
- * as input and outputs the lines drawn from the VGA port.
- *
- * Inputs:
- *   KEY 			- On board keys of the FPGA
- *   SW 			- On board switches of the FPGA
- *   CLOCK_50 		- On board 50 MHz clock of the FPGA
- *
- * Outputs:
- *   VGA_R 			- Red data of the VGA connection
- *   VGA_G 			- Green data of the VGA connection
- *   VGA_B 			- Blue data of the VGA connection
- *   VGA_BLANK_N 	- Blanking interval of the VGA connection
- *   VGA_CLK 		- VGA's clock signal
- *   VGA_HS 		- Horizontal Sync of the VGA connection
- *   VGA_SYNC_N 	- Enable signal for the sync of the VGA connection
- *   VGA_VS 		- Vertical Sync of the VGA connection
- */
-module screen_handler (clk, reset, gamestate_next, player, done, start, line_draw_done,
-                        VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
+
+module screen_handler (
+    input logic clk, reset, gamestate_next, player, done, start, line_draw_done,
+    output logic x, y);
 	
 	input logic clk, reset;
 	input logic [1:0] gamestate_next [9:0];
 	input logic player, done, start, line_draw_done, grid_done, grid_start, line_reset, line_start;
-	
-	output [7:0] VGA_R;
-	output [7:0] VGA_G;
-	output [7:0] VGA_B;
-	output VGA_BLANK_N;
-	output VGA_CLK;
-	output VGA_HS;
-	output VGA_SYNC_N;
-	output VGA_VS;
+    output logic [10:0] x, y;
 	
 	logic [10:0] x10, y10, x11, y11, x20, y20, x21, y21 x, y;
-	logic rreset;
     logic [3:0] rom_address; 
     logic [87:0] rom_data;
-
-	VGA_framebuffer fb (
-		.clk50			(clk), 
-		.reset			(reset), 
-		.x				(x), 
-		.y				(y),
-		.pixel_color	(done ? 1'b0 : 1'b1), 
-		.pixel_write	(1'b1),
-		.VGA_R			(VGA_R), 
-		.VGA_G			(VGA_G), 
-		.VGA_B			(VGA_B), 
-		.VGA_CLK		(VGA_CLK), 
-		.VGA_HS			(VGA_HS), 
-		.VGA_VS			(VGA_VS),
-		.VGA_BLANK_n	(VGA_BLANK_N), 
-		.VGA_SYNC_n		(VGA_SYNC_N));
 				
-	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x10), .y0(y10), .x1(x11), .y1(y11), .x(x), .y(y), .done(line_draw_done));
-    line_drawer lines2 (.clk(clk), .reset(line_reset), .x0(20), .y0(y20), .x1(x21), .y1(y21), .x(x), .y(y), .done(line_draw_done));
+	line_drawer lines  (.clk(clk), .reset(line_reset), .x0(x10), .y0(y10), .x1(x11), .y1(y11), .x(x), .y(y), .done(line_draw_done));
+    line_drawer lines2 (.clk(clk), .reset(line_reset), .x0(x20), .y0(y20), .x1(x21), .y1(y21), .x(x), .y(y), .done(line_draw_done));
 	rom line_data(.address(rom_address), .clock(clk), .q(rom_data));
 	
 	// enums states and state containers
