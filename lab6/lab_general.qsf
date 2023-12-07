@@ -1,4 +1,4 @@
-<<<<<<< HEAD:lab6/lab_general.qsf
+#<<<<<<< HEAD:lab6/lab_general.qsf
 # -------------------------------------------------------------------------- #
 #
 # Copyright (C) 2017  Intel Corporation. All rights reserved.
@@ -38,25 +38,13 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Cyclone V"
-set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY validate_move
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:50:21  DECEMBER 05, 2023"
-set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
-set_global_assignment -name SYSTEMVERILOG_FILE validate_move.sv
-set_global_assignment -name SYSTEMVERILOG_FILE set_move.sv
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (SystemVerilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "SYSTEMVERILOG HDL" -section_id eda_simulation
-=======
+#=======
 # -------------------------------------------------------------------------- #
 #
 # Copyright (C) 2017  Intel Corporation. All rights reserved.
@@ -110,9 +98,9 @@ set_global_assignment -name SYSTEMVERILOG_FILE input_handler.sv
 set_global_assignment -name SYSTEMVERILOG_FILE DE1_SoC.sv
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
-set_global_assignment -name SYSTEMVERILOG_FILE tic_tac_toe.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+#>>>>>>> 33116a48e453ac4a0ae91098c387212dacc468be:lab6/DE1_SoC.qsf
+
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
->>>>>>> 33116a48e453ac4a0ae91098c387212dacc468be:lab6/DE1_SoC.qsf

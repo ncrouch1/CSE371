@@ -51,7 +51,7 @@ module DE1_SoC(CLOCK_50, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, LEDR, V_GPIO);
 	// RAM modules, V_GPIO are inputs that simulate the actile low button and active high swicthes on the FPGA board,
 	// read1 and read 2 are the output for the word read from the corresponding ram module
 	task2 ram1 (.address(V_GPIO[13:9]), .enable(~V_GPIO[14]), .clock(CLOCK_50), .datain(V_GPIO[8:6]), .wren(V_GPIO[5]), .dataout(read1));
-	task3 ram2 (.clock(div_clock[24]), .enable(V_GPIO[14]), .reset(~V_GPIO[3]), .datain(V_GPIO[8:6]), .rdaddress(num), .wraddress(V_GPIO[13:9]), .wren(V_GPIO[5]), .dataout(read2));
+	task3 ram2(.clock(div_clock[24]), .enable(V_GPIO[14]), .reset(~V_GPIO[3]), .datain(V_GPIO[8:6]), .rdaddress(num), .wraddress(V_GPIO[13:9]), .wren(V_GPIO[5]), .dataout(read2));
 
 	// splits 32-bit binary two 4-bit hex
 	assign wrtensplace = V_GPIO[13:9] / 16;
