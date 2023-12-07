@@ -1,6 +1,6 @@
 module address_decoder (
     input logic [9:0] metaSW,
-    input logic enable, clock, reset
+    input logic enable, clock, reset,
     output logic [3:0] address
 );
     logic [3:0] address_next;
@@ -24,6 +24,6 @@ module address_decoder (
             address_next <= 4'b0000;
             address <= 4'b0000;
         end
-        address <= address_next
+        address <= address_next;
     end
 endmodule

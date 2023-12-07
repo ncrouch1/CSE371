@@ -1,4 +1,4 @@
-module player_handler (clk, switch_flipped, screen_logic_processed, player, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module player_handler (clk, player, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
     
     input logic clk;
     //input logic switch_flipped; // Signal indicating a switch is flipped

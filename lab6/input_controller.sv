@@ -1,14 +1,14 @@
 module input_controller (
-    input logic clock, reset, button, drawing,
+    input logic clock, reset, button, drawing, valid, drawing_done,
     output logic enable_validation, enable_setting, enable_ram,
     output logic enable_drawing, lock_input, player, update_state
     );
 
-	enum {reading, validate, setting, drawing, toggle_player} ps, ns;
+	enum {reading, validate, setting, fetching, drawing_state, toggle_player} ps, ns;
     
     assign enable_validation = (ps == validate);
     assign enable_setting = (ps == setting);
-    assign enable_drawing = (ps == drawing);
+    assign enable_drawing = (ps == drawing_state);
     assign enable_ram = (ps == setting);
     assign update_state = (ps == toggle_player);
     assign lock_input = (ps != reading);
@@ -19,8 +19,8 @@ module input_controller (
             reading: ns = button ? validate : reading;
             validate: ns =  valid ? setting : reading;
             setting: ns = fetching;
-            fetching: ns = drawing;
-            drawing: ns = drawing_done ? toggle_player : drawing;
+            fetching: ns = drawing_state;
+            drawing_state: ns = drawing_done ? toggle_player : drawing_state;
             toggle_player: ns = reading;
 			default: ns = ps;
         endcase

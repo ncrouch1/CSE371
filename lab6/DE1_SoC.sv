@@ -35,22 +35,28 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	output VGA_SYNC_N;
 	output VGA_VS;
 	
-	// Divided clock so output is visible
-	logic clk;
-	logic [6:0] divided_clocks = 0;
-	always_ff @(posedge CLOCK_50) begin
-		divided_clocks <= divided_clocks + 7'd1;
-	end
-	assign clk = divided_clocks[5];
-
-	logic start, button, drawing, player, holding, gameover, valid, line_draw_done;
+	logic reset, button, drawing, valid, drawing_done;
+    logic player, enable_validation, enable_setting, enable_ram, update_state, lock_input;
+    logic enable_drawing;
+    logic set;
+    logic [87:0] data;
+    
+    logic start, holding, gameover;
 	logic [9:0] metaSW;
 	logic [1:0] gamestate_next [9:0];
 	logic [1:0] gamestate [9:0];
 	logic [10:0] x, y;
-
 	
+	// Divided clock so output is visible
+	logic clk, clk_input, clk_player, clk_screen;
+	logic [6:0] divided_clocks = 0;
+	always_ff @(posedge CLOCK_50) begin
+		divided_clocks <= divided_clocks + 7'd1;
+	end
+	
+	assign clk = divided_clocks[5];
 	assign start = ~KEY[3];
+	assign reset = ~KEY[0];
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
@@ -79,18 +85,34 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
     end
 
 	
-	input_handler in_h(
-		.clk(clk_input), 
-		.reset(reset), 
-		.SW(SW), 
-		.button(button), 
-		.drawing(drawing), 
-		.player(player), 
-		.metaSW(metaSW), 
-		.holding(holding), 
-		.gameover(gameover),
-		.valid(valid),
-		.line_draw_done(line_draw_done)
+	input_controller in_c (
+	    .clock(clk_input),
+	    .reset,
+	    .button,
+	    .drawing,
+	    .valid,
+	    .drawing_done,
+	    .enable_validation,
+	    .enable_setting,
+	    .enable_ram,
+	    .enable_drawing,
+	    .lock_input,
+	    .player,
+	    .update_state
+	);
+	
+	input_datapath in_d(
+	    .clock(clk),
+	    .player,
+	    .enable_validation,
+	    .enable_setting,
+	    .enable_ram,
+	    .update_state,
+	    .lock_input,
+	    .valid,
+	    .set,
+	    .SW,
+	    .data
 	);
 		
 	player_handler pl_h(
@@ -111,7 +133,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.player(player), 
 		.done(done),
 		.start(start),
-		.line_draw_done(line_draw_done),
+		.drawing_done(drawing_done),
+		.data,
 		.x,
 		.y
 	);

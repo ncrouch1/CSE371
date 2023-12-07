@@ -1,20 +1,20 @@
 
 module screen_handler (
-    input logic clk, reset, gamestate_next, player, done, start, line_draw_done,
-    output logic x, y);
+    input logic clk, reset, player, done, start,
+    input logic [1:0] gamestate_next [9:0],
+    output logic [10:0] x, y,
+    input logic [87:0] data,
+    output logic drawing_done
+    );
 	
-	input logic clk, reset;
-	input logic [1:0] gamestate_next [9:0];
-	input logic player, done, start, line_draw_done, grid_done, grid_start, line_reset, line_start;
-    output logic [10:0] x, y;
-	
-	logic [10:0] x10, y10, x11, y11, x20, y20, x21, y21 x, y;
+	logic grid_done, grid_start, line_reset, line_start;
+
+	logic [10:0] x10, y10, x11, y11, x20, y20, x21, y21;
     logic [3:0] rom_address; 
-    logic [87:0] rom_data;
 				
 	line_drawer lines  (.clk(clk), .reset(line_reset), .x0(x10), .y0(y10), .x1(x11), .y1(y11), .x(x), .y(y), .done(line_draw_done));
     line_drawer lines2 (.clk(clk), .reset(line_reset), .x0(x20), .y0(y20), .x1(x21), .y1(y21), .x(x), .y(y), .done(line_draw_done));
-	rom line_data(.address(rom_address), .clock(clk), .q(rom_data));
+	rom line_data(.address(rom_address), .clock(clk), .q(data));
 	
 	// enums states and state containers
     enum {idle, grid_line1, grid_line2, grid_line3, grid_line4, state_grid_done} ps, ns;
@@ -36,32 +36,32 @@ module screen_handler (
     always_comb begin 
         // Check each switch
         case (player) 
-            1'b0 begin
-                x10 = rom_data[10:0];
-                y10 = rom_data[21:11];
-                x11 = rom_data[32:22];
-                y11 = rom_data[43:33];
+            1'b0 : begin
+                x10 = data[10:0];
+                y10 = data[21:11];
+                x11 = data[32:22];
+                y11 = data[43:33];
                 x20 = 11'b0;
                 y20 = 11'b0;
                 x21 = 11'b0;
                 y21 = 11'b0;
             end
 
-            1'b1 begin
-                x10 = rom_data[10:0];
-                y10 = rom_data[21:11];
-                x11 = rom_data[32:22];
-                y11 = rom_data[43:33];
-                x20 = rom_data[54:44];
-                y20 = rom_data[65:55];
-                x21 = rom_data[76:66];
-                y21 = rom_data[87:77]:
+            1'b1 : begin
+                x10 = data[10:0];
+                y10 = data[21:11];
+                x11 = data[32:22];
+                y11 = data[43:33];
+                x20 = data[54:44];
+                y20 = data[65:55];
+                x21 = data[76:66];
+                y21 = data[87:77];
             end
             default: begin
-                x0 = grid_coordinates[grid_counter][0];
-                y0 = grid_coordinates[grid_counter][1];
-                x1 = grid_coordinates[grid_counter][2];
-                y1 = grid_coordinates[grid_counter][3];
+                x10 = grid_coordinates[grid_counter][0];
+                y10 = grid_coordinates[grid_counter][1];
+                x11 = grid_coordinates[grid_counter][2];
+                y11 = grid_coordinates[grid_counter][3];
             end
         endcase
     end
@@ -95,7 +95,7 @@ module screen_handler (
             end
 
             line_done: begin
-                line_draw_done = 1'b1;
+                drawing_done <= 1'b1;
             end
         endcase
     end
