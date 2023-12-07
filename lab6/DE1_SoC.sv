@@ -11,13 +11,23 @@
  *   LEDR 			- On board LEDs of the FPGA
  *   
  */
-module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50);
+module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
+                VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
 	
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	output logic [9:0] LEDR;
 	input logic [3:0] KEY;
 	input logic [9:0] SW;
 	input CLOCK_50;
+	
+	output [7:0] VGA_R;
+	output [7:0] VGA_G;
+	output [7:0] VGA_B;
+	output VGA_BLANK_N;
+	output VGA_CLK;
+	output VGA_HS;
+	output VGA_SYNC_N;
+	output VGA_VS;
 	
 	// Divided clock so output is visible
 	logic clk;
@@ -29,7 +39,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50);
 	
 	logic done, reset, rreset;
 	
-	tic_tac_toe game (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, reset);
+	tic_tac_toe game (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, clk, reset,
+	                 VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
 	
 	always_ff @(posedge CLOCK_50) begin
 		rreset <= ~KEY[0];

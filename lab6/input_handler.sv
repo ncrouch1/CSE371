@@ -1,16 +1,17 @@
-module input_handler (clock, reset, SW, button, drawing, player, metaSW, holding, gameover, valid, line_drawer_done);
+module input_handler (clk, reset, SW, button, drawing, player, metaSW, holding, gameover, valid, line_draw_done);
 
-	input logic clock, reset, valid, line_drawer_done;
+	input logic clk, reset, valid, line_draw_done;
 	input logic [9:0] SW;
 	input logic button, drawing, player;
 	output logic [9:0] metaSW;
 	output logic holding, gameover;
 
 	logic [1:0] gamestate [9:0];
+    logic [1:0] gamestate_next [9:0];
 	enum {reading, hold, hold2} ps, ns;
 	assign holding = (ps != reading);
 	//assign enable_validation = 
- 
+
 	// State logic
     always_ff begin 
         case(ps)
@@ -26,7 +27,7 @@ module input_handler (clock, reset, SW, button, drawing, player, metaSW, holding
         endcase
     end
     
-    always_ff @(posedge clock) begin
+    always_ff @(posedge clk) begin
         if (reset)
             ps <= reading;
         else
@@ -38,5 +39,5 @@ endmodule
 
 module input_handler_tb();
     logic [9:0] SW, metaSW;
-    logic clock, reset, button, holding, valid;
+    logic clk, reset, button, holding, valid;
 endmodule
