@@ -35,7 +35,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	output VGA_SYNC_N;
 	output VGA_VS;
 	
-	logic [10:0] x0, y0, x1, y1, x, y;
+	logic [10:0] x, y;
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
@@ -115,19 +115,19 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.y
 	);
 		
-	set_move sm (
-		.metaSW(metaSW), 
-		.gamestate(gamestate), 
-		.player(player), 
-		.enable(enable),
-		.gamestate_next(gamestate_next)
-	);
+	// set_move sm (
+	// 	.metaSW(metaSW), 
+	// 	.gamestate(gamestate), 
+	// 	.player(player), 
+	// 	.enable(enable),
+	// 	.gamestate_next(gamestate_next)
+	// );
 		
-	validate_move vm (
-		metaSW, 
-		gamestate, 
-		valid
-	);
+	// validate_move vm (
+	// 	metaSW, 
+	// 	gamestate, 
+	// 	valid
+	// );
 
 endmodule  // DE1_SoC
 
