@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab_general
-Wed Dec 06 00:13:15 2023
+Wed Dec 06 19:31:20 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Wed Dec 06 00:13:15 2023           ;
+; Analysis & Synthesis Status ; Failed - Wed Dec 06 19:31:20 2023           ;
 ; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name               ; lab_general                                 ;
 ; Top-level Entity Name       ; DE1_SoC                                     ;
@@ -162,7 +162,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Dec 06 00:12:54 2023
+    Info: Processing started: Wed Dec 06 19:30:55 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab_general -c lab_general
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -178,21 +178,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file player_
     Info (12023): Found entity 1: player_handler File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/player_handler.sv Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file input_handler.sv
     Info (12023): Found entity 1: input_handler File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 1
-    Info (12023): Found entity 2: input_handler_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 39
-Info (12021): Found 1 design units, including 1 entities, in source file de1_soc.sv
-    Info (12023): Found entity 1: DE1_SoC File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 14
-Info (12021): Found 1 design units, including 1 entities, in source file tic_tac_toe.sv
-    Info (12023): Found entity 1: tic_tac_toe File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/tic_tac_toe.sv Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at screen_handler.sv(38): created implicit net for "clk" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 38
-Warning (10236): Verilog HDL Implicit Net warning at tic_tac_toe.sv(59): created implicit net for "enable" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/tic_tac_toe.sv Line: 59
-Error (10161): Verilog HDL error at screen_handler.sv(104): object "SW" is not declared. Verify the object name is correct. If the name is correct, declare the object. File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 104
-Error (10161): Verilog HDL error at screen_handler.sv(129): object "KEY" is not declared. Verify the object name is correct. If the name is correct, declare the object. File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 129
+    Info (12023): Found entity 2: input_handler_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 40
+Info (12021): Found 2 design units, including 2 entities, in source file de1_soc.sv
+    Info (12023): Found entity 1: DE1_SoC File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 21
+    Info (12023): Found entity 2: DE1_SoC_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 134
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SoC.sv(42): created implicit net for "reset" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 42
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SoC.sv(82): created implicit net for "clk_input" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 82
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SoC.sv(103): created implicit net for "clk_player" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 103
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SoC.sv(107): created implicit net for "clk_screen" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 107
+Warning (10236): Verilog HDL Implicit Net warning at DE1_SoC.sv(122): created implicit net for "enable" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 122
+Error (10932): SystemVerilog error at DE1_SoC.sv(47): can't resolve implicit port connection(s) to instance "fb" without a module declaration or an extern equivalent File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 47
+Error (10284): Verilog HDL Module Instantiation error at DE1_SoC.sv(114): port "x" is not declared by module "screen_handler" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 114
+Error (10284): Verilog HDL Module Instantiation error at DE1_SoC.sv(116): port "y" is not declared by module "screen_handler" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 116
 Info (144001): Generated suppressed messages file /Desktop/EE371/Git-EE371/CSE371/lab6/output_files/lab_general.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 3 warnings
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 6 warnings
     Error: Peak virtual memory: 13170 megabytes
-    Error: Processing ended: Wed Dec 06 00:13:15 2023
-    Error: Elapsed time: 00:00:21
-    Error: Total CPU time (on all processors): 00:00:47
+    Error: Processing ended: Wed Dec 06 19:31:20 2023
+    Error: Elapsed time: 00:00:25
+    Error: Total CPU time (on all processors): 00:00:56
 
 
 +------------------------------------------+

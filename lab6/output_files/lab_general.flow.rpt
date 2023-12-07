@@ -1,5 +1,5 @@
 Flow report for lab_general
-Wed Dec 06 00:13:15 2023
+Wed Dec 06 19:31:20 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Flow Summary                                                              ;
 +-----------------------------+---------------------------------------------+
-; Flow Status                 ; Flow Failed - Wed Dec 06 00:13:15 2023      ;
+; Flow Status                 ; Flow Failed - Wed Dec 06 19:31:20 2023      ;
 ; Quartus Prime Version       ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name               ; lab_general                                 ;
 ; Top-level Entity Name       ; DE1_SoC                                     ;
@@ -63,7 +63,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/06/2023 00:12:54 ;
+; Start date & time ; 12/06/2023 19:30:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab_general         ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 121368818846.170185037414504           ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 121368818846.170191985610880           ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
@@ -94,8 +94,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 13170 MB            ; 00:00:47                           ;
-; Total                ; 00:00:21     ; --                      ; --                  ; 00:00:47                           ;
+; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 13170 MB            ; 00:00:56                           ;
+; Total                ; 00:00:25     ; --                      ; --                  ; 00:00:56                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

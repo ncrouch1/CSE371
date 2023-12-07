@@ -40,8 +40,8 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
 		.reset			(reset), 
-		.x					(x), 
-		.y					(y),
+		.x, 
+		.y,
 		.pixel_color	(done ? 1'b0 : 1'b1), 
 		.pixel_write	(1'b1),
 		.VGA_R, 
@@ -130,53 +130,3 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	);
 
 endmodule  // DE1_SoC
-
-module DE1_SoC_tb;
-
-    // Inputs
-    reg [3:0] KEY;
-    reg [9:0] SW;
-    reg CLOCK_50;
-
-    // Outputs
-    reg [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-    reg [9:0] LEDR;
-    reg [7:0] VGA_R, VGA_G, VGA_B;
-    reg VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS;
-
-    // Instantiate the module under test
-    DE1_SoC dut (
-        .HEX0(HEX0), .HEX1(HEX1), .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5),
-        .LEDR(LEDR), .KEY(KEY), .SW(SW), .CLOCK_50(CLOCK_50),
-        .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B),
-        .VGA_BLANK_N(VGA_BLANK_N), .VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS),
-        .VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS)
-    );
-
-    // Clock generation
-    always #5 CLOCK_50 = ~CLOCK_50;
-
-    // Initial stimulus
-    initial begin
-        // Initialize inputs
-        KEY = 4'b0000;
-        SW = 10'b0000000000;
-        CLOCK_50 = 0;
-
-        // Apply stimulus
-        #10 KEY = 4'b0001;  // Assuming KEY[3] controls "start"
-        #100 KEY = 4'b0000;
-        #100 SW = 10'b1010101010;  // Update switches
-
-        // Run for some time
-        #10000 $finish;
-    end
-
-    // Monitor outputs
-    always_ff @(posedge CLOCK_50) begin
-        $display("VGA_R = %h, VGA_G = %h, VGA_B = %h", VGA_R, VGA_G, VGA_B);
-        // Add other signals as needed
-    end
-
-endmodule
-
