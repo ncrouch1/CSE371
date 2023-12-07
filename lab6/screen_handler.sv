@@ -21,7 +21,7 @@ module screen_handler (clk, reset, gamestate_next, player, done, start, line_dra
 	
 	input logic clk, reset;
 	input logic [1:0] gamestate_next [9:0];
-	input logic player, done, start, line_draw_done;
+	input logic player, done, start, line_draw_done, grid_done, grid_start, line_reset, line_start;
 	
 	output [7:0] VGA_R;
 	output [7:0] VGA_G;
@@ -32,7 +32,7 @@ module screen_handler (clk, reset, gamestate_next, player, done, start, line_dra
 	output VGA_SYNC_N;
 	output VGA_VS;
 	
-	logic [10:0] x0, y0, x1, y1, x, y;
+	logic [10:0] x10, y10, x11, y11, x20, y20, x21, y21 x, y;
 	logic rreset;
     logic [3:0] rom_address; 
     logic [87:0] rom_data;
@@ -53,22 +53,16 @@ module screen_handler (clk, reset, gamestate_next, player, done, start, line_dra
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N));
 				
-	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x0), .y0(y0), .x1(x1), .y1(y1), .x(x), .y(y), .done(line_draw_done));
+	line_drawer lines (.clk(clk), .reset(line_reset), .x0(x10), .y0(y10), .x1(x11), .y1(y11), .x(x), .y(y), .done(line_draw_done));
+    line_drawer lines2 (.clk(clk), .reset(line_reset), .x0(20), .y0(y20), .x1(x21), .y1(y21), .x(x), .y(y), .done(line_draw_done));
 	rom line_data(.address(rom_address), .clock(clk), .q(rom_data));
-    // logic for grid design
-	logic grid_done, grid_start;
-	
-	// line_draw_done signal asserted to input handler
-	
-	// reset for line_drawer
-	logic line_reset;
 	
 	// enums states and state containers
     enum {idle, grid_line1, grid_line2, grid_line3, grid_line4, state_grid_done} ps, ns;
+    enum {idle2, draw_line1, draw_line2, line_done} ps2, ns2;
 
  	// counter to keep track of the current line
     logic [1:0] grid_counter;   
-    logic [3:0] line_counter;
 
     // coordinate values for the four lines
     logic [10:0] grid_coordinates[3:0][3:0];
@@ -82,13 +76,27 @@ module screen_handler (clk, reset, gamestate_next, player, done, start, line_dra
     
     always_comb begin 
         // Check each switch
-        case (gamestate_next[0])
-            11'b10000000001 : begin 
-                rom_address = 4'b0000;
-                x0 = rom_data[10:0];
-                y0 = rom_data[21:11];
-                x1 = rom_data[32:22];
-                y1 = rom_data[43:33];
+        case (player) 
+            1'b0 begin
+                x10 = rom_data[10:0];
+                y10 = rom_data[21:11];
+                x11 = rom_data[32:22];
+                y11 = rom_data[43:33];
+                x20 = 11'b0;
+                y20 = 11'b0;
+                x21 = 11'b0;
+                y21 = 11'b0;
+            end
+
+            1'b1 begin
+                x10 = rom_data[10:0];
+                y10 = rom_data[21:11];
+                x11 = rom_data[32:22];
+                y11 = rom_data[43:33];
+                x20 = rom_data[54:44];
+                y20 = rom_data[65:55];
+                x21 = rom_data[76:66];
+                y21 = rom_data[87:77]:
             end
             default: begin
                 x0 = grid_coordinates[grid_counter][0];
@@ -103,13 +111,34 @@ module screen_handler (clk, reset, gamestate_next, player, done, start, line_dra
     always_ff @(posedge clk) begin
         if (reset) begin
             ps <= idle;
+            ps2 <= idle2;
             grid_counter <= 2'b00;
-            line_counter <= 4'b0000;
         end else begin
             ps <= ns;
+            ps2 <= ns2;
             grid_counter <= (ns == idle) ? grid_counter + 1 : grid_counter;
-            line_counter <= (ns == idle) ? line_counter + 1 : line_counter;
         end
+    end
+
+    // State logic for lines
+    always_ff @(posedge clk) begin
+        case(ps2)
+            idle2: begin
+                ns = draw_line1;
+            end
+
+            draw_line1: begin
+                ns = draw_line2;
+            end
+
+            draw_line2: begin
+                ns = line_done;
+            end
+
+            line_done: begin
+                line_draw_done = 1'b1;
+            end
+        endcase
     end
 
     // State transition logic
