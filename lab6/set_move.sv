@@ -3,6 +3,7 @@ module set_move (
     input logic [1:0] gamestate [9:0],
     input logic player, enable,
     output logic [1:0] gamestate_next [9:0]
+    output logic set
 );
 	
     always_comb begin : set_move
@@ -76,7 +77,7 @@ module set_move_tb();
         end
         #10;
         metaSW = 10'd1; enable = 1'b1; player = 1'b1; #10
-		  metaSW = 10'd1; player = 1'b0; #10;
+		metaSW = 10'd1; player = 1'b0; #10;
         $stop;
     end
 endmodule
