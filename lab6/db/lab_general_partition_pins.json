@@ -4,83 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "gamestate_next[0][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[0][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[1][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[1][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[2][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[2][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[3][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[3][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[4][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[4][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[5][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[5][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[6][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[6][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[7][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[7][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[8][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[8][1]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[9][0]",
-					"strict" : false
-				},
-				{
-					"name" : "gamestate_next[9][1]",
+					"name" : "enable_drawing",
 					"strict" : false
 				},
 				{
@@ -88,127 +12,447 @@
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[9]",
+					"name" : "LEDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[5]",
+					"name" : "LEDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[1]",
+					"name" : "LEDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[2]",
+					"name" : "LEDR[3]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[3]",
+					"name" : "LEDR[4]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[4]",
+					"name" : "LEDR[5]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[0]",
+					"name" : "LEDR[6]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[6]",
+					"name" : "LEDR[7]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[7]",
+					"name" : "LEDR[8]",
 					"strict" : false
 				},
 				{
-					"name" : "metaSW[8]",
+					"name" : "data[0]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[0][0]",
+					"name" : "data[1]",
 					"strict" : false
 				},
 				{
-					"name" : "enable",
+					"name" : "data[2]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[0][1]",
+					"name" : "data[3]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[1][0]",
+					"name" : "data[4]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[1][1]",
+					"name" : "data[5]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[2][0]",
+					"name" : "data[6]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[2][1]",
+					"name" : "data[7]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[3][0]",
+					"name" : "data[8]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[3][1]",
+					"name" : "data[9]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[4][0]",
+					"name" : "data[10]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[4][1]",
+					"name" : "data[11]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[5][0]",
+					"name" : "data[12]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[5][1]",
+					"name" : "data[13]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[6][0]",
+					"name" : "data[14]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[6][1]",
+					"name" : "data[15]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[7][0]",
+					"name" : "data[16]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[7][1]",
+					"name" : "data[17]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[8][0]",
+					"name" : "data[18]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[8][1]",
+					"name" : "data[19]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[9][0]",
+					"name" : "data[20]",
 					"strict" : false
 				},
 				{
-					"name" : "gamestate[9][1]",
+					"name" : "data[21]",
+					"strict" : false
+				},
+				{
+					"name" : "data[22]",
+					"strict" : false
+				},
+				{
+					"name" : "data[23]",
+					"strict" : false
+				},
+				{
+					"name" : "data[24]",
+					"strict" : false
+				},
+				{
+					"name" : "data[25]",
+					"strict" : false
+				},
+				{
+					"name" : "data[26]",
+					"strict" : false
+				},
+				{
+					"name" : "data[27]",
+					"strict" : false
+				},
+				{
+					"name" : "data[28]",
+					"strict" : false
+				},
+				{
+					"name" : "data[29]",
+					"strict" : false
+				},
+				{
+					"name" : "data[30]",
+					"strict" : false
+				},
+				{
+					"name" : "data[31]",
+					"strict" : false
+				},
+				{
+					"name" : "data[32]",
+					"strict" : false
+				},
+				{
+					"name" : "data[33]",
+					"strict" : false
+				},
+				{
+					"name" : "data[34]",
+					"strict" : false
+				},
+				{
+					"name" : "data[35]",
+					"strict" : false
+				},
+				{
+					"name" : "data[36]",
+					"strict" : false
+				},
+				{
+					"name" : "data[37]",
+					"strict" : false
+				},
+				{
+					"name" : "data[38]",
+					"strict" : false
+				},
+				{
+					"name" : "data[39]",
+					"strict" : false
+				},
+				{
+					"name" : "data[40]",
+					"strict" : false
+				},
+				{
+					"name" : "data[41]",
+					"strict" : false
+				},
+				{
+					"name" : "data[42]",
+					"strict" : false
+				},
+				{
+					"name" : "data[43]",
+					"strict" : false
+				},
+				{
+					"name" : "data[44]",
+					"strict" : false
+				},
+				{
+					"name" : "data[45]",
+					"strict" : false
+				},
+				{
+					"name" : "data[46]",
+					"strict" : false
+				},
+				{
+					"name" : "data[47]",
+					"strict" : false
+				},
+				{
+					"name" : "data[48]",
+					"strict" : false
+				},
+				{
+					"name" : "data[49]",
+					"strict" : false
+				},
+				{
+					"name" : "data[50]",
+					"strict" : false
+				},
+				{
+					"name" : "data[51]",
+					"strict" : false
+				},
+				{
+					"name" : "data[52]",
+					"strict" : false
+				},
+				{
+					"name" : "data[53]",
+					"strict" : false
+				},
+				{
+					"name" : "data[54]",
+					"strict" : false
+				},
+				{
+					"name" : "data[55]",
+					"strict" : false
+				},
+				{
+					"name" : "data[56]",
+					"strict" : false
+				},
+				{
+					"name" : "data[57]",
+					"strict" : false
+				},
+				{
+					"name" : "data[58]",
+					"strict" : false
+				},
+				{
+					"name" : "data[59]",
+					"strict" : false
+				},
+				{
+					"name" : "data[60]",
+					"strict" : false
+				},
+				{
+					"name" : "data[61]",
+					"strict" : false
+				},
+				{
+					"name" : "data[62]",
+					"strict" : false
+				},
+				{
+					"name" : "data[63]",
+					"strict" : false
+				},
+				{
+					"name" : "data[64]",
+					"strict" : false
+				},
+				{
+					"name" : "data[65]",
+					"strict" : false
+				},
+				{
+					"name" : "data[66]",
+					"strict" : false
+				},
+				{
+					"name" : "data[67]",
+					"strict" : false
+				},
+				{
+					"name" : "data[68]",
+					"strict" : false
+				},
+				{
+					"name" : "data[69]",
+					"strict" : false
+				},
+				{
+					"name" : "data[70]",
+					"strict" : false
+				},
+				{
+					"name" : "data[71]",
+					"strict" : false
+				},
+				{
+					"name" : "data[72]",
+					"strict" : false
+				},
+				{
+					"name" : "data[73]",
+					"strict" : false
+				},
+				{
+					"name" : "data[74]",
+					"strict" : false
+				},
+				{
+					"name" : "data[75]",
+					"strict" : false
+				},
+				{
+					"name" : "data[76]",
+					"strict" : false
+				},
+				{
+					"name" : "data[77]",
+					"strict" : false
+				},
+				{
+					"name" : "data[78]",
+					"strict" : false
+				},
+				{
+					"name" : "data[79]",
+					"strict" : false
+				},
+				{
+					"name" : "data[80]",
+					"strict" : false
+				},
+				{
+					"name" : "data[81]",
+					"strict" : false
+				},
+				{
+					"name" : "data[82]",
+					"strict" : false
+				},
+				{
+					"name" : "data[83]",
+					"strict" : false
+				},
+				{
+					"name" : "data[84]",
+					"strict" : false
+				},
+				{
+					"name" : "data[85]",
+					"strict" : false
+				},
+				{
+					"name" : "data[86]",
+					"strict" : false
+				},
+				{
+					"name" : "data[87]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "drawing_done",
+					"strict" : false
+				},
+				{
+					"name" : "button",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[8]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[1]",
 					"strict" : false
 				}
 			]

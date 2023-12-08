@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed Dec 06 20:30:27 2023
+Fitter Status : Successful - Fri Dec 08 01:10:07 2023
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : lab_general
-Top-level Entity Name : set_move
+Top-level Entity Name : input_handler
 Family : Cyclone V
 Device : 5CGXFC7C7F23C8
 Timing Models : Final
-Logic utilization (in ALMs) : 31 / 56,480 ( < 1 % )
-Total registers : 0
-Total pins : 52 / 268 ( 19 % )
+Logic utilization (in ALMs) : 64 / 56,480 ( < 1 % )
+Total registers : 36
+Total pins : 114 / 268 ( 43 % )
 Total virtual pins : 0
-Total block memory bits : 0 / 7,024,640 ( 0 % )
-Total RAM Blocks : 0 / 686 ( 0 % )
+Total block memory bits : 792 / 7,024,640 ( < 1 % )
+Total RAM Blocks : 3 / 686 ( < 1 % )
 Total DSP Blocks : 0 / 156 ( 0 % )
 Total HSSI RX PCSs : 0 / 6 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 6 ( 0 % )

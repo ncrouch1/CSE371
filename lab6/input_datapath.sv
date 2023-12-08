@@ -2,12 +2,24 @@ module input_datapath (
     input logic clock, player, enable_validation, enable_setting, enable_ram, update_state, lock_input, reset,
     output logic valid,
     input logic [9:0] SW,
+	 output logic [9:0] LEDR,
     output logic [87:0] data
 );
     logic [1:0] gamestate [9:0];
     logic [1:0] gamestate_next [9:0];
     logic [9:0] metaSW;
 	 logic [3:0] address;
+	 
+	 assign LEDR[9] = 0;
+    assign LEDR[8] = (gamestate[8] != 2'b00);
+    assign LEDR[7] = (gamestate[7] != 2'b00);
+    assign LEDR[6] = (gamestate[6] != 2'b00);
+    assign LEDR[5] = (gamestate[5] != 2'b00);
+    assign LEDR[4] = (gamestate[4] != 2'b00);
+    assign LEDR[3] = (gamestate[3] != 2'b00);
+    assign LEDR[2] = (gamestate[2] != 2'b00);
+    assign LEDR[1] = (gamestate[1] != 2'b00);
+    assign LEDR[0] = (gamestate[0] != 2'b00);
 
     always_ff @(posedge clock) begin
         if (~lock_input)
@@ -30,7 +42,7 @@ endmodule
 `timescale 1 ps / 1 ps
 module input_datapath_tb ();
     logic clock, player, enable_validation, enable_setting, enable_ram, update_state, lock_input, valid, reset;
-    logic [9:0] SW;
+    logic [9:0] SW, LEDR;
     logic [87:0] data;
     logic [3:0] address;
 

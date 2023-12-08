@@ -1,5 +1,5 @@
 EDA Netlist Writer report for lab_general
-Wed Dec 06 20:30:52 2023
+Fri Dec 08 01:10:21 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -37,9 +37,9 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Dec 06 20:30:52 2023 ;
+; EDA Netlist Writer Status ; Successful - Fri Dec 08 01:10:21 2023 ;
 ; Revision Name             ; lab_general                           ;
-; Top-level Entity Name     ; set_move                              ;
+; Top-level Entity Name     ; input_handler                         ;
 ; Family                    ; Cyclone V                             ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -82,15 +82,15 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Dec 06 20:30:50 2023
+    Info: Processing started: Fri Dec 08 01:10:20 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off lab_general -c lab_general
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Warning (10905): Generated the EDA functional simulation netlist because it is the only supported netlist type for this device.
 Info (204019): Generated file lab_general.svo in folder "C:/Users/noah-/Documents/CSE371/lab6/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4735 megabytes
-    Info: Processing ended: Wed Dec 06 20:30:52 2023
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4744 megabytes
+    Info: Processing ended: Fri Dec 08 01:10:21 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

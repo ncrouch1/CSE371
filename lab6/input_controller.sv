@@ -1,11 +1,10 @@
 module input_controller (
     input logic clock, reset, button, valid, drawing_done,
     output logic enable_validation, enable_setting, enable_ram,
-    output logic enable_drawing, lock_input, player, update_state,
-    output logic [9:0] LEDR;
+    output logic enable_drawing, lock_input, player, update_state
     );
 
-	enum {reading, validate, setting, fetching, drawing_state, toggle_player} ps, ns;
+	 enum {reading, validate, setting, fetching, drawing_state, toggle_player} ps, ns;
     
     assign enable_validation = (ps == validate);
     assign enable_setting = (ps == setting);
@@ -13,16 +12,6 @@ module input_controller (
     assign enable_ram = (ps == setting);
     assign update_state = (ps == toggle_player);
     assign lock_input = (ps != reading);
-    assign LEDR[9] = 0;
-    assign LEDR[8] = (gamestate[8] != 2'b00);
-    assign LEDR[7] = (gamestate[7] != 2'b00);
-    assign LEDR[6] = (gamestate[6] != 2'b00);
-    assign LEDR[5] = (gamestate[5] != 2'b00);
-    assign LEDR[4] = (gamestate[4] != 2'b00);
-    assign LEDR[3] = (gamestate[3] != 2'b00);
-    assign LEDR[2] = (gamestate[2] != 2'b00);
-    assign LEDR[1] = (gamestate[1] != 2'b00);
-    assign LEDR[0] = (gamestate[0] != 2'b00);
 
 	// State logic
     always_comb begin 

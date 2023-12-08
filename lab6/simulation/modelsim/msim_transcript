@@ -10,33 +10,117 @@
 # Copying C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
+# vlog -vlog01compat -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/rom.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:10:30 on Dec 08,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/rom.v 
+# -- Compiling module rom
+# 
+# Top level modules:
+# 	rom
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:10:30 on Dec 08,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv 
+# -- Compiling module input_handler
+# -- Compiling module input_handler_tb
+# 
+# Top level modules:
+# 	input_handler_tb
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:10:30 on Dec 08,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv 
+# -- Compiling module input_datapath
+# -- Compiling module input_datapath_tb
+# 
+# Top level modules:
+# 	input_datapath_tb
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:10:30 on Dec 08,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv 
+# -- Compiling module input_controller
+# -- Compiling module input_controller_tb
+# 
+# Top level modules:
+# 	input_controller_tb
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:10:30 on Dec 08,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv 
+# -- Compiling module address_decoder
+# 
+# Top level modules:
+# 	address_decoder
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 01:10:30 on Dec 08,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv 
+# -- Compiling module validate_move
+# -- Compiling module validate_move_tb
+# 
+# Top level modules:
+# 	validate_move_tb
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/set_move.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:32:55 on Dec 06,2023
+# Start time: 01:10:30 on Dec 08,2023
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/set_move.sv 
 # -- Compiling module set_move
 # -- Compiling module set_move_tb
 # 
 # Top level modules:
 # 	set_move_tb
-# End time: 20:32:55 on Dec 06,2023, Elapsed time: 0:00:00
+# End time: 01:10:30 on Dec 08,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vsim rtl_work.set_move_tb
-# vsim rtl_work.set_move_tb 
-# Start time: 20:33:12 on Dec 06,2023
+vsim -gui -l msim_transcript rtl_work.input_handler_tb -L altera_mf_ver
+# vsim -gui -l msim_transcript rtl_work.input_handler_tb -L altera_mf_ver 
+# Start time: 01:10:51 on Dec 08,2023
 # Loading sv_std.std
-# Loading rtl_work.set_move_tb
+# Loading rtl_work.input_handler_tb
+# Loading rtl_work.input_handler
+# Loading rtl_work.input_controller
+# Loading rtl_work.input_datapath
+# Loading rtl_work.validate_move
 # Loading rtl_work.set_move
+# Loading rtl_work.address_decoder
+# Loading rtl_work.rom
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3839) C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv(46): Variable '/input_handler_tb/player', driven via a port connection, is multiply driven. See C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv(37).
+#    Time: 0 ps  Iteration: 0  Instance: /input_handler_tb File: C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv
 add wave -position insertpoint  \
-sim:/set_move_tb/dut/metaSW \
-sim:/set_move_tb/dut/gamestate \
-sim:/set_move_tb/dut/player \
-sim:/set_move_tb/dut/enable \
-sim:/set_move_tb/dut/gamestate_next
+sim:/input_handler_tb/ih/clock \
+sim:/input_handler_tb/ih/reset \
+sim:/input_handler_tb/ih/button \
+sim:/input_handler_tb/ih/drawing_done \
+sim:/input_handler_tb/ih/SW \
+sim:/input_handler_tb/ih/enable_drawing \
+sim:/input_handler_tb/ih/player \
+sim:/input_handler_tb/ih/LEDR \
+sim:/input_handler_tb/ih/data \
+sim:/input_handler_tb/ih/enable_validation \
+sim:/input_handler_tb/ih/enable_setting \
+sim:/input_handler_tb/ih/enable_ram \
+sim:/input_handler_tb/ih/valid \
+sim:/input_handler_tb/ih/lock_input \
+sim:/input_handler_tb/ih/update_state
 run -all
-# ** Note: $stop    : C:/Users/noah-/Documents/CSE371/lab6/set_move.sv(87)
-#    Time: 140 ps  Iteration: 0  Instance: /set_move_tb
-# Break in Module set_move_tb at C:/Users/noah-/Documents/CSE371/lab6/set_move.sv line 87
-# End time: 20:39:18 on Dec 06,2023, Elapsed time: 0:06:06
-# Errors: 0, Warnings: 0
+# ** Note: $stop    : C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv(57)
+#    Time: 210 ps  Iteration: 1  Instance: /input_handler_tb
+# Break in Module input_handler_tb at C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv line 57

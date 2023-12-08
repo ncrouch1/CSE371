@@ -8,53 +8,300 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/noah-/Documents/CSE371/lab6/simulation/modelsim
-vset_move
+vaddress_decoder
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1701923575
+Z2 !s110 1702026630
 !i10b 1
-!s100 YGPdX4YV5i17CF]6=bQgc0
-I_]kfkl<>1CUHn[_XOHE1k2
+!s100 dV?O^jg7I><XhMMWOgQlk2
+IQHDP:_3ZE:<8nA;_m2cLW2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 !s105 set_move_sv_unit
+!s105 address_decoder_sv_unit
 S1
 R0
-Z5 w1701923305
-Z6 8C:/Users/noah-/Documents/CSE371/lab6/set_move.sv
-Z7 FC:/Users/noah-/Documents/CSE371/lab6/set_move.sv
+Z4 w1702025578
+8C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv
+FC:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv
 L0 1
-Z8 OV;L;10.5b;63
+Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z9 !s108 1701923575.000000
-Z10 !s107 C:/Users/noah-/Documents/CSE371/lab6/set_move.sv|
-Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/set_move.sv|
+Z6 !s108 1702026630.000000
+!s107 C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv|
 !i113 1
-Z12 o-sv -work work
-Z13 !s92 -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6
-Z14 tCvgOpt 0
+Z7 o-sv -work work
+Z8 !s92 -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6
+Z9 tCvgOpt 0
+vinput_controller
+R1
+R2
+!i10b 1
+!s100 Mk5gmCjV15@dfLQ:hdJM:2
+Ie5H3jPhC>3M]llRW3K@:F2
+R3
+Z10 !s105 input_controller_sv_unit
+S1
+R0
+Z11 w1702026315
+Z12 8C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv
+Z13 FC:/Users/noah-/Documents/CSE371/lab6/input_controller.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+Z14 !s107 C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv|
+Z15 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv|
+!i113 1
+R7
+R8
+R9
+vinput_controller_tb
+R1
+R2
+!i10b 1
+!s100 `1?@Y1A`l13kz0Jjk@ACQ3
+IUGP=o>cAIWE[h@^<46@kG2
+R3
+R10
+S1
+R0
+R11
+R12
+R13
+L0 42
+R5
+r1
+!s85 0
+31
+R6
+R14
+R15
+!i113 1
+R7
+R8
+R9
+vinput_datapath
+R1
+R2
+!i10b 1
+!s100 eI4RVc^>HOd2Y9zcV^Ff=2
+I0EY0Y6c7k224MlKigJ?G41
+R3
+Z16 !s105 input_datapath_sv_unit
+S1
+R0
+Z17 w1702026504
+Z18 8C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv
+Z19 FC:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+Z20 !s107 C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv|
+Z21 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv|
+!i113 1
+R7
+R8
+R9
+vinput_datapath_tb
+R1
+R2
+!i10b 1
+!s100 ofR7Dkm;FJB<;IHO6cGMQ2
+I;^1=<dS[0ECcnMon3hE7?2
+R3
+R16
+S1
+R0
+R17
+R18
+R19
+Z22 L0 43
+R5
+r1
+!s85 0
+31
+R6
+R20
+R21
+!i113 1
+R7
+R8
+R9
+vinput_handler
+R1
+R2
+!i10b 1
+!s100 84D@[9EbUe3fefNGYEo:?1
+IKb:ElR@FZI:HeClMVW7750
+R3
+Z23 !s105 input_handler_sv_unit
+S1
+R0
+Z24 w1702026515
+Z25 8C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv
+Z26 FC:/Users/noah-/Documents/CSE371/lab6/input_handler.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+Z27 !s107 C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv|
+Z28 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv|
+!i113 1
+R7
+R8
+R9
+vinput_handler_tb
+R1
+R2
+!i10b 1
+!s100 4H^9>NhbRW^Sja8Da[ac33
+IH^k?VdFF6@Y6zh4GUnbn[2
+R3
+R23
+S1
+R0
+R24
+R25
+R26
+L0 32
+R5
+r1
+!s85 0
+31
+R6
+R27
+R28
+!i113 1
+R7
+R8
+R9
+vrom
+R2
+!i10b 1
+!s100 kW3<acERTzo4eCAzHKXzn1
+I3kV6d15<YUemnPX@gMm2I1
+R3
+R0
+R4
+8C:/Users/noah-/Documents/CSE371/lab6/rom.v
+FC:/Users/noah-/Documents/CSE371/lab6/rom.v
+L0 40
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/noah-/Documents/CSE371/lab6/rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/rom.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6
+R9
+vset_move
+R1
+R2
+!i10b 1
+!s100 d8@mhhUob`jFF^:Nk[1lJ2
+I6DZTmKRl4Ka^`SUSj^MH51
+R3
+Z29 !s105 set_move_sv_unit
+S1
+R0
+Z30 w1702023917
+Z31 8C:/Users/noah-/Documents/CSE371/lab6/set_move.sv
+Z32 FC:/Users/noah-/Documents/CSE371/lab6/set_move.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+Z33 !s107 C:/Users/noah-/Documents/CSE371/lab6/set_move.sv|
+Z34 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/set_move.sv|
+!i113 1
+R7
+R8
+R9
 vset_move_tb
 R1
 R2
 !i10b 1
-!s100 ^3f?:aWnC=NnIgXXCR3Fk2
-IaaR:g`Z_3WglzNGR>SA9B1
+!s100 RF8jGmJZN9`EY>^f]TfC^0
+ImEnI^VcnCBZLiFVQ@;LPL0
 R3
-R4
+R29
 S1
 R0
+R30
+R31
+R32
+L0 66
 R5
-R6
-R7
-L0 64
-R8
 r1
 !s85 0
 31
-R9
-R10
-R11
+R6
+R33
+R34
 !i113 1
-R12
-R13
-R14
+R7
+R8
+R9
+vvalidate_move
+R1
+R2
+!i10b 1
+!s100 ERY4_L38OCP5ZGIR1MT=X2
+I=dGId;i8aDAFIg;^RdY1P1
+R3
+Z35 !s105 validate_move_sv_unit
+S1
+R0
+R4
+Z36 8C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv
+Z37 FC:/Users/noah-/Documents/CSE371/lab6/validate_move.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+Z38 !s107 C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv|
+Z39 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/noah-/Documents/CSE371/lab6|C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv|
+!i113 1
+R7
+R8
+R9
+vvalidate_move_tb
+R1
+R2
+!i10b 1
+!s100 XD?:`b1`:X4hOQ^n`4dQG0
+Ijc]Jg@72hPiL6ejo=e0<M2
+R3
+R35
+S1
+R0
+R4
+R36
+R37
+R22
+R5
+r1
+!s85 0
+31
+R6
+R38
+R39
+!i113 1
+R7
+R8
+R9
