@@ -48,13 +48,21 @@ module validate_move_tb ();
     validate_move dut (.*);
 
     initial begin
-        metaSW = 10'b1; enable = 1'b1;
+        metaSW = 10'd1; enable = 1'b1;
         for (int i = 0; i < 10; i++) begin
             gamestate[i] = 2'b00;
         end
         #10;
         gamestate[0] = 2'b01;
-        #10;
+        for (int i = 1; i < 9; i++) begin
+            metaSW = (metaSW << 1'b1); #10;
+            gamestate[i] = 2'b01; #10;
+        end
+        enable = 1'b0;          #10;
+        metaSW = 10'd1;
+        for (int i = 0; i < 10; i++) begin
+            metaSW = (metaSW << 1'b1);  #10;
+        end
         $stop;
     end
     
