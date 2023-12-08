@@ -2,7 +2,7 @@ module set_move (
     input logic [9:0] metaSW,
     input logic [1:0] gamestate [9:0],
     input logic player, enable,
-    output logic [1:0] gamestate_next [9:0],
+    output logic [1:0] gamestate_next [9:0]
     output logic set
 );
 	
@@ -53,10 +53,7 @@ module set_move (
                 if (enable) begin
                     gamestate_next = gamestate;
                     gamestate_next[8] = player? 2'b10 : 2'b01;
-                end                end
-            10'd512: begin
-                gamestate_next = gamestate;
-            end           
+                end                end         
             default: gamestate_next = gamestate;
         endcase          
     end
@@ -65,7 +62,7 @@ endmodule
 module set_move_tb();
     logic [9:0] metaSW;
     logic [1:0] gamestate [9:0];
-    logic enable, player, valid, set;
+    logic enable, player, valid;
     logic [1:0] gamestate_next [9:0];
 
     set_move dut (.*);
@@ -77,7 +74,14 @@ module set_move_tb();
         end
         #10;
         metaSW = 10'd1; enable = 1'b1; player = 1'b1; #10
-		metaSW = 10'd1; player = 1'b0; #10;
+		  metaSW = 10'd1; player = 1'b0; #10;
+		  for (int i = 0; i < 5; i++) begin
+				metaSW <= (metaSW << 1); #10;
+		  end
+		  enable = 1'b0; player = 1'b0;	#10;
+		  for (int i = 0; i < 5; i++) begin
+				metaSW <= (metaSW << 1); #10;
+		  end
         $stop;
     end
 endmodule

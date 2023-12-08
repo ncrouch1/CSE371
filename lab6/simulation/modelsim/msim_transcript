@@ -10,32 +10,33 @@
 # Copying C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv}
+# vlog -sv -work work +incdir+C:/Users/noah-/Documents/CSE371/lab6 {C:/Users/noah-/Documents/CSE371/lab6/set_move.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 20:53:27 on Dec 05,2023
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv 
-# -- Compiling module validate_move
-# -- Compiling module validate_move_tb
+# Start time: 20:32:55 on Dec 06,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/noah-/Documents/CSE371/lab6" C:/Users/noah-/Documents/CSE371/lab6/set_move.sv 
+# -- Compiling module set_move
+# -- Compiling module set_move_tb
 # 
 # Top level modules:
-# 	validate_move_tb
-# End time: 20:53:27 on Dec 05,2023, Elapsed time: 0:00:00
+# 	set_move_tb
+# End time: 20:32:55 on Dec 06,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vsim rtl_work.validate_move_tb
-# vsim rtl_work.validate_move_tb 
-# Start time: 20:53:47 on Dec 05,2023
+vsim rtl_work.set_move_tb
+# vsim rtl_work.set_move_tb 
+# Start time: 20:33:12 on Dec 06,2023
 # Loading sv_std.std
-# Loading rtl_work.validate_move_tb
-# Loading rtl_work.validate_move
+# Loading rtl_work.set_move_tb
+# Loading rtl_work.set_move
 add wave -position insertpoint  \
-sim:/validate_move_tb/dut/metaSW \
-sim:/validate_move_tb/dut/gamestate \
-sim:/validate_move_tb/dut/enable \
-sim:/validate_move_tb/dut/valid
+sim:/set_move_tb/dut/metaSW \
+sim:/set_move_tb/dut/gamestate \
+sim:/set_move_tb/dut/player \
+sim:/set_move_tb/dut/enable \
+sim:/set_move_tb/dut/gamestate_next
 run -all
-# ** Note: $stop    : C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv(57)
-#    Time: 20 ps  Iteration: 0  Instance: /validate_move_tb
-# Break in Module validate_move_tb at C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv line 57
-# End time: 20:54:47 on Dec 05,2023, Elapsed time: 0:01:00
+# ** Note: $stop    : C:/Users/noah-/Documents/CSE371/lab6/set_move.sv(87)
+#    Time: 140 ps  Iteration: 0  Instance: /set_move_tb
+# Break in Module set_move_tb at C:/Users/noah-/Documents/CSE371/lab6/set_move.sv line 87
+# End time: 20:39:18 on Dec 06,2023, Elapsed time: 0:06:06
 # Errors: 0, Warnings: 0

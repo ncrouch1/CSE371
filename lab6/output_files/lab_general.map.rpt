@@ -1,5 +1,9 @@
 Analysis & Synthesis report for lab_general
+<<<<<<< HEAD
+Wed Dec 06 20:29:37 2023
+=======
 Thu Dec 07 17:57:46 2023
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -13,6 +17,14 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
+<<<<<<< HEAD
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
+=======
   8. Analysis & Synthesis RAM Summary
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
@@ -39,6 +51,7 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
  31. Elapsed Time Per Partition
  32. Analysis & Synthesis Messages
  33. Analysis & Synthesis Suppressed Messages
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 
 
 
@@ -65,6 +78,18 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
+<<<<<<< HEAD
+; Analysis & Synthesis Status     ; Successful - Wed Dec 06 20:29:37 2023       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; lab_general                                 ;
+; Top-level Entity Name           ; set_move                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 52                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+=======
 ; Analysis & Synthesis Status     ; Successful - Thu Dec 07 17:57:46 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; lab_general                                 ;
@@ -75,6 +100,7 @@ agreement for further details.
 ; Total pins                      ; 96                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 307,200                                     ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -91,7 +117,7 @@ agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; DE1_SoC            ; lab_general        ;
+; Top-level entity name                                                           ; set_move           ; lab_general        ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -177,8 +203,8 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 4           ;
@@ -189,6 +215,82 @@ agreement for further details.
 +----------------------------+-------------+
 
 
+<<<<<<< HEAD
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+; set_move.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/noah-/Documents/CSE371/lab6/set_move.sv ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 34           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 55           ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 13           ;
+;     -- 5 input functions                    ; 7            ;
+;     -- 4 input functions                    ; 9            ;
+;     -- <=3 input functions                  ; 26           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 52           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; Selector17~0 ;
+; Maximum fan-out                             ; 20           ;
+; Total fan-out                               ; 295          ;
+; Average fan-out                             ; 1.86         ;
++---------------------------------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |set_move                  ; 55 (55)             ; 0 (0)                     ; 0                 ; 0          ; 52   ; 0            ; |set_move           ; set_move    ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; gamestate_next[0][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[0][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[1][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[1][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[2][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[2][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[3][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[3][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[4][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[4][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[5][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[5][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[6][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[6][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[7][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[7][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[8][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[8][1]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[9][0]$latch                          ; Selector17          ; yes                    ;
+; gamestate_next[9][1]$latch                          ; Selector17          ; yes                    ;
+; Number of user-specified and inferred latches = 20  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+=======
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Source Files Read                                                                                                                                         ;
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
@@ -395,6 +497,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;               ;                           ; input_datapath:in_d|gamestate[7][1], input_datapath:in_d|gamestate[8][0],             ;
 ;               ;                           ; input_datapath:in_d|gamestate[8][1]                                                   ;
 +---------------+---------------------------+---------------------------------------------------------------------------------------+
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 
 
 +------------------------------------------------------+
@@ -402,16 +505,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
+<<<<<<< HEAD
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+=======
 ; Total registers                              ; 28    ;
 ; Number of registers using Synchronous Clear  ; 21    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 21    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 16    ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
+<<<<<<< HEAD
+=======
 +-----------------------------------------------------------------------------+
 ; Registers Packed Into Inferred Megafunctions                                ;
 +-------------------------------+--------------------------------------+------+
@@ -784,11 +898,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+-------+----------+---------------+
 
 
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
+<<<<<<< HEAD
+; arriav_lcell_comb     ; 55                          ;
+;     normal            ; 55                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 7                           ;
+;         6 data inputs ; 13                          ;
+; boundary_port         ; 52                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.79                        ;
+=======
 ; arriav_ff             ; 28                          ;
 ;     CLR SCLR          ; 11                          ;
 ;     ENA               ; 6                           ;
@@ -815,6 +943,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
 ; Average LUT depth     ; 2.19                        ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 +-----------------------+-----------------------------+
 
 
@@ -823,7 +952,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
+<<<<<<< HEAD
+; Top            ; 00:00:00     ;
+=======
 ; Top            ; 00:00:01     ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 +----------------+--------------+
 
 
@@ -833,16 +966,100 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+<<<<<<< HEAD
+    Info: Processing started: Wed Dec 06 20:29:23 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab_general -c lab_general
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+=======
     Info: Processing started: Thu Dec 07 17:57:04 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab_general -c lab_general
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rom.v
     Info (12023): Found entity 1: rom File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/rom.v Line: 40
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 Info (12021): Found 2 design units, including 2 entities, in source file validate_move.sv
-    Info (12023): Found entity 1: validate_move File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/validate_move.sv Line: 1
-    Info (12023): Found entity 2: validate_move_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/validate_move.sv Line: 42
+    Info (12023): Found entity 1: validate_move File: C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv Line: 1
+    Info (12023): Found entity 2: validate_move_tb File: C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv Line: 42
 Info (12021): Found 2 design units, including 2 entities, in source file set_move.sv
+<<<<<<< HEAD
+    Info (12023): Found entity 1: set_move File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 1
+    Info (12023): Found entity 2: set_move_tb File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 64
+Info (12021): Found 1 design units, including 1 entities, in source file screen_handler.sv
+    Info (12023): Found entity 1: screen_handler File: C:/Users/noah-/Documents/CSE371/lab6/screen_handler.sv Line: 19
+Info (12127): Elaborating entity "set_move" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at set_move.sv(9): all case item expressions in this case statement are onehot File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 9
+Info (10041): Inferred latch for "gamestate_next[0][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[0][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[1][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[1][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[2][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[2][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[3][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[3][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[4][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[4][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[5][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[5][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[6][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[6][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[7][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[7][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[8][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[8][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[9][0]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Info (10041): Inferred latch for "gamestate_next[9][1]" at set_move.sv(8) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+Warning (13012): Latch gamestate_next[0][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[0][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[1][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[1][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[2][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[2][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[3][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[3][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[4][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[4][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[5][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[5][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[6][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[6][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[7][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[7][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[8][0]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Warning (13012): Latch gamestate_next[8][1]$latch has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 8
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal metaSW[0] File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 2
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/noah-/Documents/CSE371/lab6/output_files/lab_general.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 107 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 32 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 55 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Wed Dec 06 20:29:37 2023
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:14
+=======
     Info (12023): Found entity 1: set_move File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 1
     Info (12023): Found entity 2: set_move_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 65
 Warning (10229): Verilog HDL Expression warning at screen_handler.sv(208): truncated literal to match 32 bits File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 208
@@ -1245,11 +1462,12 @@ Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 269 warnings
     Info: Processing ended: Thu Dec 07 17:57:46 2023
     Info: Elapsed time: 00:00:42
     Info: Total CPU time (on all processors): 00:01:17
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /Desktop/EE371/Git-EE371/CSE371/lab6/output_files/lab_general.map.smsg.
+The suppressed messages can be found in C:/Users/noah-/Documents/CSE371/lab6/output_files/lab_general.map.smsg.
 
 
