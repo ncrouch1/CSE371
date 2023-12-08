@@ -25,9 +25,9 @@ module address_decoder (
 
     always_ff @(posedge clock) begin
         if (reset) begin
-            //address_next <= 4'b0000;
             address <= 4'b0000;
         end
         address <= address_next;
     end
 endmodule
+
