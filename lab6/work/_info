@@ -1,0 +1,34 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d//Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6
+vDE1_SoC_tb
+DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1702000784
+!i10b 1
+!s100 OZzAGD``VRF<Z4Ho:i:BO0
+IIVlT7HIVNDMXW=9HBjgXo1
+VDg1SIo80bB@j0V0VzS_@n1
+!s105 DE1_SoC_qpf_unit
+S1
+R0
+w1701995205
+8./DE1_SoC.sv
+F./DE1_SoC.sv
+L0 158
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1702000784.000000
+!s107 ./work|./validate_move.sv.bak|./validate_move.sv|./tic_tac_toe.sv.bak|./tic_tac_toe.sv|./tic_tac_toe.mif|./simulation|./set_move.sv.bak|./set_move.sv|./screen_handler.sv.bak|./screen_handler.sv|./screen_clearer.sv|./runlab.do|./rom_og.v|./rom_bb_og.v|./rom_bb.v|./rom_bb.qip|./rom.v|./rom.qip|./player_handler.sv.bak|./player_handler.sv|./output_files|./line_drawer.sv|./lab_general_nativelink_simulation.rpt|./lab_general.sta.summary|./lab_general.sta.rpt|./lab_general.sof|./lab_general.sld|./lab_general.qsf|./lab_general.qpf|./lab_general.pin|./lab_general.map.summary|./lab_general.map.smsg|./lab_general.map.rpt|./lab_general.jdi|./lab_general.flow.rpt|./lab_general.fit.summary|./lab_general.fit.smsg|./lab_general.fit.rpt|./lab_general.done|./lab_general.asm.rpt|./input_handler.sv.bak|./input_datapath.sv.bak|./input_datapath.sv|./input_controller.sv|./incremental_db|./greybox_tmp|./db|./c5_pin_model_dump.txt|./address_decoder.sv.bak|./address_decoder.sv|./VGA_framebuffer.sv|./DE1_SoC.sv.bak|./DE1_SoC.sv|./DE1_SoC.qsf|./DE1_SoC.qpf|
+!s90 -reportprogress|300|./DE1_SoC.qpf|./DE1_SoC.qsf|./DE1_SoC.sv|./DE1_SoC.sv.bak|./VGA_framebuffer.sv|./address_decoder.sv|./address_decoder.sv.bak|./c5_pin_model_dump.txt|./db|./greybox_tmp|./incremental_db|./input_controller.sv|./input_datapath.sv|./input_datapath.sv.bak|./input_handler.sv.bak|./lab_general.asm.rpt|./lab_general.done|./lab_general.fit.rpt|./lab_general.fit.smsg|./lab_general.fit.summary|./lab_general.flow.rpt|./lab_general.jdi|./lab_general.map.rpt|./lab_general.map.smsg|./lab_general.map.summary|./lab_general.pin|./lab_general.qpf|./lab_general.qsf|./lab_general.sld|./lab_general.sof|./lab_general.sta.rpt|./lab_general.sta.summary|./lab_general_nativelink_simulation.rpt|./line_drawer.sv|./output_files|./player_handler.sv|./player_handler.sv.bak|./rom.qip|./rom.v|./rom_bb.qip|./rom_bb.v|./rom_bb_og.v|./rom_og.v|./runlab.do|./screen_clearer.sv|./screen_handler.sv|./screen_handler.sv.bak|./set_move.sv|./set_move.sv.bak|./simulation|./tic_tac_toe.mif|./tic_tac_toe.sv|./tic_tac_toe.sv.bak|./validate_move.sv|./validate_move.sv.bak|./work|
+!i113 1
+tCvgOpt 0
+n@d@e1_@so@c_tb

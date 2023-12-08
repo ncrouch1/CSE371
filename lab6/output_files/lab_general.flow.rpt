@@ -1,5 +1,9 @@
 Flow report for lab_general
+<<<<<<< HEAD
 Wed Dec 06 20:30:52 2023
+=======
+Thu Dec 07 17:57:46 2023
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -41,6 +45,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
+<<<<<<< HEAD
 ; Flow Status                     ; Successful - Wed Dec 06 20:30:52 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; lab_general                                 ;
@@ -60,6 +65,27 @@ agreement for further details.
 ; Total HSSI PMA TX Serializers   ; 0 / 6 ( 0 % )                               ;
 ; Total PLLs                      ; 0 / 13 ( 0 % )                              ;
 ; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
+=======
+; Flow Status                     ; Successful - Thu Dec 07 17:57:46 2023       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; lab_general                                 ;
+; Top-level Entity Name           ; DE1_SoC                                     ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CGXFC7C7F23C8                              ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 28                                          ;
+; Total pins                      ; 96                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 307,200                                     ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 +---------------------------------+---------------------------------------------+
 
 
@@ -68,7 +94,11 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
+<<<<<<< HEAD
 ; Start date & time ; 12/06/2023 20:29:24 ;
+=======
+; Start date & time ; 12/07/2023 17:57:05 ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab_general         ;
 +-------------------+---------------------+
@@ -79,7 +109,11 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
+<<<<<<< HEAD
 ; COMPILER_SIGNATURE_ID               ; 44440924455996.170192336310804         ; --            ; --          ; --             ;
+=======
+; COMPILER_SIGNATURE_ID               ; 121368818846.170200062510780           ; --            ; --          ; --             ;
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
@@ -94,6 +128,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
+<<<<<<< HEAD
 +-------------------------------------------------------------------------------------------------------------------------------+
 ; Flow Elapsed Time                                                                                                             ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
@@ -106,6 +141,16 @@ agreement for further details.
 ; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4735 MB             ; 00:00:01                           ;
 ; Total                     ; 00:01:24     ; --                      ; --                  ; 00:01:36                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+=======
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:41     ; 1.0                     ; 13259 MB            ; 00:01:16                           ;
+; Total                ; 00:00:41     ; --                      ; --                  ; 00:01:16                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+>>>>>>> b20a4f0600cf714c3f1bb1ed149512efcfc4341c
 
 
 +-----------------------------------------------------------------------------------------+

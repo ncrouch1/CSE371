@@ -35,7 +35,28 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	output VGA_SYNC_N;
 	output VGA_VS;
 	
-	logic [10:0] x0, y0, x1, y1, x, y;
+	logic reset, button, drawing, valid, drawing_done;
+    logic player, enable_validation, enable_setting, enable_ram, update_state, lock_input;
+    logic enable_drawing;
+    logic set;
+    logic [87:0] data;
+    
+    logic start, holding, gameover;
+	logic [9:0] metaSW;
+	logic [1:0] gamestate_next [9:0];
+	logic [1:0] gamestate [9:0];
+	logic [10:0] x, y;
+	
+	// Divided clock so output is visible
+	logic clk, clk_input, clk_player, clk_screen;
+	logic [6:0] divided_clocks = 0;
+	always_ff @(posedge CLOCK_50) begin
+		divided_clocks <= divided_clocks + 7'd1;
+	end
+	
+	assign clk = divided_clocks[5];
+	assign start = ~KEY[3];
+	assign reset = ~KEY[0];
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
@@ -44,32 +65,18 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.y					(y),
 		.pixel_color	(done ? 1'b0 : 1'b1), 
 		.pixel_write	(1'b1),
-		.VGA_R, 
-		.VGA_G, 
-		.VGA_B, 
-		.VGA_CLK, 
-		.VGA_HS, 
-		.VGA_VS,
+		.VGA_R			(VGA_R), 
+		.VGA_G			(VGA_G), 
+		.VGA_B			(VGA_B), 
+		.VGA_CLK			(VGA_CLK), 
+		.VGA_HS			(VGA_HS), 
+		.VGA_VS			(VGA_VS),
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N)
 		);
 				
 	logic done;
 	
-	// Divided clock so output is visible
-	logic clk;
-	logic [6:0] divided_clocks = 0;
-	always_ff @(posedge CLOCK_50) begin
-		divided_clocks <= divided_clocks + 7'd1;
-	end
-	assign clk = divided_clocks[5];
-
-	logic start, button, drawing, player, holding, gameover, valid, line_draw_done;
-	logic [9:0] metaSW;
-	logic [1:0] gamestate_next [9:0];
-	logic [1:0] gamestate [9:0];
-	
-	assign start = ~KEY[3];
 	
     always_ff @(posedge clk) begin
         clk_input <= clk;
@@ -78,18 +85,34 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
     end
 
 	
-	input_handler in_h(
-		.clk(clk_input), 
-		.reset(reset), 
-		.SW(SW), 
-		.button(button), 
-		.drawing(drawing), 
-		.player(player), 
-		.metaSW(metaSW), 
-		.holding(holding), 
-		.gameover(gameover),
-		.valid(valid),
-		.line_draw_done(line_draw_done)
+	input_controller in_c (
+	    .clock(clk_input),
+	    .reset(reset),
+	    .button(button),
+	    .drawing(drawing),
+	    .valid(valid),
+	    .drawing_done(drawing_done),
+	    .enable_validation(enable_validation),
+	    .enable_setting(enable_setting),
+	    .enable_ram(enable_ram),
+	    .enable_drawing(enable_drawing),
+	    .lock_input(lock_input),
+	    .player(player),
+	    .update_state(update_state)
+	);
+	
+	input_datapath in_d(
+	    .clock(clk),
+	    .player(player),
+	    .enable_validation(enable_validation),
+	    .enable_setting(enable_setting),
+	    .enable_ram(enable_ram),
+	    .update_state(update_state),
+	    .lock_input(lock_input),
+	    .valid(valid),
+	    .set(set),
+	    .SW(SW),
+	    .data(data)
 	);
 		
 	player_handler pl_h(
@@ -110,24 +133,25 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.player(player), 
 		.done(done),
 		.start(start),
-		.line_draw_done(line_draw_done),
+		.drawing_done(drawing_done),
+		//.data,
 		.x,
 		.y
 	);
 		
-	set_move sm (
-		.metaSW(metaSW), 
-		.gamestate(gamestate), 
-		.player(player), 
-		.enable(enable),
-		.gamestate_next(gamestate_next)
-	);
+	// set_move sm (
+	// 	.metaSW(metaSW), 
+	// 	.gamestate(gamestate), 
+	// 	.player(player), 
+	// 	.enable(enable),
+	// 	.gamestate_next(gamestate_next)
+	// );
 		
-	validate_move vm (
-		metaSW, 
-		gamestate, 
-		valid
-	);
+	// validate_move vm (
+	// 	metaSW, 
+	// 	gamestate, 
+	// 	valid
+	// );
 
 endmodule  // DE1_SoC
 
@@ -164,7 +188,7 @@ module DE1_SoC_tb;
         CLOCK_50 = 0;
 
         // Apply stimulus
-        #10 KEY = 4'b0001;  // Assuming KEY[3] controls "start"
+        #10 KEY = 4'b0011;  // Assuming KEY[3] controls "start"
         #100 KEY = 4'b0000;
         #100 SW = 10'b1010101010;  // Update switches
 
