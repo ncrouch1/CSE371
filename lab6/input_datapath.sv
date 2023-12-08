@@ -18,5 +18,5 @@ module input_datapath (
     validate_move validator (.enable(enable_validation), .valid(valid), .gamestate(gamestate), .metaSW(metaSW));
     set_move setter (.metaSW(metaSW), .gamestate(gamestate), .enable(enable_setting), .player(player), .gamestate_next(gamestate_next));
     address_decoder addresser (.metaSW(metaSW), .enable(enable_ram), .address(address));
-    rom rom (.address(address), .clock(clock), .data(data));
+    rom rom (.address(address), .clock(clock), .q(data));
 endmodule

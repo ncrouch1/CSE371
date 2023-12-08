@@ -1,15 +1,16 @@
-module player_handler (clk, player, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module player_handler (
+		input clk, player, 
+		output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
     
-    input logic clk;
     //input logic switch_flipped; // Signal indicating a switch is flipped
     //input logic screen_logic_processed; // Signal indicating the screen logic is processed
-    output logic player;
-    output logic [6:0] HEX0;
-    output logic [6:0] HEX1;
-    output logic [6:0] HEX2;
-    output logic [6:0] HEX3;
-    output logic [6:0] HEX4;
-    output logic [6:0] HEX5;
+//    output logic player;
+//    output logic [6:0] HEX0;
+//    output logic [6:0] HEX1;
+//    output logic [6:0] HEX2;
+//    output logic [6:0] HEX3;
+//    output logic [6:0] HEX4;
+//    output logic [6:0] HEX5;
 
     // Internal registers
     //logic [2:0] state_counter;

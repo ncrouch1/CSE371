@@ -5,6 +5,9 @@ module address_decoder (
 );
     logic [3:0] address_next;
     always_comb begin
+		if (reset) begin
+			address_next <= 4'b0000;
+		end else begin
         case({enable, metaSW})
             11'b10000000001: address_next = 4'b0000;
             11'b10000000010: address_next = 4'b0001;
@@ -17,11 +20,12 @@ module address_decoder (
             11'b10100000000: address_next = 4'b1000;
             default: address_next = address;
         endcase        
+		 end
     end
 
     always_ff @(posedge clock) begin
         if (reset) begin
-            address_next <= 4'b0000;
+            //address_next <= 4'b0000;
             address <= 4'b0000;
         end
         address <= address_next;

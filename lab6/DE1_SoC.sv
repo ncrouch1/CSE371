@@ -65,12 +65,12 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.y					(y),
 		.pixel_color	(done ? 1'b0 : 1'b1), 
 		.pixel_write	(1'b1),
-		.VGA_R, 
-		.VGA_G, 
-		.VGA_B, 
-		.VGA_CLK, 
-		.VGA_HS, 
-		.VGA_VS,
+		.VGA_R			(VGA_R), 
+		.VGA_G			(VGA_G), 
+		.VGA_B			(VGA_B), 
+		.VGA_CLK			(VGA_CLK), 
+		.VGA_HS			(VGA_HS), 
+		.VGA_VS			(VGA_VS),
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N)
 		);
@@ -87,32 +87,32 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	
 	input_controller in_c (
 	    .clock(clk_input),
-	    .reset,
-	    .button,
-	    .drawing,
-	    .valid,
-	    .drawing_done,
-	    .enable_validation,
-	    .enable_setting,
-	    .enable_ram,
-	    .enable_drawing,
-	    .lock_input,
-	    .player,
-	    .update_state
+	    .reset(reset),
+	    .button(button),
+	    .drawing(drawing),
+	    .valid(valid),
+	    .drawing_done(drawing_done),
+	    .enable_validation(enable_validation),
+	    .enable_setting(enable_setting),
+	    .enable_ram(enable_ram),
+	    .enable_drawing(enable_drawing),
+	    .lock_input(lock_input),
+	    .player(player),
+	    .update_state(update_state)
 	);
 	
 	input_datapath in_d(
 	    .clock(clk),
-	    .player,
-	    .enable_validation,
-	    .enable_setting,
-	    .enable_ram,
-	    .update_state,
-	    .lock_input,
-	    .valid,
-	    .set,
-	    .SW,
-	    .data
+	    .player(player),
+	    .enable_validation(enable_validation),
+	    .enable_setting(enable_setting),
+	    .enable_ram(enable_ram),
+	    .update_state(update_state),
+	    .lock_input(lock_input),
+	    .valid(valid),
+	    .set(set),
+	    .SW(SW),
+	    .data(data)
 	);
 		
 	player_handler pl_h(
@@ -134,7 +134,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.done(done),
 		.start(start),
 		.drawing_done(drawing_done),
-		.data,
+		//.data,
 		.x,
 		.y
 	);

@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at screen_handler.sv(116): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 116
-Warning (10268): Verilog HDL information at input_handler.sv(17): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 17
+Warning (10268): Verilog HDL information at screen_handler.sv(96): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 96
+Warning (10268): Verilog HDL information at address_decoder.sv(8): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/address_decoder.sv Line: 8
