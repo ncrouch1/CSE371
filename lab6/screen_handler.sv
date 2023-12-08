@@ -158,4 +158,65 @@ module screen_handler (
 		 endcase
 	end
 
-endmodule  // DE1_SoC
+endmodule  // screen_handler
+
+// Testbench for screen_handler module
+
+module tb_screen_handler;
+    // Inputs
+    logic clk, reset, player, done, start;
+    logic [1:0] gamestate_next [9:0];
+    logic [87:0] data;
+    
+    // Outputs
+    logic [10:0] x, y;
+    logic drawing_done;
+
+    // Instantiate screen_handler module
+    screen_handler dut (
+        .clk(clk),
+        .reset(reset),
+        .player(player),
+        .done(done),
+        .start(start),
+        .gamestate_next(gamestate_next),
+        .x(x),
+        .y(y),
+        .data(data),
+        .drawing_done(drawing_done)
+    );
+
+    // Clock generation
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+
+    // Test scenario
+    initial begin
+        // Initialize inputs
+        reset = 1;
+        player = 0;
+        done = 0;
+        start = 0;
+        data = 0;
+        #10 reset = 0;
+
+        // Test case 1
+        // Set player to 0
+        player = 0;
+        #10 data = 32'h123456789;
+        #10 done = 1;
+
+        // Test case 2
+        // Set player to 1
+        player = 1;
+        #10 data = 32'h9876543210123456789;
+        #10 done = 1;
+
+        // Add more test cases as needed
+
+        #100 $stop;
+    end
+
+endmodule  // tb_screen_handler
