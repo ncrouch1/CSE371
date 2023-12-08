@@ -33,6 +33,7 @@ module validate_move (
             end
             11'b10100000000: begin
 					valid = (gamestate[8] == 2'b00) ? 1'b1 : 1'b0;
+					// what the fudge
             end           
             default: valid = 1'b0;                                                                                                                 
         endcase          

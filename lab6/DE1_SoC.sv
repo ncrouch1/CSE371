@@ -41,7 +41,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
     logic set;
     logic [87:0] data;
     
-    logic start, holding, gameover;
+    logic start, holding, gameover, done;
 	logic [9:0] metaSW;
 	logic [1:0] gamestate_next [9:0];
 	logic [1:0] gamestate [9:0];
@@ -57,6 +57,11 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	assign clk = divided_clocks[5];
 	assign start = ~KEY[3];
 	assign reset = ~KEY[0];
+	assign HEX1 = 7'b0001100;
+    assign HEX2 = 7'b1111111;
+    assign HEX3 = 7'b1111111;
+    assign HEX4 = 7'b1111111;
+    assign HEX5 = 7'b1111111;
 	
 	VGA_framebuffer fb (
 		.clk50			(CLOCK_50), 
@@ -68,16 +73,13 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 		.VGA_R			(VGA_R), 
 		.VGA_G			(VGA_G), 
 		.VGA_B			(VGA_B), 
-		.VGA_CLK			(VGA_CLK), 
+		.VGA_CLK		(VGA_CLK), 
 		.VGA_HS			(VGA_HS), 
 		.VGA_VS			(VGA_VS),
 		.VGA_BLANK_n	(VGA_BLANK_N), 
 		.VGA_SYNC_n		(VGA_SYNC_N)
 		);
 				
-	logic done;
-	
-	
     always_ff @(posedge clk) begin
         clk_input <= clk;
         clk_player <= clk;
@@ -88,7 +90,7 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	input_controller in_c (
 	    .clock(clk_input),
 	    .reset(reset),
-	    .button(button),
+	    .button(start),
 	    .drawing(drawing),
 	    .valid(valid),
 	    .drawing_done(drawing_done),
@@ -115,43 +117,32 @@ module DE1_SoC (HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW, CLOCK_50,
 	    .data(data)
 	);
 		
-	player_handler pl_h(
-		.HEX0(HEX0), 
-		.HEX1(HEX1), 
-		.HEX2(HEX2), 
-		.HEX3(HEX3), 
-		.HEX4(HEX4), 
-		.HEX5(HEX5), 
-		.player(player), 
-		.clk(clk_player)
-	);
-		
 	screen_handler scr_h(
 		.clk(clk_screen), 
 		.reset(reset), 
-		.gamestate_next(gamestate_next),  
 		.player(player), 
 		.done(done),
 		.start(start),
 		.drawing_done(drawing_done),
-		//.data,
-		.x,
-		.y
+		.x(x),
+		.y(y),
+		.data(data),
+		.drawing(drawing)
 	);
-		
-	// set_move sm (
-	// 	.metaSW(metaSW), 
-	// 	.gamestate(gamestate), 
-	// 	.player(player), 
-	// 	.enable(enable),
-	// 	.gamestate_next(gamestate_next)
-	// );
-		
-	// validate_move vm (
-	// 	metaSW, 
-	// 	gamestate, 
-	// 	valid
-	// );
+	
+	always_ff @(posedge clk) begin
+        HEX0 = (player) ? 7'b1111100 : 7'b1000000;
+        LEDR[0] = start;
+        LEDR[1] = drawing;
+        LEDR[2] = valid;
+        LEDR[3] = drawing_done;
+        LEDR[4] = player;
+        LEDR[5] = enable_validation;
+        LEDR[6] = enable_setting;
+        LEDR[7] = enable_ram;
+        LEDR[8] = update_state;
+        LEDR[9] = lock_input;
+    end
 
 endmodule  // DE1_SoC
 
