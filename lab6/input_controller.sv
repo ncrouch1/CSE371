@@ -1,3 +1,12 @@
+/* 
+Noah Crouch 2078812
+Henri Lower   2276644
+EE/CSE 371
+Lab 6 Report
+12/08/2023
+
+*/
+
 module input_controller (
     input logic clock, reset, button, valid, drawing_done,
     output logic enable_validation, enable_setting, enable_ram,

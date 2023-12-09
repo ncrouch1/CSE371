@@ -85,6 +85,7 @@ module screen_handler (
         
         case (player) 
             1'b0 : begin
+                // set coordinates for slash
                 x10 = data[10:0];
                 y10 = data[21:11];
                 x11 = data[32:22];
@@ -96,6 +97,7 @@ module screen_handler (
             end
 
             1'b1 : begin
+                // set coordinates for x
                 x10 = data[10:0];
                 y10 = data[21:11];
                 x11 = data[32:22];
@@ -184,7 +186,7 @@ module screen_handler (
 		endcase
 	end
 
-endmodule  // DE1_SoC
+endmodule  // screen_handler
 
 module screen_handler_tb;
 

@@ -1,3 +1,24 @@
+/* 
+Noah Crouch 2078812
+Henri Lower   2276644
+EE/CSE 371
+Lab 6 Report
+12/08/2023
+
+Set move module that accounts for the player
+order within the game 
+
+Inputs: 
+    metaSW          - intermediary switch value
+    gamestate       - current gamestate represents player turn tied with switch
+    player          - single bit value that represents the player
+    enable          - start signal 
+    reset           - reset signal
+    clock           - clock signal to synchronize module
+
+Outputs:
+    gamestate_next - value of the next gamestate to process
+*/
 module set_move (
     input logic [9:0] metaSW,
     input logic [1:0] gamestate [9:0],
@@ -5,12 +26,14 @@ module set_move (
     output logic [1:0] gamestate_next [9:0]
 );
     always_comb begin : set_move
+        // reset condition
         if (reset) begin
             for (int i = 0; i < 10; i++) begin
                 gamestate_next[i] = 2'b00;
             end
         end
 		else begin
+            // For each switch determine player tied to input
             case(metaSW)
                 10'd1: begin
                     if (enable) begin
@@ -61,7 +84,7 @@ module set_move (
             endcase
         end
     end
-endmodule
+endmodule // set_move
 
 module set_move_tb();
     logic [9:0] metaSW;
