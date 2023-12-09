@@ -1,4 +1,11 @@
-/* Top level module of the FPGA that takes the onboard resources 
+/* 
+Noah Crouch 2078812
+Henri Lower   2276644
+EE/CSE 371
+Lab 6 Report
+12/08/2023
+
+Top level module of the FPGA that takes the onboard resources 
  * as input and outputs the lines drawn from the VGA port.
  *
  * Inputs:
