@@ -1,2 +1,3 @@
-Warning (10268): Verilog HDL information at input_datapath.sv(24): always construct contains both blocking and non-blocking assignments File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 24
-Warning (10268): Verilog HDL information at address_decoder.sv(8): always construct contains both blocking and non-blocking assignments File: C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv Line: 8
+Warning (10268): Verilog HDL information at input_datapath.sv(24): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 24
+Warning (10268): Verilog HDL information at address_decoder.sv(8): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/address_decoder.sv Line: 8
+Warning (10268): Verilog HDL information at screen_handler.sv(91): always construct contains both blocking and non-blocking assignments File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 91

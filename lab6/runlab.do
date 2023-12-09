@@ -13,7 +13,7 @@ vlib work
 # Compile Verilog
 #  - All Verilog files that are part of this design should have
 #    their own "vlog" line below.
-vlog "./*"
+vlog "./screen_handler"
 
 
 # Call vsim to invoke simulator
@@ -21,7 +21,7 @@ vlog "./*"
 #    the testbench module you want to execute.
 #  - If you need the altera_mf_ver library, add "-Lf altera_mf_lib"
 #    (no quotes) to the end of the vsim command
-vsim -voptargs="+acc" -t 1ps -lib work DE1_SoC_tb
+vsim -voptargs="+acc" -t 1ps -lib work screen_handler_tb
 
 
 # Source the wave do file

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab_general
-Fri Dec 08 01:08:58 2023
+Fri Dec 08 11:39:25 2023
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -51,7 +51,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Dec 08 01:08:58 2023       ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec 08 11:39:25 2023       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; lab_general                                 ;
 ; Top-level Entity Name           ; input_handler                               ;
@@ -163,16 +163,16 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-12        ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -181,14 +181,14 @@ agreement for further details.
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                 ; Library ;
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
-; rom.v                            ; yes             ; User Wizard-Generated File       ; C:/Users/noah-/Documents/CSE371/lab6/rom.v                                   ;         ;
-; tic_tac_toe.mif                  ; yes             ; User Memory Initialization File  ; C:/Users/noah-/Documents/CSE371/lab6/tic_tac_toe.mif                         ;         ;
-; input_handler.sv                 ; yes             ; User SystemVerilog HDL File      ; C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv                        ;         ;
-; input_datapath.sv                ; yes             ; User SystemVerilog HDL File      ; C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv                       ;         ;
-; input_controller.sv              ; yes             ; User SystemVerilog HDL File      ; C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv                     ;         ;
-; address_decoder.sv               ; yes             ; User SystemVerilog HDL File      ; C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv                      ;         ;
-; validate_move.sv                 ; yes             ; User SystemVerilog HDL File      ; C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv                        ;         ;
-; set_move.sv                      ; yes             ; User SystemVerilog HDL File      ; C:/Users/noah-/Documents/CSE371/lab6/set_move.sv                             ;         ;
+; rom.v                            ; yes             ; User Wizard-Generated File       ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/rom.v                         ;         ;
+; tic_tac_toe.mif                  ; yes             ; User Memory Initialization File  ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/tic_tac_toe.mif               ;         ;
+; input_handler.sv                 ; yes             ; User SystemVerilog HDL File      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv              ;         ;
+; input_datapath.sv                ; yes             ; User SystemVerilog HDL File      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv             ;         ;
+; input_controller.sv              ; yes             ; User SystemVerilog HDL File      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_controller.sv           ;         ;
+; address_decoder.sv               ; yes             ; User SystemVerilog HDL File      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/address_decoder.sv            ;         ;
+; validate_move.sv                 ; yes             ; User SystemVerilog HDL File      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/validate_move.sv              ;         ;
+; set_move.sv                      ; yes             ; User SystemVerilog HDL File      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv                   ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -198,7 +198,7 @@ agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_3qh1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/noah-/Documents/CSE371/lab6/db/altsyncram_3qh1.tdf                  ;         ;
+; db/altsyncram_3qh1.tdf           ; yes             ; Auto-Generated Megafunction      ; //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/db/altsyncram_3qh1.tdf        ;         ;
 +----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------+---------+
 
 
@@ -440,7 +440,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -450,60 +450,70 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Dec 08 01:08:43 2023
+    Info: Processing started: Fri Dec 08 11:38:49 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab_general -c lab_general
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rom.v
-    Info (12023): Found entity 1: rom File: C:/Users/noah-/Documents/CSE371/lab6/rom.v Line: 40
+    Info (12023): Found entity 1: rom File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/rom.v Line: 40
 Info (12021): Found 2 design units, including 2 entities, in source file input_handler.sv
-    Info (12023): Found entity 1: input_handler File: C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv Line: 1
-    Info (12023): Found entity 2: input_handler_tb File: C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv Line: 32
+    Info (12023): Found entity 1: input_handler File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 1
+    Info (12023): Found entity 2: input_handler_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 32
 Info (12021): Found 2 design units, including 2 entities, in source file input_datapath.sv
-    Info (12023): Found entity 1: input_datapath File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 1
-    Info (12023): Found entity 2: input_datapath_tb File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 43
+    Info (12023): Found entity 1: input_datapath File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 1
+    Info (12023): Found entity 2: input_datapath_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 43
 Info (12021): Found 2 design units, including 2 entities, in source file input_controller.sv
-    Info (12023): Found entity 1: input_controller File: C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv Line: 1
-    Info (12023): Found entity 2: input_controller_tb File: C:/Users/noah-/Documents/CSE371/lab6/input_controller.sv Line: 42
+    Info (12023): Found entity 1: input_controller File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_controller.sv Line: 1
+    Info (12023): Found entity 2: input_controller_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_controller.sv Line: 42
 Info (12021): Found 1 design units, including 1 entities, in source file address_decoder.sv
-    Info (12023): Found entity 1: address_decoder File: C:/Users/noah-/Documents/CSE371/lab6/address_decoder.sv Line: 1
+    Info (12023): Found entity 1: address_decoder File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/address_decoder.sv Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file validate_move.sv
-    Info (12023): Found entity 1: validate_move File: C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv Line: 1
-    Info (12023): Found entity 2: validate_move_tb File: C:/Users/noah-/Documents/CSE371/lab6/validate_move.sv Line: 43
+    Info (12023): Found entity 1: validate_move File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/validate_move.sv Line: 1
+    Info (12023): Found entity 2: validate_move_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/validate_move.sv Line: 43
 Info (12021): Found 2 design units, including 2 entities, in source file set_move.sv
-    Info (12023): Found entity 1: set_move File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 1
-    Info (12023): Found entity 2: set_move_tb File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 66
+    Info (12023): Found entity 1: set_move File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 1
+    Info (12023): Found entity 2: set_move_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file vga_framebuffer.sv
+    Info (12023): Found entity 1: VGA_framebuffer File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/VGA_framebuffer.sv Line: 32
+Info (12021): Found 2 design units, including 2 entities, in source file de1_soc.sv
+    Info (12023): Found entity 1: DE1_SoC File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 21
+    Info (12023): Found entity 2: DE1_SoC_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/DE1_SoC.sv Line: 149
+Info (12021): Found 2 design units, including 2 entities, in source file line_drawer.sv
+    Info (12023): Found entity 1: line_drawer File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/line_drawer.sv Line: 24
+    Info (12023): Found entity 2: line_drawer_tb File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/line_drawer.sv Line: 130
+Info (12021): Found 1 design units, including 1 entities, in source file screen_handler.sv
+    Info (12023): Found entity 1: screen_handler File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/screen_handler.sv Line: 2
 Info (12127): Elaborating entity "input_handler" for the top level hierarchy
-Info (12128): Elaborating entity "input_controller" for hierarchy "input_controller:ic" File: C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv Line: 20
-Info (12128): Elaborating entity "input_datapath" for hierarchy "input_datapath:idp" File: C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv Line: 28
-Info (12128): Elaborating entity "validate_move" for hierarchy "input_datapath:idp|validate_move:validator" File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 36
-Info (12128): Elaborating entity "set_move" for hierarchy "input_datapath:idp|set_move:setter" File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 37
-Info (10264): Verilog HDL Case Statement information at set_move.sv(14): all case item expressions in this case statement are onehot File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[0][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[0][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[1][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[1][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[2][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[2][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[3][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[3][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[4][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[4][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[5][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[5][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[6][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[6][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[7][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[7][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[8][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[8][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[9][0]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (10041): Inferred latch for "gamestate_next[9][1]" at set_move.sv(14) File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Info (12128): Elaborating entity "address_decoder" for hierarchy "input_datapath:idp|address_decoder:addresser" File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 38
-Info (12128): Elaborating entity "rom" for hierarchy "input_datapath:idp|rom:rom" File: C:/Users/noah-/Documents/CSE371/lab6/input_datapath.sv Line: 39
-Info (12128): Elaborating entity "altsyncram" for hierarchy "input_datapath:idp|rom:rom|altsyncram:altsyncram_component" File: C:/Users/noah-/Documents/CSE371/lab6/rom.v Line: 82
-Info (12130): Elaborated megafunction instantiation "input_datapath:idp|rom:rom|altsyncram:altsyncram_component" File: C:/Users/noah-/Documents/CSE371/lab6/rom.v Line: 82
-Info (12133): Instantiated megafunction "input_datapath:idp|rom:rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/noah-/Documents/CSE371/lab6/rom.v Line: 82
+Info (12128): Elaborating entity "input_controller" for hierarchy "input_controller:ic" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 20
+Info (12128): Elaborating entity "input_datapath" for hierarchy "input_datapath:idp" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 28
+Info (12128): Elaborating entity "validate_move" for hierarchy "input_datapath:idp|validate_move:validator" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 36
+Info (12128): Elaborating entity "set_move" for hierarchy "input_datapath:idp|set_move:setter" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 37
+Info (10264): Verilog HDL Case Statement information at set_move.sv(14): all case item expressions in this case statement are onehot File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[0][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[0][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[1][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[1][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[2][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[2][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[3][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[3][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[4][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[4][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[5][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[5][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[6][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[6][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[7][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[7][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[8][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[8][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[9][0]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (10041): Inferred latch for "gamestate_next[9][1]" at set_move.sv(14) File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Info (12128): Elaborating entity "address_decoder" for hierarchy "input_datapath:idp|address_decoder:addresser" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 38
+Info (12128): Elaborating entity "rom" for hierarchy "input_datapath:idp|rom:rom" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_datapath.sv Line: 39
+Info (12128): Elaborating entity "altsyncram" for hierarchy "input_datapath:idp|rom:rom|altsyncram:altsyncram_component" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/rom.v Line: 82
+Info (12130): Elaborated megafunction instantiation "input_datapath:idp|rom:rom|altsyncram:altsyncram_component" File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/rom.v Line: 82
+Info (12133): Instantiated megafunction "input_datapath:idp|rom:rom|altsyncram:altsyncram_component" with the following parameter: File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/rom.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -520,48 +530,48 @@ Info (12133): Instantiated megafunction "input_datapath:idp|rom:rom|altsyncram:a
     Info (12134): Parameter "width_a" = "88"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3qh1.tdf
-    Info (12023): Found entity 1: altsyncram_3qh1 File: C:/Users/noah-/Documents/CSE371/lab6/db/altsyncram_3qh1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_3qh1 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/db/altsyncram_3qh1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_3qh1" for hierarchy "input_datapath:idp|rom:rom|altsyncram:altsyncram_component|altsyncram_3qh1:auto_generated" File: c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[0][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[0][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[1][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[1][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[2][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[2][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[3][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[3][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[4][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[4][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[5][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[5][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[6][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[6][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[7][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[7][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[8][1] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[8][0] has unsafe behavior File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: C:/Users/noah-/Documents/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[0][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[0][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[1][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[1][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[2][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[2][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[3][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[3][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[4][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[4][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[5][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[5][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[6][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[6][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[7][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[7][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[8][1] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+Warning (13012): Latch input_datapath:idp|set_move:setter|gamestate_next[8][0] has unsafe behavior File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal input_datapath:idp|set_move:setter|WideNor0 File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/set_move.sv Line: 14
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/noah-/Documents/CSE371/lab6/input_handler.sv Line: 5
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: //Mac/Home/Desktop/EE371/Git-EE371/CSE371/lab6/input_handler.sv Line: 5
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file C:/Users/noah-/Documents/CSE371/lab6/output_files/lab_general.map.smsg
+Info (144001): Generated suppressed messages file /Desktop/EE371/Git-EE371/CSE371/lab6/output_files/lab_general.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 337 device resources after synthesis - the final resource count might be different
@@ -570,15 +580,15 @@ Info (21057): Implemented 337 device resources after synthesis - the final resou
     Info (21061): Implemented 135 logic cells
     Info (21064): Implemented 88 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 4910 megabytes
-    Info: Processing ended: Fri Dec 08 01:08:58 2023
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 13216 megabytes
+    Info: Processing ended: Fri Dec 08 11:39:25 2023
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:01:08
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/noah-/Documents/CSE371/lab6/output_files/lab_general.map.smsg.
+The suppressed messages can be found in /Desktop/EE371/Git-EE371/CSE371/lab6/output_files/lab_general.map.smsg.
 
 
